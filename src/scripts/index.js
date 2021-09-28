@@ -12,4 +12,3 @@ $('.pizza__controls .buttons').click(function () {
   }
 
 });
-
