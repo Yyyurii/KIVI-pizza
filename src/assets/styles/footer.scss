@@ -1,0 +1,44 @@
+.footer {
+  background: #cdcdcd;
+
+  &__container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  &__title {
+    font-size: 25px;
+    color: #de9447;
+    padding: 10px 0;
+  }
+
+  &__item {
+    // width: calc((100% - 40px) / 3);
+    margin: 20px;
+    flex: 1 1 15rem;
+
+    p {
+      font-size: 15px;
+      padding: 10px 0;
+    }
+
+    a {
+      height: 50px;
+      width: 50px;
+      text-align: center;
+      color: #aaa;
+      margin-right: 10px;
+    }
+  }
+
+  &__logo {
+    // background: #de9447;
+  }
+
+  &__img-contacts {
+    width: 15px;
+    height: 15px;
+    margin: 0 10px 0 0;
+  }
+}

@@ -1,0 +1,52 @@
+.stocks {
+  margin: 50px auto;
+
+  &__container {
+    padding: 0 50px;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-around;
+    gap: 25px;
+    margin: 30px 0;
+
+    @media (max-width: 767.98px) {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__img-container {
+    img {
+      max-width: 700px;
+      height: 300px;
+      border-radius: 50%;
+    }
+  }
+
+
+  &__title {
+    font-size: 30px;
+    font-weight: 700;
+    color: #de9447;
+    margin: 30px 0;
+  }
+
+  &__text {
+    color: #666;
+  }
+
+  h1 {
+    font-size: 30px;
+    font-weight: 700;
+    color: #de9447;
+    text-align: center;
+    margin: 30px;
+  }
+
+  hr {
+    height: 1px;
+    width: 100%;
+    background: #666;
+  }
+}

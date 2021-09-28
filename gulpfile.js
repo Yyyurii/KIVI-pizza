@@ -1,4 +1,3 @@
-
 let project_folder = "dist";
 let source_folder = "src";
 
@@ -9,7 +8,7 @@ let path = {
     html: project_folder + "/",
     css: project_folder + "/css/",
     js: project_folder + "/js/",
-    img: project_folder + "/images/",
+    img: project_folder + "/img/",
     fonts: project_folder + "/fonts/",
     php: project_folder + "/"
   },
@@ -17,7 +16,7 @@ let path = {
     html: [source_folder + "/*.html", "!" + source_folder + "/_*.html"],
     css: source_folder + "/assets/styles/**/*.{scss,css}",
     js: source_folder + "/scripts/**/*.js",
-    img: source_folder + "/assets/images/**/*.{png,jpg,svg,gif,ico,webp}",
+    img: [source_folder + "/assets/images/**/*.{png,jpg,svg,gif,ico,webp}"],
     fonts: source_folder + "/assets/fonts/*.ttf",
     php: source_folder + "/*.php"
   },
