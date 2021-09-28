@@ -1,4 +1,9 @@
-.pizza {
+$maxWidthContainer: 1170;
+$md1: $maxWidthContainer + 12;
+$md2: 991.98;
+$md3: 767.98;
+$md4: 479.98;
+.coffee-beans {
   margin: 50px auto;
   padding: 30px 20px;
   background: #f8f8f8;
