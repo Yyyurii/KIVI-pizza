@@ -5,9 +5,11 @@ $('.pizza__controls .buttons').click(function () {
   let filter = $(this).attr('data-filter');
   if (filter == 'classico') {
     $('.pizza .classico').show(400);
+    $('.pizza .card').not('.' + filter).hide(200);
   } else {
     $('.pizza .card').not('.' + filter).hide(200);
-    $('.pizza .card').filter('.' + filter).show(400);
+    $('.pizza .card').filter('.' + filter).show(400).css('display', 'flex');;
   }
 
 });
+
