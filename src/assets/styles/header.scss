@@ -41,9 +41,9 @@ $maxWidthContainer: 1170;
 }
 
 .header {
-	position: fixed;
-	width: 100%;
-	z-index: 50;
+	// position: fixed;
+	// width: 100%;
+	// z-index: 50;
 
 	&__top {
 		display: flex;
@@ -94,6 +94,7 @@ $maxWidthContainer: 1170;
 			background: white;
 			padding: 10px 20px;
 			color: #de9447;
+			transition: all ease 0.3s 0s;
 		}
 
 		.logo img {
@@ -137,6 +138,15 @@ $maxWidthContainer: 1170;
 		bottom: 0;
 	}
 
+}
+
+.header-active {
+	position: fixed;
+	top: 0;
+	left: 0;
+	box-shadow: 0 .1rem .3rem rgba(0, 0, 0, .3);
+	width: 100%;
+	z-index: 50;
 }
 
 @media (max-width: 1024px) {

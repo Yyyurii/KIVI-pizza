@@ -2,12 +2,6 @@
 
 /* стили для корневого элемента слайдера */
 
-.header {
-  position: fixed;
-  width: 100%;
-  z-index: 50;
-}
-
 .header__top {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -78,6 +72,9 @@
   background: white;
   padding: 10px 20px;
   color: #de9447;
+  -webkit-transition: all ease 0.3s 0s;
+  -o-transition: all ease 0.3s 0s;
+  transition: all ease 0.3s 0s;
 }
 
 .header__bottom .logo img {
@@ -118,6 +115,16 @@
 
 .header__burger::after {
   bottom: 0;
+}
+
+.header-active {
+  position: fixed;
+  top: 0;
+  left: 0;
+  -webkit-box-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.3);
+          box-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.3);
+  width: 100%;
+  z-index: 50;
 }
 
 @media (max-width: 1024px) {

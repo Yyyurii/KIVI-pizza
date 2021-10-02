@@ -1,8 +1,3 @@
-$maxWidthContainer: 1170;
-$md1: $maxWidthContainer + 12;
-$md2: 991.98;
-$md3: 767.98;
-$md4: 479.98;
 .coffee-beans {
   margin: 50px auto;
   padding: 30px 20px;
@@ -62,71 +57,79 @@ $md4: 479.98;
       border-color: #de9447;
     }
   }
-}
 
-.card {
-  margin: 15px 0;
-  padding: 15px 25px;
-  background: #fff;
-  border-radius: .5rem;
-  border: .1rem solid rgba(0, 0, 0, .2);
-  // box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .1);
-  max-width: 265px;
-  height: 400px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  &:hover {
-    // -webkit-box-shadow: 0px 0px 10px 10px rgba(34, 60, 80, 0.09);
-    // -moz-box-shadow: 0px 0px 10px 10px rgba(34, 60, 80, 0.09);
-    // box-shadow: 0px 0px 10px 10px rgba(34, 60, 80, 0.09);
-
-    -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 1);;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 1);;
-  }
-
-  @media (max-width: 479.98px) {
-    max-width: 350px;
-  }
-
-
-
-  h3 {
-    padding: 10px 0;
-    text-align: start;
-  }
-
-  h4 {
-    text-align: start;
-    color: #666;
-  }
-
-  h3,
-  .card__price {
-    color: #de9447;
-    font-size: 25px;
-    font-weight: 700;
-  }
-
-  &__img {
-    height: 200px;
-  }
-
-  &__btn {
-    padding: 10px 20px 8px;
-    background-color: #de9447;
-    border-radius: 5px;
-    color: white;
-    margin-left: auto;
-  }
-
-
-
-  &__footer {
-    margin: 10px 0 0;
+  .card {
+    margin: 15px 0;
+    padding: 15px 25px;
+    background: #fff;
+    border-radius: .5rem;
+    border: .1rem solid rgba(0, 0, 0, .2);
+    // box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .1);
+    max-width: 265px;
+    height: 400px;
+    text-align: center;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &:hover {
+      // -webkit-box-shadow: 0px 0px 10px 10px rgba(34, 60, 80, 0.09);
+      // -moz-box-shadow: 0px 0px 10px 10px rgba(34, 60, 80, 0.09);
+      // box-shadow: 0px 0px 10px 10px rgba(34, 60, 80, 0.09);
+
+      -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 1);
+      ;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 1);
+      ;
+    }
+
+    @media (max-width: 479.98px) {
+      max-width: 350px;
+    }
+
+
+
+    h3 {
+      padding: 10px 0;
+      text-align: start;
+    }
+
+    h4 {
+      text-align: start;
+      color: #666;
+    }
+
+    h3,
+    .card__price {
+      color: #de9447;
+      font-size: 25px;
+      font-weight: 700;
+    }
+
+    &__img {
+      height: 200px;
+    }
+
+    &__btn {
+      padding: 10px 20px 8px;
+      background-color: #de9447;
+      border-radius: 5px;
+      color: white;
+      margin-left: auto;
+    }
+
+
+
+    &__footer {
+      margin: 10px 0 0;
+      display: flex;
+      align-items: center;
+    }
+
+
+  }
+
+  ._none {
+    display: none;
   }
 }
