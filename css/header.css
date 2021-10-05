@@ -45,6 +45,7 @@
           align-items: center;
   background-color: #de9447;
   padding: 5px 20px;
+  position: relative;
 }
 
 .header__bottom ul {
@@ -89,6 +90,9 @@
 }
 
 .header__burger span {
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
   position: absolute;
   background-color: white;
   left: 0;
@@ -98,23 +102,33 @@
   border-radius: 15px;
 }
 
-.header__burger::before,
-.header__burger::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 4px;
-  left: 0;
-  background-color: white;
-  border-radius: 15px;
+.header__burger span:first-child {
+  top: 0px;
 }
 
-.header__burger::before {
-  top: 0;
+.header__burger span:last-child {
+  top: auto;
+  bottom: 0px;
 }
 
-.header__burger::after {
-  bottom: 0;
+.header__burger._active span {
+  -webkit-transform: scale(0);
+      -ms-transform: scale(0);
+          transform: scale(0);
+}
+
+.header__burger._active span:first-child {
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  top: calc(50% - 2px);
+}
+
+.header__burger._active span:last-child {
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+  bottom: calc(50% - 2px);
 }
 
 .header-active {
@@ -136,8 +150,11 @@
     display: none;
     position: absolute;
     width: 100%;
+    height: 100vh;
     left: 0;
-    top: 150px;
+    top: calc(42px + 13 * ((100vw - 320px) / 1600));
+    z-index: 5;
+    background-color: rgba(0, 0, 0, 0.85);
   }
 
   .header__navbar ._active {
@@ -162,5 +179,10 @@
 
   .header a {
     color: #de9447;
+  }
+
+  .header__burger._active ~ .header__navbar {
+    display: block;
+    overflow: auto;
   }
 }
