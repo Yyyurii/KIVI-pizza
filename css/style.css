@@ -1121,8 +1121,8 @@ body._lock {
   }
 
   .contacts__inform {
-    width: 100px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
   }
 
   .contacts__inform img {
@@ -1130,6 +1130,6 @@ body._lock {
   }
 
   .contacts__inform p {
-    font-size: 10px;
+    font-size: 15px;
   }
 }
