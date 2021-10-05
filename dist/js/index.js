@@ -59,3 +59,8 @@ $(window).on('load scroll', function () {
 $('.scroll-up').on('click', function () {
   window.scrollTo(0, 0);
 });
+
+// burger 
+$('.header__burger').click(function() {
+  $(this).toggleClass('_active'); 
+})
