@@ -64,7 +64,6 @@ section {
 
 html {
   font-size: 16px;
-  scroll-behavior: smooth;
 }
 
 :target:before {
@@ -1032,6 +1031,32 @@ body._lock {
 
 .scroll-up:hover {
   opacity: 1;
+}
+
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
+  width: 100%;
+  -webkit-transition: 0.6s;
+  -o-transition: 0.6s;
+  transition: 0.6s;
+}
+
+._hide {
+  opacity: 0;
 }
 
 @media (max-width: 1182px) {
