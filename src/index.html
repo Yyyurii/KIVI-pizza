@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <meta name="format-detection" content="telephone=no">
   <link rel="stylesheet" href="css/style.min.css">
-  
+
   <!-- <link rel="shortcut icon" href="favicon.ico"> -->
   <!-- <meta name="robots" content="noindex, nofollow"> -->
   <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> -->
@@ -15,6 +15,9 @@
 
 <body>
   <div class="wrapper">
+    <div class="loader">
+      <img src="./img/icons/loader.gif" alt="">
+    </div>
     @@include('_header.html',{})
     <main class="page">
       @@include('_slider.html',{})
@@ -22,16 +25,15 @@
       @@include('_coffee-beans.html',{})
       @@include('_stocks.html',{})
       @@include('_contacts.html',{})
-      
+
     </main>
     @@include('_footer.html',{})
     <div class="scroll-up" id="scroll-up">
       <img src="./img/icons/up-arrow.svg" alt="">
     </div>
   </div>
-  <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
-    integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="js/index.min.js"></script>
   <script src="js/slider.min.js"></script>
   <script src="js/smoothScroll.min.js"></script>

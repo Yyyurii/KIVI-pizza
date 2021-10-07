@@ -130,3 +130,21 @@ body {
 		right: 7px;
 	}
 }
+
+.loader {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+	background-color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	width: 100%;
+	transition: 0.6s;
+}
+
+._hide {
+	opacity: 0;
+}

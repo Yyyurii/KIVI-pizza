@@ -57,10 +57,20 @@ $(window).on('load scroll', function () {
 
 //scroll-top
 $('.scroll-up').on('click', function () {
-  window.scrollTo(0, 0);
+  $("html, body").animate({ scrollTop: 0 }, "slow");
+  return false;
 });
 
 // burger 
 $('.header__burger').click(function() {
   $(this).toggleClass('_active'); 
 })
+
+//loader
+const loader = document.querySelector('.loader');
+window.addEventListener('load', () => {
+  loader.classList.add('_hide');
+  setTimeout(() => {
+    loader.remove();
+  }, 600)
+});

@@ -32,7 +32,7 @@ section {
 }
 html {
 	font-size: #{$fontSize + px};
-	scroll-behavior: smooth;
+	// scroll-behavior: smooth;
 }
 
 :target:before {
