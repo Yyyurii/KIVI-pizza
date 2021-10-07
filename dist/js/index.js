@@ -3,11 +3,11 @@ $('.pizza__controls .buttons').click(function () {
 
   let filter = $(this).attr('data-filter');
   if (filter == 'classico') {
-    $('.pizza .classico').show(1000);
-    $('.pizza .card').not('.' + filter).hide(200);
+    $('.pizza .classico').fadeIn(400);
+    $('.pizza .card').not('.' + filter).fadeOut(200);
   } else {
-    $('.pizza .card').not('.' + filter).hide(200);
-    $('.pizza .card').filter('.' + filter).show(1000).css('display', 'flex');;
+    $('.pizza .card').not('.' + filter).fadeOut(200);
+    $('.pizza .card').filter('.' + filter).fadeIn(400).css('display', 'flex');;
   }
 });
 
@@ -16,11 +16,11 @@ $('.coffee-beans__controls .buttons').click(function () {
 
   let filter = $(this).attr('data-filter');
   if (filter == 'mix') {
-    $('.coffee-beans .mix').show(400);
-    $('.coffee-beans .card').not('.' + filter).hide(200);
+    $('.coffee-beans .mix').fadeIn(400);
+    $('.coffee-beans .card').not('.' + filter).fadeOut(200);
   } else {
-    $('.coffee-beans .card').not('.' + filter).hide(200);
-    $('.coffee-beans .card').filter('.' + filter).show(400).css('display', 'flex');;
+    $('.coffee-beans .card').not('.' + filter).fadeOut(200);
+    $('.coffee-beans .card').filter('.' + filter).fadeIn(400).css('display', 'flex');;
   }
 });
 
