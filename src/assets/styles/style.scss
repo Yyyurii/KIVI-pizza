@@ -148,3 +148,8 @@ body {
 ._hide {
 	opacity: 0;
 }
+
+._stop-scrolling {
+  height: 100%;
+  overflow: hidden;
+}

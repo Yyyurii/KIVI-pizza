@@ -55,15 +55,23 @@ $(window).on('load scroll', function () {
 
 });
 
-//scroll-top
+//scroll-up
 $('.scroll-up').on('click', function () {
   $("html, body").animate({ scrollTop: 0 }, "slow");
   return false;
 });
 
 // burger 
-$('.header__burger').click(function() {
-  $(this).toggleClass('_active'); 
+const $burgerIcon = $('.header__burger');
+$burgerIcon.click(function () {
+  $(this).toggleClass('_active');
+  $('body').toggleClass('_stop-scrolling');
+})
+$('.header__bottom a').click(() => {
+  if ($burgerIcon.hasClass('_active')) {
+    $burgerIcon.toggleClass('_active');
+    $('body').toggleClass('_stop-scrolling');
+  }
 })
 
 //loader

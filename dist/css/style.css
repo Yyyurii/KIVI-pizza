@@ -1059,6 +1059,11 @@ body._lock {
   opacity: 0;
 }
 
+._stop-scrolling {
+  height: 100%;
+  overflow: hidden;
+}
+
 @media (max-width: 1182px) {
   ._container {
     max-width: 970px;
