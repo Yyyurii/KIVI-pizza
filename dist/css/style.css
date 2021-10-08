@@ -309,6 +309,90 @@ body._lock {
   z-index: 50;
 }
 
+.actions {
+  position: relative;
+}
+
+.actions__basket-quantity {
+  background-color: white;
+  border-radius: 50%;
+  padding: 1px 6px;
+  position: absolute;
+  left: -7px;
+  bottom: 0;
+  display: none;
+}
+
+.actions__basket-quantity._active {
+  display: block;
+}
+
+.basket__list {
+  position: absolute;
+  z-index: 5;
+  width: 400px;
+  height: 500px;
+  background-color: #f7f77d;
+  right: 0;
+  border: 1px solid #de9447;
+  padding: 15px;
+  display: none;
+}
+
+.basket__list hr {
+  width: 100%;
+  height: 1px;
+  background-color: gray;
+  margin: 10px 0;
+}
+
+.basket__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.basket__item-img {
+  width: 100px;
+  height: 100px;
+}
+
+.basket__details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+
+.basket__total {
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+
+.basket__title {
+  font-size: 30px;
+  margin: 0 0 10px;
+}
+
+.basket__quantity {
+  font-size: 20px;
+}
+
+.basket__price {
+  font-size: 22px;
+}
+
 .footer {
   background: #cdcdcd;
 }
