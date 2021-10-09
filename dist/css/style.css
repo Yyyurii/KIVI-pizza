@@ -336,6 +336,7 @@ body._lock {
   border: 1px solid #de9447;
   padding: 15px;
   overflow: auto;
+  display: none;
 }
 
 .basket__list hr {
