@@ -152,7 +152,6 @@
   position: absolute;
   left: -7px;
   bottom: 0;
-  display: none;
 }
 
 .actions__basket-quantity._active {
@@ -168,7 +167,7 @@
   right: 0;
   border: 1px solid #de9447;
   padding: 15px;
-  display: none;
+  overflow: auto;
 }
 
 .basket__list hr {

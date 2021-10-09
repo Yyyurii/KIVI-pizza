@@ -89,8 +89,8 @@ function documentActions(e) {
   const targetElement = e.target;
 
   if (targetElement.classList.contains('card__btn')) {
-    const product = targetElement.closest('.pizza__card');
-    addToCart(targetElement, product);
+    const productId = targetElement.closest('.pizza__card').dataset.pid;;
+    addToCart(targetElement, productId);
     e.preventDefault();
   }
 
@@ -110,16 +110,16 @@ function documentActions(e) {
   // }
 
 }
-function addToCart(productButton, product) {
+
+//add to cart
+function addToCart(productButton, productId) {
   if (!productButton.classList.contains('_hold')) {
     productButton.classList.add('_hold');
     productButton.classList.add('_fly');
 
     const cart = document.querySelector('.actions__basket');
-    console.log(product);
-    // const productId = product;
+    const product = document.querySelector(`[data-pid="${productId}"]`);
     const productImage = product.querySelector('.card__img');
-    console.log(productImage);
 
     const productImageFly = productImage.cloneNode(true);
 
@@ -154,11 +154,71 @@ function addToCart(productButton, product) {
     productImageFly.addEventListener('transitionend', function () {
       if (productButton.classList.contains('_fly')) {
         productImageFly.remove();
-        // updateCart(productButton, productId);
+        updateCart(productButton, productId);
         productButton.classList.remove('_fly');
       }
     });
-    
   }
+}
 
+function updateCart(productButton, productId, productAdd = true) {
+  const cart = document.querySelector('.basket');
+  const cartIcon = cart.querySelector('.basket__icon');
+  const cartQuantity = cart.querySelector('span');
+  const cartProduct = document.querySelector(`[data-cart-pid="${productId}"]`);
+  const cartList = document.querySelector('.basket__list');
+
+  // Добавляем
+  if (productAdd) {
+    if (cartQuantity) {
+      cartQuantity.innerHTML = ++cartQuantity.innerHTML;
+    } else {
+      cartIcon.insertAdjacentHTML('beforeend', `<span>1</span>`);
+    }
+    if (!cartProduct) {
+      const product = document.querySelector(`[data-pid="${productId}"]`);
+      const cartProductImage = product.querySelector('.card__img');
+      console.dir(cartProductImage.attributes.src.nodeValue);
+      const cartProductTitle = product.querySelector('.card__title').innerHTML;
+      const cartProductContent = `
+        <div data-cart-pid="${productId}" class="basket__item">
+          <img class="basket__item-img" src="${cartProductImage.attributes.src.nodeValue}" alt="">
+          <div class="basket__details">
+            <span class="basket__title">${cartProductTitle}</span>
+            <span class="basket__quantity">1</span>
+          </div>
+          <div class="basket__total">
+            <img class="basket__price-img" src="./img/icons/hryvnia.svg" alt="hryvnia">
+            <span class="basket__price">88</span>
+          </div>
+          <div class="basket__close-btn">
+            X
+          </div>
+        </div>
+        <hr>
+      `;
+      cartList.insertAdjacentHTML('beforeend', `${cartProductContent}`);
+    } else {
+      const cartProductQuantity = cartProduct.querySelector('.basket__quantity');
+      cartProductQuantity.innerHTML = ++cartProductQuantity.innerHTML;
+    }
+
+    // После всех действий
+    productButton.classList.remove('_hold');
+  } else {
+    const cartProductQuantity = cartProduct.querySelector('.basket__quantity');
+    cartProductQuantity.innerHTML = --cartProductQuantity.innerHTML;
+    if (!(cartProductQuantity.innerHTML)) {
+      cartProduct.remove();
+    }
+
+    const cartQuantityValue = --cartQuantity.innerHTML;
+
+    if (cartQuantityValue) {
+      cartQuantity.innerHTML = cartQuantityValue;
+    } else {
+      cartQuantity.remove();
+      cart.classList.remove('_active');
+    }
+  }
 }
