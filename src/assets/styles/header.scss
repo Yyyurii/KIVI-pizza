@@ -213,7 +213,6 @@ $maxWidthContainer: 1170;
 		position: absolute;
 		left: -7px;
 		bottom: 0;
-		display: none;
 
 		&._active {
 			display: block;
@@ -231,8 +230,9 @@ $maxWidthContainer: 1170;
 		right: 0;
 		border: 1px solid #de9447;
 		padding: 15px;
+		overflow: auto;
 
-		display: none;
+		// display: none;
 
 		hr {
 			width: 100%;

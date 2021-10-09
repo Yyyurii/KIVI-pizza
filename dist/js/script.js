@@ -257,7 +257,7 @@ window.onload = function () {
 		} else {
 			const cartProductQuantity = cartProduct.querySelector('.cart-list__quantity span');
 			cartProductQuantity.innerHTML = --cartProductQuantity.innerHTML;
-			if (!parseInt(cartProductQuantity.innerHTML)) {
+			if (! (cartProductQuantity.innerHTML)) {
 				cartProduct.remove();
 			}
 
