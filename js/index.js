@@ -74,6 +74,12 @@ $('.header__bottom a').click(() => {
   }
 })
 
+//basket 
+const $basket = $('.basket');
+$basket.click(function () {
+  $('.basket__list').toggleClass('_active');
+})
+
 //loader
 const loader = document.querySelector('.loader');
 window.addEventListener('load', () => {

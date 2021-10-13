@@ -339,6 +339,10 @@ body._lock {
   display: none;
 }
 
+.basket__list._active {
+  display: block;
+}
+
 .basket__list hr {
   width: 100%;
   height: 1px;
