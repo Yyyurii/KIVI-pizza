@@ -221,6 +221,7 @@ $maxWidthContainer: 1170;
 }
 
 .basket {
+
 	&__list {
 		position: absolute;
 		z-index: 5;
@@ -233,6 +234,10 @@ $maxWidthContainer: 1170;
 		overflow: auto;
 
 		display: none;
+
+		&._active {
+			display: block;
+		}
 
 		hr {
 			width: 100%;
@@ -275,6 +280,4 @@ $maxWidthContainer: 1170;
 	&__price {
 		font-size: 22px;
 	}
-
-
 }
