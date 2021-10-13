@@ -510,7 +510,6 @@ body._lock {
           flex: 0 0 100%;
   width: 100%;
   position: relative;
-  padding: 90px 0 0;
 }
 
 /* кнопки Prev и Next */
@@ -620,8 +619,8 @@ body._lock {
 }
 
 .fullscreen {
-  min-height: 100vh;
-  max-height: 100vh;
+  min-height: 85vh;
+  max-height: 85vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -692,7 +691,7 @@ body._lock {
 }
 
 .pizza {
-  margin: 50px auto;
+  margin: 25px auto;
   padding: 30px 20px;
   background: #f8f8f8;
 }
@@ -802,11 +801,6 @@ body._lock {
       -ms-transform: scale(0);
           transform: scale(0);
   opacity: 0;
-}
-
-.card:hover {
-  -webkit-box-shadow: 0 0 15px black;
-  box-shadow: 0 0 15px black;
 }
 
 .card h3 {
@@ -1276,5 +1270,19 @@ body._lock {
 
   .contacts__inform p {
     font-size: 15px;
+  }
+}
+
+@media (any-hover: hover) {
+  .card:hover {
+    -webkit-box-shadow: 0 0 15px black;
+    box-shadow: 0 0 15px black;
+  }
+}
+
+@media (any-hover: none) {
+  .card {
+    -webkit-box-shadow: 0 0 15px black;
+    box-shadow: 0 0 15px black;
   }
 }
