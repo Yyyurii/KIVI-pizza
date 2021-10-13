@@ -70,7 +70,6 @@
           flex: 0 0 100%;
   width: 100%;
   position: relative;
-  padding: 90px 0 0;
 }
 
 /* кнопки Prev и Next */
@@ -180,8 +179,8 @@
 }
 
 .fullscreen {
-  min-height: 100vh;
-  max-height: 100vh;
+  min-height: 85vh;
+  max-height: 85vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

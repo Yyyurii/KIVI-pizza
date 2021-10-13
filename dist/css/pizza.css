@@ -1,5 +1,5 @@
 .pizza {
-  margin: 50px auto;
+  margin: 25px auto;
   padding: 30px 20px;
   background: #f8f8f8;
 }
@@ -111,11 +111,6 @@
   opacity: 0;
 }
 
-.card:hover {
-  -webkit-box-shadow: 0 0 15px black;
-  box-shadow: 0 0 15px black;
-}
-
 .card h3 {
   padding: 10px 0;
   text-align: start;
@@ -158,5 +153,19 @@
 @media (max-width: 479.98px) {
   .card {
     max-width: 350px;
+  }
+}
+
+@media (any-hover: hover) {
+  .card:hover {
+    -webkit-box-shadow: 0 0 15px black;
+    box-shadow: 0 0 15px black;
+  }
+}
+
+@media (any-hover: none) {
+  .card {
+    -webkit-box-shadow: 0 0 15px black;
+    box-shadow: 0 0 15px black;
   }
 }

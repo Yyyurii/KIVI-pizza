@@ -84,7 +84,7 @@ $maxWidthContainer: 1170;
   flex: 0 0 100%;
   width: 100%;
   position: relative;
-  padding: 90px 0 0;
+  // padding: 90px 0 0;
 
   @media (max-width: 991.98px) {
     flex-direction: column;
@@ -177,8 +177,8 @@ $maxWidthContainer: 1170;
 }
 
 .fullscreen {
-  min-height: 100vh;
-  max-height: 100vh;
+  min-height: 85vh;
+  max-height: 85vh;
   display: flex;
   justify-content: center;
   align-items: center;
