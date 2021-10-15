@@ -95,6 +95,30 @@ document.addEventListener("click", documentActions);
 function documentActions(e) {
   const targetElement = e.target;
 
+  // nav.addEventListener('click', (event) => {
+  //   order.style.display = 'none';
+  //   mainContent.style.display = 'block';
+  // });
+
+  if (targetElement.classList.contains('basket__btn')) {
+    const order = document.querySelector('.order');
+    const page = document.querySelector('.page');
+    const basketList = document.querySelector('.basket__list');
+
+    order.classList.add('_active');
+    page.style.display = 'none';
+    basketList.classList.remove('_active');
+  }
+
+  if (targetElement.closest('.header__navbar') || targetElement.closest('.logo')) {
+    console.log('header-bottom');
+    const order = document.querySelector('.order');
+    const page = document.querySelector('.page');
+
+    order.classList.remove('_active');
+    page.style.display = 'block';
+  }
+
   if (targetElement.classList.contains('card__btn')) {
     const productId = targetElement.closest('.pizza__card').dataset.pid;;
     addToCart(targetElement, productId);
@@ -185,6 +209,7 @@ function updateCart(productButton, productId, productAdd = true) {
       cartIcon.insertAdjacentHTML('beforeend', `<span>1</span>`);
     }
     if (!cartProduct) {
+      const orderList = document.querySelector('.order__list');
       const product = document.querySelector(`[data-pid="${productId}"]`);
       const cartProductImage = product.querySelector('.card__img');
       const cartProductTitle = product.querySelector('.card__title').innerHTML;
@@ -209,6 +234,7 @@ function updateCart(productButton, productId, productAdd = true) {
         </div>
       `;
       cartList.insertAdjacentHTML('beforeend', `${cartProductContent}`);
+      orderList.insertAdjacentHTML('beforeend', `${cartProductContent}`);
     } else {
       const cartProductQuantity = cartProduct.querySelector('.basket__quantity');
       cartProductQuantity.innerHTML = ++cartProductQuantity.innerHTML;
@@ -217,32 +243,59 @@ function updateCart(productButton, productId, productAdd = true) {
     // После всех действий
     productButton.classList.remove('_hold');
   } else {
-
-    // cartProductQuantity.innerHTML = --cartProductQuantity.innerHTML;
-    // if (!(cartProductQuantity.innerHTML)) {
-    //   cartProduct.remove();
-    // }
-
-    // const cartQuantityValue = --cartQuantity.innerHTML;
-
-    // if (cartQuantityValue) {
-    //   cartQuantity.innerHTML = cartQuantityValue;
-    // } else {
-    //   cartQuantity.remove();
-    //   cart.classList.remove('_active');
-    // }
     const cartProductQuantity = cartProduct.querySelector('.basket__quantity');
     const cartQuantityValue = cartQuantity.innerHTML - cartProductQuantity.innerHTML;
     cartProduct.closest('.basket__item-cont').remove();
 
-
     if (cartQuantityValue) {
       cartQuantity.innerHTML = cartQuantityValue;
     } else {
-      // cartQuantity.remove();
       cartQuantity.innerHTML = '';
       cartQuantity.classList.remove('_active');
     }
   }
 }
 
+//forms
+const forms = document.querySelectorAll('form');
+const message = {
+  loading: 'Загрузка...',
+  success: 'Спасибо! Скоро мы с вами свяжемся',
+  failure: 'Что-то пошло не так...'
+};
+
+forms.forEach(item => {
+  postData(item);
+});
+
+function postData(form) {
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    let statusMessage = document.createElement('div');
+    statusMessage.classList.add('status');
+    form.appendChild(statusMessage);
+
+    const request = new XMLHttpRequest();
+    request.open('POST', 'telegram.php');
+    const formData = new FormData(form);
+
+    request.send(formData);
+
+    request.addEventListener('load', () => {
+      if (request.status === 200) {
+        console.log(request.response);
+        openModal();
+        form.reset();
+        clearOrderCard();
+        setTimeout(() => {
+          closeModal();
+        }, 3500);
+        orderPresent.style.display = 'none';
+        orderAbsent.style.display = 'block';
+      } else {
+        statusMessage.textContent = message.failure;
+      }
+    });
+  });
+};
