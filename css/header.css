@@ -14,7 +14,7 @@
           align-items: center;
   font-size: calc(10px + 10 * ((100vw - 320px) / 1600));
   padding: 10px 20px;
-  color: #de9447;
+  color: #666;
   background-color: white;
 }
 
@@ -160,19 +160,32 @@
 
 .basket__list {
   position: absolute;
+  top: 55px;
+  right: -2000px;
+  background: #fff;
+  border-radius: .5rem;
+  -webkit-box-shadow: 0 0 15px #000;
+  box-shadow: 0 0 15px #000;
+  width: 450px;
+  max-height: 80vh;
+  padding: 1.5rem 1.5rem 1rem;
+  color: #666;
   z-index: 5;
-  width: 400px;
-  height: 500px;
-  background-color: #f7f77d;
-  right: 0;
-  border: 1px solid #de9447;
-  padding: 15px;
   overflow: auto;
-  display: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .basket__list._active {
-  display: block;
+  right: 0;
+  -webkit-transition: .4s linear;
+  -o-transition: .4s linear;
+  transition: .4s linear;
 }
 
 .basket__list hr {
@@ -211,7 +224,7 @@
       align-self: center;
 }
 
-.basket__total {
+.basket__cost {
   -ms-flex-item-align: center;
       align-self: center;
 }
@@ -219,14 +232,28 @@
 .basket__title {
   font-size: 30px;
   margin: 0 0 10px;
+  color: #de9447;
 }
 
 .basket__quantity {
   font-size: 20px;
+  padding: 0 20px 0 0;
+}
+
+.basket__price-img {
+  padding: 0 0 0 20px;
 }
 
 .basket__price {
   font-size: 22px;
+}
+
+.basket__btn {
+  padding: 10px 20px 8px;
+  background-color: #de9447;
+  border-radius: 5px;
+  color: #fff;
+  margin: auto;
 }
 
 @media (max-width: 1024px) {
@@ -272,5 +299,39 @@
   .header__burger._active ~ .header__navbar {
     display: block;
     overflow: auto;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .basket__list {
+    padding: 1rem;
+    width: 265px;
+  }
+
+  .basket__item-img {
+    width: 75px;
+    height: 75px;
+  }
+
+  .basket__title {
+    font-size: 16px;
+  }
+
+  .basket__quantity {
+    font-size: 16px;
+    padding: 0 15px 0 0;
+  }
+
+  .basket__price-img {
+    padding: 0 0 0 15px;
+    height: 16px;
+  }
+
+  .basket__price {
+    font-size: 16px;
+  }
+
+  .basket__close-btn img {
+    width: 16px;
   }
 }
