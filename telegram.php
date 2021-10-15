@@ -22,7 +22,7 @@ foreach($arr as $key => $value) {
   $txt .= "<b>".$key."</b> ".$value."%0A";
 };
 
-$sendToTelegram = fopen("kivipizza2+n4z4mlhcthfwkvtulaa5@boards.trello.com","r");
+$sendToTelegram = fopen("https://api.telegram.org/bot{$token}/sendMessage?chat_id={$chat_id}&parse_mode=html&text={$txt}","r");
 
 if ($sendToTelegram) {
   // echo'<h1>Дякуємо за замовлення!</h1>';
