@@ -91,6 +91,7 @@ window.addEventListener('load', () => {
 
 //Add to cart
 document.addEventListener("click", documentActions);
+
 function documentActions(e) {
   const targetElement = e.target;
 
@@ -109,11 +110,12 @@ function documentActions(e) {
   //   document.querySelector('.cart-header').classList.remove('_active');
   // }
 
-  // if (targetElement.classList.contains('cart-list__delete')) {
-  //   const productId = targetElement.closest('.cart-list__item').dataset.cartPid;
-  //   updateCart(targetElement, productId, false);
-  //   e.preventDefault();
-  // }
+  if (targetElement.classList.contains('basket__delete-btn') || targetElement.classList.contains('basket__delete-img')) {
+    console.log('click delete');
+    const productId = targetElement.closest('.basket__item').dataset.cartPid;
+    updateCart(targetElement, productId, false);
+    e.preventDefault();
+  }
 
 }
 
@@ -176,6 +178,7 @@ function updateCart(productButton, productId, productAdd = true) {
 
   // Добавляем
   if (productAdd) {
+    cartQuantity.classList.add('_active');
     if (cartQuantity) {
       cartQuantity.innerHTML = ++cartQuantity.innerHTML;
     } else {
@@ -187,21 +190,23 @@ function updateCart(productButton, productId, productAdd = true) {
       const cartProductTitle = product.querySelector('.card__title').innerHTML;
       const cartProductPrice = product.querySelector('.card__price').innerHTML;
       const cartProductContent = `
-        <div data-cart-pid="${productId}" class="basket__item">
-          <img class="basket__item-img" src="${cartProductImage.attributes.src.nodeValue}" alt="">
-          <div class="basket__details">
-            <span class="basket__title">${cartProductTitle}</span>
-            <div class="basket__cost">
-								<span class="basket__quantity">1</span>X
-								<img class="basket__price-img" src="./img/icons/hryvnia-gray.svg" alt="hryvnia">
-								<span class="basket__price">${cartProductPrice}</span>
-							</div>
-						</div>
-						<div class="basket__close-btn">
-							<img src="./img/icons/close.svg" alt="close">
-						</div>
-					</div>
-					<hr>
+        <div class="basket__item-cont">
+          <div data-cart-pid="${productId}" class="basket__item">
+            <img class="basket__item-img" src="${cartProductImage.attributes.src.nodeValue}" alt="">
+            <div class="basket__details">
+              <span class="basket__title">${cartProductTitle}</span>
+              <div class="basket__cost">
+                  <span class="basket__quantity">1</span>X
+                  <img class="basket__price-img" src="./img/icons/hryvnia-gray.svg" alt="hryvnia">
+                  <span class="basket__price">${cartProductPrice}</span>
+              </div>
+            </div>
+            <div class="basket__delete-btn">
+                <img class="basket__delete-img" src="./img/icons/close.svg" alt="delete">
+            </div>
+          </div>
+          <hr>
+        </div>
       `;
       cartList.insertAdjacentHTML('beforeend', `${cartProductContent}`);
     } else {
@@ -212,19 +217,32 @@ function updateCart(productButton, productId, productAdd = true) {
     // После всех действий
     productButton.classList.remove('_hold');
   } else {
-    const cartProductQuantity = cartProduct.querySelector('.basket__quantity');
-    cartProductQuantity.innerHTML = --cartProductQuantity.innerHTML;
-    if (!(cartProductQuantity.innerHTML)) {
-      cartProduct.remove();
-    }
 
-    const cartQuantityValue = --cartQuantity.innerHTML;
+    // cartProductQuantity.innerHTML = --cartProductQuantity.innerHTML;
+    // if (!(cartProductQuantity.innerHTML)) {
+    //   cartProduct.remove();
+    // }
+
+    // const cartQuantityValue = --cartQuantity.innerHTML;
+
+    // if (cartQuantityValue) {
+    //   cartQuantity.innerHTML = cartQuantityValue;
+    // } else {
+    //   cartQuantity.remove();
+    //   cart.classList.remove('_active');
+    // }
+    const cartProductQuantity = cartProduct.querySelector('.basket__quantity');
+    const cartQuantityValue = cartQuantity.innerHTML - cartProductQuantity.innerHTML;
+    cartProduct.closest('.basket__item-cont').remove();
+
 
     if (cartQuantityValue) {
       cartQuantity.innerHTML = cartQuantityValue;
     } else {
-      cartQuantity.remove();
-      cart.classList.remove('_active');
+      // cartQuantity.remove();
+      cartQuantity.innerHTML = '';
+      cartQuantity.classList.remove('_active');
     }
   }
 }
+

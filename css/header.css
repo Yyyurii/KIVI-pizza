@@ -152,10 +152,14 @@
   position: absolute;
   left: -7px;
   bottom: 0;
+  opacity: 0;
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
 }
 
 .actions__basket-quantity._active {
-  display: block;
+  opacity: 1;
 }
 
 .basket__list {
@@ -331,7 +335,7 @@
     font-size: 16px;
   }
 
-  .basket__close-btn img {
+  .basket__delete-btn img {
     width: 16px;
   }
 }
