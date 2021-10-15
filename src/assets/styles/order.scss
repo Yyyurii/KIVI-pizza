@@ -1,0 +1,47 @@
+.order {
+
+  &._active {
+    display: block;
+  }
+
+  display: none;
+  max-width: 760px;
+  margin: 0 auto;
+  flex: 1 1 auto;
+
+  h1 {
+    font-size: 30px;
+    font-weight: 700;
+    color: #de9447;
+    text-align: center;
+    margin: 30px;
+  }
+
+  &__btn {
+    padding: 10px 20px 8px;
+    background-color: #de9447;
+    border-radius: 5px;
+    color: #fff;
+    margin: auto;
+  }
+
+  input {
+    -webkit-appearance: none;
+    outline: none;
+    border: 1px solid;
+  }
+
+  input:focus,
+  select:focus,
+  textarea:focus,
+  button:focus {
+    outline: none;
+  }
+
+  &__details {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+}
