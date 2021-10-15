@@ -213,9 +213,11 @@ $maxWidthContainer: 1170;
 		position: absolute;
 		left: -7px;
 		bottom: 0;
+		opacity: 0;
+		transition: all 0.3s ease 0s;
 
 		&._active {
-			display: block;
+			opacity: 1;
 		}
 	}
 }
@@ -333,7 +335,7 @@ $maxWidthContainer: 1170;
 			font-size: 16px;
 		}
 
-		&__close-btn {
+		&__delete-btn {
 			img {
 				width: 16px;
 			}
