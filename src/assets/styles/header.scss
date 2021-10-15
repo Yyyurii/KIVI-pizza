@@ -48,7 +48,7 @@ $maxWidthContainer: 1170;
 		align-items: center;
 		@include adaptiv-value("font-size", 20, 10, 0);
 		padding: 10px 20px;
-		color: #de9447;
+		color: #666;
 		background-color: white;
 
 		h3 {
@@ -223,17 +223,30 @@ $maxWidthContainer: 1170;
 .basket {
 
 	&__list {
-		position: absolute;
-		z-index: 5;
-		width: 400px;
-		height: 500px;
-		background-color: rgb(247, 247, 125);
-		right: 0;
-		border: 1px solid #de9447;
-		padding: 15px;
-		overflow: auto;
+		// position: absolute;
+		// z-index: 5;
+		// width: 400px;
+		// height: 500px;
+		// background-color: rgb(247, 247, 125);
+		// right: 0;
+		// border: 1px solid #de9447;
+		// padding: 15px;
+		// overflow: auto;
 
-		display: none;
+		// display: none;
+		position: absolute;
+		top: 55px;
+		right: -5%;
+		background: #fff;
+		border-radius: .5rem;
+		-webkit-box-shadow: 0 0 15px #000;
+		box-shadow: 0 0 15px #000;
+		width: 450px;
+		max-height: 80vh;
+		padding: 1.5rem 1.5rem 2.5rem;
+		color: #666;
+		z-index: 5;
+		overflow: auto;
 
 		&._active {
 			display: block;
@@ -264,20 +277,36 @@ $maxWidthContainer: 1170;
 		align-self: center;
 	}
 
-	&__total {
+	&__cost {
 		align-self: center;
 	}
 
 	&__title {
 		font-size: 30px;
 		margin: 0 0 10px;
+		color: #de9447;
 	}
 
 	&__quantity {
 		font-size: 20px;
+		padding: 0 20px 0 0;
+	}
+
+	&__price-img {
+		padding: 0 0 0 20px;
 	}
 
 	&__price {
 		font-size: 22px;
+	}
+
+	&__total {
+		 position: absolute;
+		 bottom: 9px;
+		 font-size: 30px;
+		 
+		img {
+			height: 30px;
+		}
 	}
 }

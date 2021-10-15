@@ -14,7 +14,7 @@
           align-items: center;
   font-size: calc(10px + 10 * ((100vw - 320px) / 1600));
   padding: 10px 20px;
-  color: #de9447;
+  color: #666;
   background-color: white;
 }
 
@@ -160,15 +160,18 @@
 
 .basket__list {
   position: absolute;
+  top: 55px;
+  right: -5%;
+  background: #fff;
+  border-radius: .5rem;
+  -webkit-box-shadow: 0 0 15px #000;
+  box-shadow: 0 0 15px #000;
+  width: 450px;
+  max-height: 80vh;
+  padding: 1.5rem 1.5rem 2.5rem;
+  color: #666;
   z-index: 5;
-  width: 400px;
-  height: 500px;
-  background-color: #f7f77d;
-  right: 0;
-  border: 1px solid #de9447;
-  padding: 15px;
   overflow: auto;
-  display: none;
 }
 
 .basket__list._active {
@@ -211,7 +214,7 @@
       align-self: center;
 }
 
-.basket__total {
+.basket__cost {
   -ms-flex-item-align: center;
       align-self: center;
 }
@@ -219,14 +222,30 @@
 .basket__title {
   font-size: 30px;
   margin: 0 0 10px;
+  color: #de9447;
 }
 
 .basket__quantity {
   font-size: 20px;
+  padding: 0 20px 0 0;
+}
+
+.basket__price-img {
+  padding: 0 0 0 20px;
 }
 
 .basket__price {
   font-size: 22px;
+}
+
+.basket__total {
+  position: absolute;
+  bottom: 9px;
+  font-size: 30px;
+}
+
+.basket__total img {
+  height: 30px;
 }
 
 @media (max-width: 1024px) {

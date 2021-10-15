@@ -184,24 +184,24 @@ function updateCart(productButton, productId, productAdd = true) {
     if (!cartProduct) {
       const product = document.querySelector(`[data-pid="${productId}"]`);
       const cartProductImage = product.querySelector('.card__img');
-      console.dir(cartProductImage.attributes.src.nodeValue);
       const cartProductTitle = product.querySelector('.card__title').innerHTML;
+      const cartProductPrice = product.querySelector('.card__price').innerHTML;
       const cartProductContent = `
         <div data-cart-pid="${productId}" class="basket__item">
           <img class="basket__item-img" src="${cartProductImage.attributes.src.nodeValue}" alt="">
           <div class="basket__details">
             <span class="basket__title">${cartProductTitle}</span>
-            <span class="basket__quantity">1</span>
-          </div>
-          <div class="basket__total">
-            <img class="basket__price-img" src="./img/icons/hryvnia.svg" alt="hryvnia">
-            <span class="basket__price">88</span>
-          </div>
-          <div class="basket__close-btn">
-            X
-          </div>
-        </div>
-        <hr>
+            <div class="basket__cost">
+								<span class="basket__quantity">1</span>X
+								<img class="basket__price-img" src="./img/icons/hryvnia-gray.svg" alt="hryvnia">
+								<span class="basket__price">${cartProductPrice}</span>
+							</div>
+						</div>
+						<div class="basket__close-btn">
+							<img src="./img/icons/close.svg" alt="close">
+						</div>
+					</div>
+					<hr>
       `;
       cartList.insertAdjacentHTML('beforeend', `${cartProductContent}`);
     } else {
