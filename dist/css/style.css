@@ -342,7 +342,7 @@ body._lock {
   max-height: 80vh;
   padding: 1.5rem 1.5rem 1rem;
   color: #666;
-  z-index: 5;
+  z-index: 50;
   overflow: auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -445,7 +445,7 @@ body._lock {
 
 .footer__title {
   font-size: 25px;
-  color: #de9447;
+  color: white;
   padding: 10px 0;
 }
 
