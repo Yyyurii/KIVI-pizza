@@ -329,21 +329,31 @@ body._lock {
 .basket__list {
   position: absolute;
   top: 55px;
-  right: -5%;
+  right: -2000px;
   background: #fff;
   border-radius: .5rem;
   -webkit-box-shadow: 0 0 15px #000;
   box-shadow: 0 0 15px #000;
   width: 450px;
   max-height: 80vh;
-  padding: 1.5rem 1.5rem 2.5rem;
+  padding: 1.5rem 1.5rem 1rem;
   color: #666;
   z-index: 5;
   overflow: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .basket__list._active {
-  display: block;
+  right: 0;
+  -webkit-transition: .4s linear;
+  -o-transition: .4s linear;
+  transition: .4s linear;
 }
 
 .basket__list hr {
@@ -406,14 +416,12 @@ body._lock {
   font-size: 22px;
 }
 
-.basket__total {
-  position: absolute;
-  bottom: 9px;
-  font-size: 30px;
-}
-
-.basket__total img {
-  height: 30px;
+.basket__btn {
+  padding: 10px 20px 8px;
+  background-color: #de9447;
+  border-radius: 5px;
+  color: #fff;
+  margin: auto;
 }
 
 .footer {
@@ -1255,6 +1263,38 @@ body._lock {
   ._container {
     max-width: none;
     padding: 0 10px;
+  }
+
+  .basket__list {
+    padding: 1rem;
+    width: 265px;
+  }
+
+  .basket__item-img {
+    width: 75px;
+    height: 75px;
+  }
+
+  .basket__title {
+    font-size: 16px;
+  }
+
+  .basket__quantity {
+    font-size: 16px;
+    padding: 0 15px 0 0;
+  }
+
+  .basket__price-img {
+    padding: 0 0 0 15px;
+    height: 16px;
+  }
+
+  .basket__price {
+    font-size: 16px;
+  }
+
+  .basket__close-btn img {
+    width: 16px;
   }
 
   .stocks__item {
