@@ -5,7 +5,7 @@
   }
 
   display: none;
-  max-width: 760px;
+  max-width: 1190px;
   margin: 0 auto;
   flex: 1 1 auto;
 
@@ -38,10 +38,12 @@
     outline: none;
   }
 
-  &__details {
+  &__contact {
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+    gap: 10px;
+  }
+
+  textarea {
+    border: 1px solid;
   }
 }

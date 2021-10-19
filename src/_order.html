@@ -5,18 +5,17 @@
     <div class="order__wrap">
       <div class="order__list">
       </div>
-      <div class="order__total-pay">
-        <h1>До оплати : <img class="basket__price-img" src="./img/icons/hryvnia.svg" alt="hryvnia"><span class="order__total-pay-value">1000</span></h1>
-        <input type="hidden" name="pizza_price" value="">
-      </div>
-      <div class="order__details">
-        <input required type="time" id="appt" name="time" list="time-list">
-        <input required placeholder="Ім'я" type="text" name="name" id="name">
-        <input required placeholder="Телефон" type="number" name="phone" id="phone">
-        <textarea placeholder="Коментар" name="comment" id="comment" cols="30" rows="1"></textarea>
-      </div>
-      <div class="main-content__btn-block">
-        <button type="submit" class="order__btn">Замовити</button>
+      <div class="order__contact">
+        <form action="mail.php" method="POST">
+          <input type="hidden" name="project_name" value="KIVI">
+          <input type="hidden" name="admin_email" value="yurii.kryvko@gmail.com">
+          <input type="hidden" name="form_subject" value="Order">
+
+          <input required placeholder="Ім'я" type="text" name="name" id="name">
+          <input required placeholder="Телефон" type="number" name="phone" id="phone">
+          <textarea placeholder="Коментар" name="comment" id="comment" cols="30" rows="3"></textarea><br>
+          <button type="submit" class="order__btn">Замовити</button>
+        </form>
       </div>
     </div>
   </form>
@@ -24,6 +23,14 @@
 </section>
 
 
+<!-- <input type="hidden" name="project_name" value="Site Name">
+<input type="hidden" name="admin_email" value="admin@mail.com">
+<input type="hidden" name="form_subject" value="Form Subject">
+
+<input type="text" name="Name" placeholder="You name..." required><br>
+<input type="text" name="E-mail" placeholder="You E-mail..." required><br>
+<input type="text" name="Phone" placeholder="You phone..."><br>
+<button>Send</button> -->
 
 <!-- 
 <div class="order__present">

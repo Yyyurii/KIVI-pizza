@@ -257,45 +257,23 @@ function updateCart(productButton, productId, productAdd = true) {
 }
 
 //forms
-const forms = document.querySelectorAll('form');
-const message = {
-  loading: 'Загрузка...',
-  success: 'Спасибо! Скоро мы с вами свяжемся',
-  failure: 'Что-то пошло не так...'
-};
+$(document).ready(function() {
 
-forms.forEach(item => {
-  postData(item);
+	//E-mail Ajax Send
+	$("form").submit(function() { //Change
+		var th = $(this);
+		$.ajax({
+			type: "POST",
+			url: "mail.php", //Change
+			data: th.serialize()
+		}).done(function() {
+			alert("Thank you!");
+			setTimeout(function() {
+				// Done Functions
+				th.trigger("reset");
+			}, 1000);
+		});
+		return false;
+	});
+
 });
-
-function postData(form) {
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    let statusMessage = document.createElement('div');
-    statusMessage.classList.add('status');
-    form.appendChild(statusMessage);
-
-    const request = new XMLHttpRequest();
-    request.open('POST', 'telegram.php');
-    const formData = new FormData(form);
-
-    request.send(formData);
-
-    request.addEventListener('load', () => {
-      if (request.status === 200) {
-        console.log(request.response);
-        openModal();
-        form.reset();
-        clearOrderCard();
-        setTimeout(() => {
-          closeModal();
-        }, 3500);
-        orderPresent.style.display = 'none';
-        orderAbsent.style.display = 'block';
-      } else {
-        statusMessage.textContent = message.failure;
-      }
-    });
-  });
-};
