@@ -1265,7 +1265,11 @@ hr {
   font-weight: 600;
 }
 
-.checkout-form__inputs-cont {
+.checkout-form__contact-block {
+  padding: 0 0 20px 0;
+}
+
+.checkout-form__contact-inputs-cont {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1340,10 +1344,6 @@ hr {
   -webkit-transition: all 1s ease 0s;
   -o-transition: all 1s ease 0s;
   transition: all 1s ease 0s;
-}
-
-.page {
-  display: none;
 }
 
 @media (max-width: 1182px) {

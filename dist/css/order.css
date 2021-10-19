@@ -147,7 +147,11 @@
   font-weight: 600;
 }
 
-.checkout-form__inputs-cont {
+.checkout-form__contact-block {
+  padding: 0 0 20px 0;
+}
+
+.checkout-form__contact-inputs-cont {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
