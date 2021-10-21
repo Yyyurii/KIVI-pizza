@@ -192,3 +192,24 @@
     }
   }
 }
+
+.time-block {
+  &__wrap {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+
+    p {
+      padding: 5px;
+    }
+  }
+
+  &__date-cont {
+    flex: 1 1 auto;
+  }
+
+  &__time-cont {
+    flex: 1 1 auto;
+  }
+}

@@ -1318,6 +1318,34 @@ hr {
   padding: 5px 10px;
 }
 
+.time-block__wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 10px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.time-block__wrap p {
+  padding: 5px;
+}
+
+.time-block__date-cont {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+
+.time-block__time-cont {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+
 .page {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
