@@ -1117,6 +1117,7 @@ hr {
 }
 
 .order {
+  padding: 20px;
   display: none;
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
@@ -1172,7 +1173,8 @@ hr {
   border: 1px solid;
 }
 
-.col-1 input {
+.col-1 input,
+.col-1 textarea {
   height: 30px;
   width: 100%;
   padding: 0 10px;
@@ -1274,6 +1276,74 @@ hr {
   display: -ms-flexbox;
   display: flex;
   gap: 15px;
+}
+
+.address-block__wrap {
+  display: grid;
+  -ms-grid-columns: 1fr 10px 1fr 10px 1fr;
+  grid-template: repeat(4, 50px)/repeat(3, 1fr);
+  grid-gap: 20px 10px;
+  grid-template-areas: 'street street street' 'house flat entrance' '. key floor' 'comment comment .';
+}
+
+.address-block__street {
+  grid-area: street;
+}
+
+.address-block__house {
+  grid-area: house;
+}
+
+.address-block__flat {
+  grid-area: flat;
+}
+
+.address-block__entrance {
+  grid-area: entrance;
+}
+
+.address-block__key {
+  grid-area: key;
+}
+
+.address-block__floor {
+  grid-area: floor;
+}
+
+.address-block__comment {
+  grid-area: comment;
+}
+
+.address-block__comment textarea {
+  padding: 5px 10px;
+}
+
+.time-block__wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 10px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.time-block__wrap p {
+  padding: 5px;
+}
+
+.time-block__date-cont {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+
+.time-block__time-cont {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
 }
 
 .page {
