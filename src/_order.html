@@ -27,10 +27,29 @@
           </div>
           <div class="checkout-form__address-block address-block">
             <h3>Адрес</h3>
-            <div class="address-block">
-              <input autocapitalize="none" autocomplete="off" autocorrect="off" id="react-select-2-input"
-                spellcheck="false" tabindex="0" type="text" aria-autocomplete="list" value=""
-                style="box-sizing: content-box; width: 2px; background: 0px center; border: 0px; font-size: inherit; opacity: 1; outline: 0px; padding: 0px; color: inherit;">
+            <div class="address-block__wrap">
+              <div class="address-block__street">
+                <input type="text" name="street" placeholder="Вулиця" class="address-block__input-street" value="">
+              </div>
+              <div class="address-block__house">
+                <input type="text" name="house" placeholder="Будинок" class="address-block__input-house" value="">
+              </div>
+              <div class="address-block__flat">
+                <input type="text" name="flat" placeholder="Квартира" class="address-block__input-flat" value="">
+              </div>
+              <div class="address-block__entrance">
+                <input type="text" name="entrance" placeholder="Під'їзд" class="address-block__input-entrance" value="">
+              </div>
+              <div class="address-block__key">
+                <input type="text" name="key" placeholder="Код" class="address-block__input-key" value="">
+              </div>
+              <div class="address-block__floor">
+                <input type="text" name="floor" placeholder="Поверх" class="address-block__input-floor" value="">
+              </div>
+              <div class="address-block__comment">
+                <textarea name="comment" placeholder="Коментар" class="address-block__input-comment" value=""></textarea>
+              </div>
+              
             </div>
           </div>
 

@@ -1,5 +1,7 @@
 .order {
 
+  padding: 20px;
+
   &._active {
     display: block;
   }
@@ -53,7 +55,8 @@
 
 .col-1 {
 
-  input {
+  input,
+  textarea {
     height: 30px;
     width: 100%;
     padding: 0 10px;
@@ -141,5 +144,51 @@
   &__contact-inputs-cont {
     display: flex;
     gap: 15px;
+  }
+}
+
+.address-block {
+  &__wrap {
+    display: grid;
+    -ms-grid-columns: 1fr 10px 1fr 10px 1fr;
+    grid-template: repeat(4, 50px)/repeat(3, 1fr);
+    grid-gap: 20px 10px;
+    grid-template-areas:
+      'street street street'
+      'house flat entrance'
+      '. key floor'
+      'comment comment .';
+  }
+
+  &__street {
+    grid-area: street;
+  }
+
+  &__house {
+    grid-area: house;
+  }
+
+  &__flat {
+    grid-area: flat;
+  }
+
+  &__entrance {
+    grid-area: entrance;
+  }
+
+  &__key {
+    grid-area: key;
+  }
+
+  &__floor {
+    grid-area: floor;
+  }
+
+  &__comment {
+    grid-area: comment;
+
+    textarea {
+      padding: 5px 10px;
+    }
   }
 }
