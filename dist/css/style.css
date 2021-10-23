@@ -433,7 +433,7 @@ hr {
 }
 
 .footer {
-  background: #cdcdcd;
+  background: #de9447;
 }
 
 .footer__container {
@@ -461,6 +461,7 @@ hr {
 }
 
 .footer__item p {
+  color: white;
   font-size: 15px;
   padding: 10px 0;
 }
@@ -1604,6 +1605,16 @@ hr {
 }
 
 @media (any-hover: hover) {
+  .header__bottom li a:hover {
+    border-radius: 5px;
+    background: white;
+    padding: 10px 20px;
+    color: #de9447;
+    -webkit-transition: all ease 0.3s 0s;
+    -o-transition: all ease 0.3s 0s;
+    transition: all ease 0.3s 0s;
+  }
+
   .card:hover {
     -webkit-box-shadow: 0 0 15px black;
     box-shadow: 0 0 15px black;

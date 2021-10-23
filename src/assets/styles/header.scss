@@ -99,6 +99,16 @@ $maxWidthContainer: 1170;
 			transition: all ease 0.3s 0s;
 		}
 
+		@media(any-hover: hover) {
+			li a:hover {
+				border-radius: 5px;
+				background: white;
+				padding: 10px 20px;
+				color: #de9447;
+				transition: all ease 0.3s 0s;
+			}
+		}
+
 		.logo img {
 			@include adaptiv-value("height", 50, 30, 0);
 		}

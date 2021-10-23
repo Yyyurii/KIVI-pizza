@@ -1,5 +1,5 @@
 .footer {
-  background: #cdcdcd;
+  background: #de9447;
 
   &__container {
     display: flex;
@@ -19,6 +19,7 @@
     flex: 1 1 15rem;
 
     p {
+      color: white;
       font-size: 15px;
       padding: 10px 0;
     }
