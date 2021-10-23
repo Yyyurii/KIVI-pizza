@@ -1,0 +1,26 @@
+.bake {
+  margin: 25px auto;
+  padding: 30px 20px;
+
+  h1 {
+    font-size: 30px;
+    font-weight: 700;
+    color: #de9447;
+    text-align: center;
+    margin: 30px;
+  }
+
+  &__item{
+    max-height: 370px;
+  }
+
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  img {
+    max-width: 390px;
+  }
+}
