@@ -41,6 +41,7 @@
 
 .stocks__text {
   color: #666;
+  white-space: pre-line;
 }
 
 .stocks h1 {

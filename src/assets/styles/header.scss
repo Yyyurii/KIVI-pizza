@@ -51,6 +51,10 @@ $maxWidthContainer: 1170;
 		color: #666;
 		background-color: white;
 
+		a {
+			color: #666;
+		}
+
 		h3 {
 			display: flex;
 			align-items: center;
@@ -193,7 +197,7 @@ $maxWidthContainer: 1170;
 		}
 
 		a {
-			color: #de9447;
+			// color: #de9447;
 		}
 	}
 

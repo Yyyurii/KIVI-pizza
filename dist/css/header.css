@@ -18,6 +18,10 @@
   background-color: white;
 }
 
+.header__top a {
+  color: #666;
+}
+
 .header__top h3 {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -294,10 +298,6 @@ hr {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-  }
-
-  .header a {
-    color: #de9447;
   }
 
   .header__burger._active ~ .header__navbar {
