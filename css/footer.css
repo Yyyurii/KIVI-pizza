@@ -1,5 +1,5 @@
 .footer {
-  background: #cdcdcd;
+  background: #de9447;
 }
 
 .footer__container {
@@ -27,6 +27,7 @@
 }
 
 .footer__item p {
+  color: white;
   font-size: 15px;
   padding: 10px 0;
 }

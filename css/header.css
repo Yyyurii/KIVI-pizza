@@ -339,3 +339,15 @@ hr {
     width: 16px;
   }
 }
+
+@media (any-hover: hover) {
+  .header__bottom li a:hover {
+    border-radius: 5px;
+    background: white;
+    padding: 10px 20px;
+    color: #de9447;
+    -webkit-transition: all ease 0.3s 0s;
+    -o-transition: all ease 0.3s 0s;
+    transition: all ease 0.3s 0s;
+  }
+}
