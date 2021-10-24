@@ -24,11 +24,12 @@
 }
 
 .order__btn {
-  padding: 10px 20px 8px;
+  padding: 15px 40px 15px;
   background-color: #de9447;
   border-radius: 5px;
   color: #fff;
   margin: auto;
+  font-size: 22px;
 }
 
 .order input {
@@ -140,6 +141,13 @@
   padding: 20px;
   background-color: #ebebeb;
   border-radius: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .checkout-form h3 {
@@ -163,9 +171,9 @@
 .address-block__wrap {
   display: grid;
   -ms-grid-columns: 1fr 10px 1fr 10px 1fr;
-  grid-template: repeat(4, 50px)/repeat(3, 1fr);
+  grid-template: repeat(3, 50px)/repeat(4, 1fr);
   grid-gap: 20px 10px;
-  grid-template-areas: 'street street street' 'house flat entrance' '. key floor' 'comment comment .';
+  grid-template-areas: 'street street street street' 'house flat entrance floor' 'comment comment . .';
 }
 
 .address-block__street {
@@ -226,4 +234,8 @@
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
+}
+
+.time-block__time-cont input {
+  width: 275px;
 }
