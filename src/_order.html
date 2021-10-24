@@ -15,7 +15,10 @@
         </div>
       </div>
 
-      <form action="">
+      <form action="mail.php" method="POST">
+        <input type="hidden" name="project_name" value="KIVI">
+        <input type="hidden" name="admin_email" value="kivipizza2+n4z4mlhcthfwkvtulaa5@boards.trello.com">
+        <input type="hidden" name="form_subject" value="Order">
 
         <div class="col-1__checkout-form checkout-form">
           <div class="checkout-form__contact-block">
@@ -40,32 +43,30 @@
               <div class="address-block__entrance">
                 <input type="text" name="entrance" placeholder="Під'їзд" class="address-block__input-entrance" value="">
               </div>
-              <div class="address-block__key">
-                <input type="text" name="key" placeholder="Код" class="address-block__input-key" value="">
-              </div>
               <div class="address-block__floor">
                 <input type="text" name="floor" placeholder="Поверх" class="address-block__input-floor" value="">
               </div>
               <div class="address-block__comment">
-                <textarea name="comment" placeholder="Коментар" class="address-block__input-comment" value=""></textarea>
+                <textarea name="comment" placeholder="Коментар" class="address-block__input-comment"
+                  value=""></textarea>
               </div>
-              
+
             </div>
           </div>
           <div class="checkout-form__time-block time-block">
-            <h3>Дата та час</h3>
+            <h3>Час</h3>
             <div class="time-block__wrap">
-              <div class="time-block__date-cont">
+              <!-- <div class="time-block__date-cont">
                 <p>Дата</p>
                 <input name="date" id="datepicker" placeholder="" class="time-block__datepicker" value="">
-              </div>
+              </div> -->
               <div class="time-block__time-cont">
                 <p>Час</p>
                 <input name="time" id="timepicker" placeholder="" class="time-block__timepicker" value="">
               </div>
             </div>
           </div>
-
+          <button type="submit" class="order__btn">Замовити</button>
         </div>
       </form>
 

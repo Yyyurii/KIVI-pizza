@@ -278,25 +278,14 @@ $(document).ready(function() {
 
 });
 
-datepicker.regional = {
-	closeText: 'Закрыть',
-	prevText: 'Предыдущий',
-	nextText: 'Следующий',
-	currentText: 'Сегодня',
-	monthNames: ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'],
-	monthNamesShort: ['Янв','Фев','Мар','Апр','Май','Июн','Июл','Авг','Сен','Окт','Ноя','Дек'],
-	dayNames: ['воскресенье','понедельник','вторник','среда','четверг','пятница','суббота'],
-	dayNamesShort: ['вск','пнд','втр','срд','чтв','птн','сбт'],
-	dayNamesMin: ['Вс','Пн','Вт','Ср','Чт','Пт','Сб'],
-	weekHeader: 'Не',
-	dateFormat: 'dd.mm.yy',
-	firstDay: 1,
-	isRTL: false,
-	showMonthAfterYear: false,
-	yearSuffix: ''
-};
-datepicker.setDefaults(datepicker.regional);
-
-$(function(){
-	$("#datepicker").datepicker();
+$('#timepicker').timepicker({
+  timeFormat: 'HH:mm ',
+  interval: 10,
+  minTime: '09:20',
+  maxTime: '21:00',
+  defaultTime: '11',
+  startTime: '09:00',
+  dynamic: false,
+  dropdown: true,
+  scrollbar: true
 });
