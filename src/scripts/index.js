@@ -283,7 +283,7 @@ $('#timepicker').timepicker({
   interval: 10,
   minTime: '09:20',
   maxTime: '21:00',
-  defaultTime: '11',
+  defaultTime: '',
   startTime: '09:00',
   dynamic: false,
   dropdown: true,

@@ -1123,6 +1123,7 @@ hr {
 }
 
 .order {
+  background-color: #ebebeb;
   padding: 20px;
   display: none;
   -webkit-box-flex: 1;
@@ -1246,7 +1247,8 @@ hr {
 }
 
 .col-1__delivery-cont:hover {
-  border: 1px solid #de9447;
+  background-color: white;
+  border: 0px solid #de9447;
 }
 
 .col-1__delivery-cont:hover .col-1__delivery-toGo {
@@ -1261,9 +1263,26 @@ hr {
   color: #de9447;
 }
 
+.col-1__delivery-cont._active {
+  border: 0px solid #de9447;
+  background-color: white;
+}
+
+.col-1__delivery-cont._active .col-1__delivery-toGo {
+  background-color: #de9447;
+}
+
+.col-1__delivery-cont._active .col-1__delivery-del {
+  background-color: #de9447;
+}
+
+.col-1__delivery-cont._active button {
+  color: #de9447;
+}
+
 .checkout-form {
   padding: 20px;
-  background-color: #ebebeb;
+  background-color: white;
   border-radius: 30px;
   display: -webkit-box;
   display: -ms-flexbox;

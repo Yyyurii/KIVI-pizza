@@ -1,5 +1,7 @@
 .order {
 
+  background-color: rgb(235, 235, 235);
+
   padding: 20px;
 
   &._active {
@@ -120,15 +122,31 @@
         color: #de9447;
       }
 
-      border: 1px solid #de9447;
+      background-color: white;
+      border: 0px solid #de9447;
     }
 
+    &._active {
+      .col-1__delivery-toGo {
+        background-color: #de9447;
+      }
+
+      .col-1__delivery-del {
+        background-color: #de9447;
+      }
+
+      button {
+        color: #de9447;
+      }
+      border: 0px solid #de9447;
+      background-color: white;
+    }
   }
 }
 
 .checkout-form {
   padding: 20px;
-  background-color: rgb(235, 235, 235);
+  background-color: white;
   border-radius: 30px;
   display: flex;
   flex-direction: column;
