@@ -1,25 +1,30 @@
 <?php
+    $time = $_POST['time'];
     $name = $_POST['name'];
-    $surname = $_POST['surname'];
 	$phone = $_POST['phone'];
-    $email = $_POST['email'];
-    $text = $_POST['text'];
     $street = $_POST['street'];
     $house = $_POST['house'];
+    $flat = $_POST['flat'];
+    $entrance = $_POST['entrance'];
+    $floor = $_POST['floor'];
+    $comment = $_POST['comment'];
 
 	$to = "yurii.kryvko@gmail.com"; 
 	$date = date ("d.m.Y"); 
 	$time = date ("h:i");
-	$from = $email;
+	$from = $to;
 	$subject = "Заявка c сайта";
 
 	
 	$msg="
-    Имя: $name /n
-    Фамилия: $surname /n
+    ім'я: $name /n
     Телефон: $phone /n
-    Почта: $email /n
-    Текст: $text"; 	
+    Вулиця: $street /n
+    Будинок: $house /n
+    Квартира: $flat /n
+    Під'їзд: $entrance /n
+    Поверх: $floor /n
+    Текст: $comment"; 	
 	mail($to, $subject, $msg, "From: $from ");
 
 ?>
