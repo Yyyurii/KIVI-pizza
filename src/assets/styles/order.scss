@@ -72,6 +72,13 @@
     appearance: none;
   }
 
+  &__location {
+    display: flex;
+    align-items: center;
+    padding: 0 0 30px 0px;
+    font-size: 18px;
+  }
+
   &__order-type {
     display: flex;
     justify-content: space-between;
@@ -138,6 +145,7 @@
       button {
         color: #de9447;
       }
+
       border: 0px solid #de9447;
       background-color: white;
     }
@@ -235,5 +243,19 @@
     input {
       width: 275px;
     }
+  }
+}
+
+.col-1__delivery-active {
+  display: none;
+  &._active {
+    display: block;
+  }
+}
+
+.col-1__toGo-active {
+  display: none;
+  &._active {
+    display: block;
   }
 }

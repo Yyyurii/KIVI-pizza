@@ -7,67 +7,100 @@
         <h1>Оформлення Замовлення</h1>
       </div>
       <div class="col-1__order-type">
-        <div class="col-1__delivery-cont _active">
+        <div class="col-1__delivery-cont col-1__delivery-cont_del  _active">
           <div class="col-1__delivery-del"></div><button class="col-1__delivery-btn"> Доставка</button>
         </div>
-        <div class="col-1__delivery-cont">
+        <div class="col-1__delivery-cont col-1__delivery-cont_toGo">
           <div class="col-1__delivery-toGo"></div><button class="col-1__delivery-btn"> Самовиніс</button>
         </div>
       </div>
 
-      <form action="sender.php" method="POST">
-        <input type="hidden" name="project_name" value="KIVI">
-        <input type="hidden" name="admin_email" value="kivipizza2+n4z4mlhcthfwkvtulaa5@boards.trello.com">
-        <input type="hidden" name="form_subject" value="Order">
+      <div class="col-1__delivery-active _active">
+        <form action="sender.php" method="POST">
 
-        <div class="col-1__checkout-form checkout-form">
-          <div class="checkout-form__contact-block">
-            <h3>Контакти</h3>
-            <div class="checkout-form__contact-inputs-cont">
-              <input type="text" name="name" placeholder="Ім'я" class="checkout-form__input-name" value="">
-              <input id="phone" type="text" name="phone" placeholder="Телефон" class="checkout-form__input-phone" value="">
+          <div class="col-1__checkout-form checkout-form">
+            <div class="checkout-form__contact-block">
+              <h3>Контакти</h3>
+              <div class="checkout-form__contact-inputs-cont">
+                <input type="text" name="name" placeholder="Ім'я" class="checkout-form__input-name" value="">
+                <input id="phone" type="text" name="phone" placeholder="Телефон" class="checkout-form__input-phone"
+                  value="">
+              </div>
             </div>
-          </div>
-          <div class="checkout-form__address-block address-block">
-            <h3>Адрес</h3>
-            <div class="address-block__wrap">
-              <div class="address-block__street">
-                <input type="text" name="street" placeholder="Вулиця" class="address-block__input-street" value="">
-              </div>
-              <div class="address-block__house">
-                <input type="text" name="house" placeholder="Будинок" class="address-block__input-house" value="">
-              </div>
-              <div class="address-block__flat">
-                <input type="text" name="flat" placeholder="Квартира" class="address-block__input-flat" value="">
-              </div>
-              <div class="address-block__entrance">
-                <input type="text" name="entrance" placeholder="Під'їзд" class="address-block__input-entrance" value="">
-              </div>
-              <div class="address-block__floor">
-                <input type="text" name="floor" placeholder="Поверх" class="address-block__input-floor" value="">
-              </div>
-              <div class="address-block__comment">
-                <textarea name="comment" placeholder="Коментар" class="address-block__input-comment"
-                  value=""></textarea>
-              </div>
+            <div class="checkout-form__address-block address-block">
+              <h3>Адрес</h3>
+              <div class="address-block__wrap">
+                <div class="address-block__street">
+                  <input type="text" name="street" placeholder="Вулиця" class="address-block__input-street" value="">
+                </div>
+                <div class="address-block__house">
+                  <input type="text" name="house" placeholder="Будинок" class="address-block__input-house" value="">
+                </div>
+                <div class="address-block__flat">
+                  <input type="text" name="flat" placeholder="Квартира" class="address-block__input-flat" value="">
+                </div>
+                <div class="address-block__entrance">
+                  <input type="text" name="entrance" placeholder="Під'їзд" class="address-block__input-entrance"
+                    value="">
+                </div>
+                <div class="address-block__floor">
+                  <input type="text" name="floor" placeholder="Поверх" class="address-block__input-floor" value="">
+                </div>
+                <div class="address-block__comment">
+                  <textarea name="comment" placeholder="Коментар" class="address-block__input-comment"
+                    value=""></textarea>
+                </div>
 
-            </div>
-          </div>
-          <div class="checkout-form__time-block time-block">
-            <h3>Час</h3>
-            <div class="time-block__wrap">
-              <!-- <div class="time-block__date-cont">
-                <p>Дата</p>
-                <input name="date" id="datepicker" placeholder="" class="time-block__datepicker" value="">
-              </div> -->
-              <div class="time-block__time-cont">
-                <input name="time" id="timepicker" placeholder="Найближчий час" class="time-block__timepicker" value="Найближчий час">
               </div>
             </div>
+            <div class="checkout-form__time-block time-block">
+              <h3>Час</h3>
+              <div class="time-block__wrap">
+                <!-- <div class="time-block__date-cont">
+                  <p>Дата</p>
+                  <input name="date" id="datepicker" placeholder="" class="time-block__datepicker" value="">
+                </div> -->
+                <div class="time-block__time-cont">
+                  <input name="time" id="timepicker" placeholder="Найближчий час" class="time-block__timepicker"
+                    value="Найближчий час">
+                </div>
+              </div>
+            </div>
+            <button type="button" class="order__btn">Замовити</button>
           </div>
-          <button type="button" class="order__btn">Замовити</button>
-        </div>
-      </form>
+        </form>
+      </div>
+      <!-- toGo active  -->
+      <div class="col-1__toGo-active">
+        <form action="sender.php" method="POST">
+
+          <div class="col-1__checkout-form checkout-form">
+            <div class="col-1__location"><img src="img/icons/location-gray.svg" alt="location">Наша адреса: вул. Чубинського 8а</div>
+            <div class="checkout-form__contact-block">
+              <h3>Контакти</h3>
+              <div class="checkout-form__contact-inputs-cont">
+                <input type="text" name="name" placeholder="Ім'я" class="checkout-form__input-name" value="">
+                <input id="phone" type="text" name="phone" placeholder="Телефон" class="checkout-form__input-phone"
+                  value="">
+              </div>
+            </div>
+            <div class="checkout-form__time-block time-block">
+              <h3>Час</h3>
+              <div class="time-block__wrap">
+                <!-- <div class="time-block__date-cont">
+                  <p>Дата</p>
+                  <input name="date" id="datepicker" placeholder="" class="time-block__datepicker" value="">
+                </div> -->
+                <div class="time-block__time-cont">
+                  <input name="time" id="timepicker" placeholder="Найближчий час" class="time-block__timepicker"
+                    value="Найближчий час">
+                </div>
+              </div>
+            </div>
+            <button type="button" class="order__btn">Замовити</button>
+          </div>
+        </form>
+      </div>
 
     </div>
 
@@ -92,17 +125,3 @@
 
 
 </section>
-
-
-<!-- <div class="order__contact">
-  <form action="mail.php" method="POST">
-    <input type="hidden" name="project_name" value="KIVI">
-    <input type="hidden" name="admin_email" value="kivipizza2+n4z4mlhcthfwkvtulaa5@boards.trello.com">
-    <input type="hidden" name="form_subject" value="Order">
-
-    <input required placeholder="Ім'я" type="text" name="name" id="name">
-    <input required placeholder="Телефон" type="number" name="phone" id="phone">
-    <textarea placeholder="Коментар" name="comment" id="comment" cols="30" rows="3"></textarea><br>
-    <button type="submit" class="order__btn">Замовити</button>
-  </form>
-</div> -->
