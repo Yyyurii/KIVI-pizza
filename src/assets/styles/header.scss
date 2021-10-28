@@ -244,6 +244,9 @@ hr {
 }
 
 .basket {
+
+	cursor: pointer;
+
 	&__list {
 		position: absolute;
 		top: 55px;

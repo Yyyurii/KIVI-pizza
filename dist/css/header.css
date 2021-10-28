@@ -173,6 +173,10 @@ hr {
   margin: 10px 0;
 }
 
+.basket {
+  cursor: pointer;
+}
+
 .basket__list {
   position: absolute;
   top: 55px;

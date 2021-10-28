@@ -307,12 +307,12 @@ function checkTypeDelivery(e) {
   const toGoBlock = document.querySelector('.col-1__toGo-active');
   const deliveryBlock = document.querySelector('.col-1__delivery-active');
 
-  if (e.target.classList.contains('col-1__delivery-cont_toGo')) {
+  if (e.target.classList.contains('col-1__delivery-cont_toGo') || e.target.classList.contains('col-1__delivery-toGo')) {
     toGoBlock.classList.add('_active');
     deliveryBlock.classList.remove('_active');
   }
 
-  if (e.target.classList.contains('col-1__delivery-cont_del')) {
+  if (e.target.classList.contains('col-1__delivery-cont_del') || e.target.classList.contains('col-1__delivery-del')) {
     deliveryBlock.classList.add('_active');
     toGoBlock.classList.remove('_active');
   }
