@@ -201,9 +201,9 @@
 .address-block__wrap {
   display: grid;
   -ms-grid-columns: 1fr 10px 1fr 10px 1fr;
-  grid-template: repeat(3, 50px)/repeat(4, 1fr);
+  grid-template: repeat(4, 40px)/repeat(4, 1fr);
   grid-gap: 20px 10px;
-  grid-template-areas: 'street street street street' 'house flat entrance floor' 'comment comment . .';
+  grid-template-areas: 'street street street street' 'house flat entrance floor' 'comment comment . .' 'comment comment . .';
 }
 
 .address-block__street {
@@ -235,6 +235,7 @@
 }
 
 .address-block__comment textarea {
+  height: 60px;
   padding: 5px 10px;
 }
 
@@ -285,4 +286,18 @@
 
 .col-1__toGo-active._active {
   display: block;
+}
+
+@media (max-width: 767.98px) {
+  .checkout-form__contact-inputs-cont {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+
+  .address-block__wrap {
+    grid-template: repeat(5, 50px)/repeat(2, 1fr);
+    grid-template-areas: 'street street' 'house flat' 'entrance floor' 'comment comment' 'comment comment';
+  }
 }

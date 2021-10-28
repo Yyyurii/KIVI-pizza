@@ -173,6 +173,10 @@
   &__contact-inputs-cont {
     display: flex;
     gap: 15px;
+
+    @media(max-width:767.98px) {
+      flex-direction: column;
+    }
   }
 }
 
@@ -180,12 +184,22 @@
   &__wrap {
     display: grid;
     -ms-grid-columns: 1fr 10px 1fr 10px 1fr;
-    grid-template: repeat(3, 50px)/repeat(4, 1fr);
+    grid-template: repeat(4, 40px)/repeat(4, 1fr);
     grid-gap: 20px 10px;
     grid-template-areas:
       'street street street street'
       'house flat entrance floor'
+      'comment comment . .'
       'comment comment . .';
+    @media(max-width:767.98px) {
+      grid-template: repeat(5, 50px)/repeat(2, 1fr);
+      grid-template-areas:
+      'street street'
+      'house flat'
+      'entrance floor'
+      'comment comment'
+      'comment comment';
+    }
   }
 
   &__street {
@@ -216,6 +230,7 @@
     grid-area: comment;
 
     textarea {
+      height: 60px;
       padding: 5px 10px;
     }
   }
@@ -249,6 +264,7 @@
 
 .col-1__delivery-active {
   display: none;
+
   &._active {
     display: block;
   }
@@ -256,6 +272,7 @@
 
 .col-1__toGo-active {
   display: none;
+
   &._active {
     display: block;
   }
