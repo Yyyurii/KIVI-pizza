@@ -209,7 +209,7 @@ function updateCart(productButton, productId, productAdd = true) {
       cartIcon.insertAdjacentHTML('beforeend', `<span>1</span>`);
     }
     if (!cartProduct) {
-      const orderList = document.querySelector('.order__list');
+      const orderList = document.querySelector('.col-2__list');
       const product = document.querySelector(`[data-pid="${productId}"]`);
       const cartProductImage = product.querySelector('.card__img');
       const cartProductTitle = product.querySelector('.card__title').innerHTML;
@@ -265,13 +265,14 @@ $('#timepicker').timepicker({
   startTime: '09:00',
   dynamic: false,
   dropdown: true,
-  scrollbar: true
+  scrollbar: true,
+  value: this.value
 });
 
 //Відправка форми
 jQuery(document).ready(function () {
   $("#phone").mask("+380 (99) 999-99-99");
-
+  
   jQuery('.order__btn').click(function () {
     var form = jQuery(this).closest('form');
 
@@ -292,6 +293,7 @@ jQuery(document).ready(function () {
       });
     }
   });
+  
 });
 
 
@@ -317,3 +319,4 @@ function checkTypeDelivery(e) {
     toGoBlock.classList.remove('_active');
   }
 }
+
