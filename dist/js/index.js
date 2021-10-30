@@ -194,11 +194,10 @@ function addToCart(productButton, productId) {
 }
 
 function updateCart(productButton, productId, productAdd = true) {
-  const cart = document.querySelector('.basket');
+  const cart = document.querySelector('.actions');
   const cartIcon = cart.querySelector('.basket__icon');
   const cartQuantity = cart.querySelector('span');
   const cartProduct = document.querySelector(`[data-cart-pid="${productId}"]`);
-  const cartList = document.querySelector('.basket__list');
 
   // Добавляем
   if (productAdd) {
@@ -208,6 +207,7 @@ function updateCart(productButton, productId, productAdd = true) {
     } else {
       cartIcon.insertAdjacentHTML('beforeend', `<span>1</span>`);
     }
+    
     if (!cartProduct) {
       const orderList = document.querySelector('.col-2__list');
       const product = document.querySelector(`[data-pid="${productId}"]`);
@@ -233,7 +233,7 @@ function updateCart(productButton, productId, productAdd = true) {
           <hr>
         </div>
       `;
-      cartList.insertAdjacentHTML('beforeend', `${cartProductContent}`);
+      // cartList.insertAdjacentHTML('beforeend', `${cartProductContent}`);
       orderList.insertAdjacentHTML('beforeend', `${cartProductContent}`);
     } else {
       const cartProductQuantity = cartProduct.querySelector('.basket__quantity');
@@ -309,12 +309,12 @@ function checkTypeDelivery(e) {
   const toGoBlock = document.querySelector('.col-1__toGo-active');
   const deliveryBlock = document.querySelector('.col-1__delivery-active');
 
-  if (e.target.classList.contains('col-1__delivery-cont_toGo') || e.target.classList.contains('col-1__delivery-toGo')) {
+  if (e.target.classList.contains('col-1__delivery-cont_toGo') || e.target.classList.contains('col-1__delivery-toGo') || e.target.classList.contains('col-1__delivery-btn')) {
     toGoBlock.classList.add('_active');
     deliveryBlock.classList.remove('_active');
   }
 
-  if (e.target.classList.contains('col-1__delivery-cont_del') || e.target.classList.contains('col-1__delivery-del')) {
+  if (e.target.classList.contains('col-1__delivery-cont_del') || e.target.classList.contains('col-1__delivery-del') || e.target.classList.contains('col-1__delivery-btn')) {
     deliveryBlock.classList.add('_active');
     toGoBlock.classList.remove('_active');
   }

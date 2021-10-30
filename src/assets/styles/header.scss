@@ -219,6 +219,9 @@ $maxWidthContainer: 1170;
 
 .actions {
 	position: relative;
+	span {
+		color: #000;
+	}
 
 	&__basket-quantity {
 		background-color: white;
@@ -311,13 +314,7 @@ hr {
 		font-size: 22px;
 	}
 
-	&__btn {
-		padding: 10px 20px 8px;
-		background-color: #de9447;
-		border-radius: 5px;
-		color: #fff;
-		margin: auto;
-	}
+	
 }
 
 @media(max-width:767.98px) {

@@ -317,6 +317,10 @@ body._lock {
   position: relative;
 }
 
+.actions span {
+  color: #000;
+}
+
 .actions__basket-quantity {
   background-color: white;
   border-radius: 50%;
@@ -426,14 +430,6 @@ hr {
 
 .basket__price {
   font-size: 22px;
-}
-
-.basket__btn {
-  padding: 10px 20px 8px;
-  background-color: #de9447;
-  border-radius: 5px;
-  color: #fff;
-  margin: auto;
 }
 
 .footer {
