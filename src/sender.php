@@ -8,6 +8,7 @@
     $entrance = $_POST['entrance'];
     $floor = $_POST['floor'];
     $comment = $_POST['comment'];
+    $pizzaName = $_POST['pizza_name[]'];
 
 	$to = "yurii.kryvko@gmail.com"; 
 	$date = date ("d.m.Y"); 
@@ -24,7 +25,8 @@
     Квартира: $flat /n
     Під'їзд: $entrance /n
     Поверх: $floor /n
-    Текст: $comment"; 	
+    Текст: $comment /n	
+    Піца: $pizzaName"; 	
 	mail($to, $subject, $msg, "From: $from ");
 
 ?>

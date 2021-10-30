@@ -207,7 +207,7 @@ function updateCart(productButton, productId, productAdd = true) {
     } else {
       cartIcon.insertAdjacentHTML('beforeend', `<span>1</span>`);
     }
-    
+
     if (!cartProduct) {
       const orderList = document.querySelector('.col-2__list');
       const product = document.querySelector(`[data-pid="${productId}"]`);
@@ -219,8 +219,10 @@ function updateCart(productButton, productId, productAdd = true) {
           <div data-cart-pid="${productId}" class="basket__item">
             <img class="basket__item-img" src="${cartProductImage.attributes.src.nodeValue}" alt="">
             <div class="basket__details">
+              <input type="hidden" name="pizza_name[]" " value="${cartProductTitle}">
               <span class="basket__title">${cartProductTitle}</span>
               <div class="basket__cost">
+                  <input type="hidden" name="pizza_quantity[]" " value="">
                   <span class="basket__quantity">1</span>X
                   <img class="basket__price-img" src="./img/icons/hryvnia-gray.svg" alt="hryvnia">
                   <span class="basket__price">${cartProductPrice}</span>
@@ -272,7 +274,7 @@ $('#timepicker').timepicker({
 //Відправка форми
 jQuery(document).ready(function () {
   $("#phone").mask("+380 (99) 999-99-99");
-  
+
   jQuery('.order__btn').click(function () {
     var form = jQuery(this).closest('form');
 
@@ -293,7 +295,7 @@ jQuery(document).ready(function () {
       });
     }
   });
-  
+
 });
 
 
