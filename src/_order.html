@@ -17,6 +17,11 @@
 
       <div class="col-1__delivery-active _active">
         <form action="sender.php" method="POST">
+          <!-- Hidden Required Fields -->
+          <input type="hidden" name="project_name" value="Site Name">
+          <input type="hidden" name="admin_email" value="yurii.kryvko@gmail.com">
+          <input type="hidden" name="form_subject" value="Form Subject">
+          <!-- END Hidden Required Fields -->
 
           <div class="col-1__checkout-form checkout-form">
             <div class="checkout-form__contact-block">
@@ -75,7 +80,8 @@
         <form action="sender.php" method="POST">
 
           <div class="col-1__checkout-form checkout-form">
-            <div class="col-1__location"><img src="img/icons/location-gray.svg" alt="location">Наша адреса: вул. Чубинського 8а</div>
+            <div class="col-1__location"><img src="img/icons/location-gray.svg" alt="location">Наша адреса: вул.
+              Чубинського 8а</div>
             <div class="checkout-form__contact-block">
               <h3>Контакти</h3>
               <div class="checkout-form__contact-inputs-cont">

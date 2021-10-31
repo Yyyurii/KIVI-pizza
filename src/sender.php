@@ -1,34 +1,49 @@
 <?php
-    $time = $_POST['time'];
-    $name = $_POST['name'];
-	$phone = $_POST['phone'];
-    $street = $_POST['street'];
-    $house = $_POST['house'];
-    $flat = $_POST['flat'];
-    $entrance = $_POST['entrance'];
-    $floor = $_POST['floor'];
-    $comment = $_POST['comment'];
-    $pizzaName = $_POST['pizza_name[]'];
 
-	$to = "yurii.kryvko@gmail.com"; 
-	$date = date ("d.m.Y"); 
-	$time = date ("h:i");
-	$from = $to;
-	$subject = "Заявка c сайта";
+$method = $_SERVER['REQUEST_METHOD'];
 
-	
-	$msg="
-    ім'я: $name /n
-    Телефон: $phone /n
-    Вулиця: $street /n
-    Будинок: $house /n
-    Квартира: $flat /n
-    Під'їзд: $entrance /n
-    Поверх: $floor /n
-    Текст: $comment /n	
-    Піца: $pizzaName"; 	
-	mail($to, $subject, $msg, "From: $from ");
+//Script Foreach
+$c = true;
+if ( $method === 'POST' ) {
 
-?>
+	$project_name = trim($_POST["project_name"]);
+	$admin_email  = trim($_POST["admin_email"]);
+	$form_subject = trim($_POST["form_subject"]);
 
-<p>Привет, форма отправлена</p>
+	foreach ( $_POST as $key => $value ) {
+		if ( $value != "" && $key != "project_name" && $key != "admin_email" && $key != "form_subject" ) {
+			$message .= "
+			" . ( ($c = !$c) ? '<tr>':'<tr style="background-color: #f8f8f8;">' ) . "
+				<td style='padding: 10px; border: #e9e9e9 1px solid;'><b>$key</b></td>
+				<td style='padding: 10px; border: #e9e9e9 1px solid;'>$value</td>
+			</tr>
+			";
+		}
+	}
+} else if ( $method === 'GET' ) {
+
+	$project_name = trim($_GET["project_name"]);
+	$admin_email  = trim($_GET["admin_email"]);
+	$form_subject = trim($_GET["form_subject"]);
+
+	foreach ( $_GET as $key => $value ) {
+		if ( $value != "" && $key != "project_name" && $key != "admin_email" && $key != "form_subject" ) {
+			$message .= "
+			" . ( ($c = !$c) ? '<tr>':'<tr style="background-color: #f8f8f8;">' ) . "
+				<td style='padding: 10px; border: #e9e9e9 1px solid;'><b>$key</b></td>
+				<td style='padding: 10px; border: #e9e9e9 1px solid;'>$value</td>
+			</tr>
+			";
+		}
+	}
+}
+
+$message = "<table style='width: 100%;'>$message</table>";
+
+function adopt($text) {
+	return '=?UTF-8?B?'.Base64_encode($text).'?=';
+}
+
+$headers = $admin_email;
+
+mail($admin_email, adopt($form_subject), $message, $headers );
