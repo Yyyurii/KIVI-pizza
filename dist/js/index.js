@@ -99,15 +99,20 @@ function documentActions(e) {
   //   order.style.display = 'none';
   //   mainContent.style.display = 'block';
   // });
-
   if (targetElement.classList.contains('basket__btn')) {
     const order = document.querySelector('.order');
     const page = document.querySelector('.page');
-    const basketList = document.querySelector('.basket__list');
+    // const basketList = document.querySelector('.basket__list');
 
-    order.classList.add('_active');
-    page.style.display = 'none';
-    basketList.classList.remove('_active');
+    if (document.querySelector('.col-2__list').children.length > 0) {
+      order.classList.add('_active');
+      page.style.display = 'none';
+      // basketList.classList.remove('_active');
+    } else {
+      const emptyBasketMessage = document.querySelector('.actions p');
+      emptyBasketMessage.classList.add('_active');
+      setTimeout(() => emptyBasketMessage.classList.remove('_active'), 3000);
+    }
   }
 
   if (targetElement.closest('.header__navbar') || targetElement.closest('.logo')) {
@@ -311,12 +316,12 @@ function checkTypeDelivery(e) {
   const toGoBlock = document.querySelector('.col-1__toGo-active');
   const deliveryBlock = document.querySelector('.col-1__delivery-active');
 
-  if (e.target.classList.contains('col-1__delivery-cont_toGo') || e.target.classList.contains('col-1__delivery-toGo') || e.target.classList.contains('col-1__delivery-btn')) {
+  if (e.target.classList.contains('col-1__delivery-cont_toGo') || e.target.classList.contains('col-1__delivery-toGo-btn') || e.target.classList.contains('col-1__delivery-toGo')) {
     toGoBlock.classList.add('_active');
     deliveryBlock.classList.remove('_active');
   }
 
-  if (e.target.classList.contains('col-1__delivery-cont_del') || e.target.classList.contains('col-1__delivery-del') || e.target.classList.contains('col-1__delivery-btn')) {
+  if (e.target.classList.contains('col-1__delivery-cont_del') || e.target.classList.contains('col-1__delivery-del-btn') || e.target.classList.contains('col-1__delivery-del')) {
     deliveryBlock.classList.add('_active');
     toGoBlock.classList.remove('_active');
   }

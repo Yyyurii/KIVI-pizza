@@ -55,7 +55,7 @@ $maxWidthContainer: 1170;
 			color: #666;
 		}
 
-		h3 {
+		p {
 			display: flex;
 			align-items: center;
 			margin: 0 5px;
@@ -221,6 +221,25 @@ $maxWidthContainer: 1170;
 	position: relative;
 	span {
 		color: #000;
+	}
+
+	p {
+		position: absolute;
+    left: -127px;
+    background: #efc17d;
+    white-space: nowrap;
+    z-index: 55;
+    border-radius: 15px;
+    padding: 7px 10px;
+    border: 1px solid #db4a4a;
+    top: 85px;
+		opacity: 0;
+
+		&._active {
+			transform: translateY(-100%);
+			transition: 0.5s;
+			opacity: 1;
+		}
 	}
 
 	&__basket-quantity {

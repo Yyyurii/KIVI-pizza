@@ -16,6 +16,9 @@
     margin: 0 auto;
     display: flex;
     gap: 35px;
+    @media(max-width:1024px) {
+      flex-direction: column;
+    }
   }
 
   &__list-cont {
@@ -67,6 +70,9 @@
 .col-1 {
 
   flex: 1 1 60%;
+  @media(max-width:1024px) {
+    order: 2;
+  }
 
   input,
   textarea {
@@ -290,6 +296,9 @@
 }
 
 .col-2 {
+  @media(max-width:1024px) {
+    order: 1;
+  }
   &__list {
     padding: 20px;
     background-color: #fff;

@@ -22,7 +22,7 @@
   color: #666;
 }
 
-.header__top h3 {
+.header__top p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -151,6 +151,29 @@
 
 .actions span {
   color: #000;
+}
+
+.actions p {
+  position: absolute;
+  left: -127px;
+  background: #efc17d;
+  white-space: nowrap;
+  z-index: 55;
+  border-radius: 15px;
+  padding: 7px 10px;
+  border: 1px solid #db4a4a;
+  top: 85px;
+  opacity: 0;
+}
+
+.actions p._active {
+  -webkit-transform: translateY(-100%);
+      -ms-transform: translateY(-100%);
+          transform: translateY(-100%);
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  opacity: 1;
 }
 
 .actions__basket-quantity {
