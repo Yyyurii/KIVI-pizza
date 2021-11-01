@@ -228,7 +228,14 @@ function updateCart(productButton, productId, productAdd = true) {
               <span class="basket__title">${cartProductTitle}</span>
               <div class="basket__cost">
                   <input type="hidden" name="pizza_quantity[]" " value="">
-                  <span class="basket__quantity">1</span>X
+                  <div class="order__quantity">
+                    <div class="order__minus-quantity quantity-img">
+                    </div>
+                    <span class="order__current-quantity basket__quantity">1</span>
+                    <div class="order__plus-quantity quantity-img">
+                    </div>
+                  </div>
+                  <div class="order__multiply">X</div>
                   <img class="basket__price-img" src="./img/icons/hryvnia-gray.svg" alt="hryvnia">
                   <span class="basket__price">${cartProductPrice}</span>
               </div>

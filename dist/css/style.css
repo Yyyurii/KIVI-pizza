@@ -434,21 +434,15 @@ hr {
 .basket__cost {
   -ms-flex-item-align: center;
       align-self: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .basket__title {
   font-size: 30px;
   margin: 0 0 10px;
   color: #de9447;
-}
-
-.basket__quantity {
-  font-size: 20px;
-  padding: 0 20px 0 0;
-}
-
-.basket__price-img {
-  padding: 0 0 0 20px;
 }
 
 .basket__price {
@@ -1219,6 +1213,46 @@ hr {
 
 .order textarea {
   border: 1px solid;
+}
+
+.order__quantity {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+}
+
+.order__quantity .quantity-img {
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+}
+
+.order__current-quantity {
+  font-size: 25px;
+  padding: 0px 10px;
+}
+
+.order__plus-quantity {
+  background-image: url(../img/icons/plus.svg);
+}
+
+.order__minus-quantity {
+  background-image: url(../img/icons/minus.svg);
+}
+
+.order__multiply {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0px 20px;
 }
 
 .col-1 {

@@ -74,6 +74,46 @@
   border: 1px solid;
 }
 
+.order__quantity {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+}
+
+.order__quantity .quantity-img {
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+}
+
+.order__current-quantity {
+  font-size: 25px;
+  padding: 0px 10px;
+}
+
+.order__plus-quantity {
+  background-image: url(../img/icons/plus.svg);
+}
+
+.order__minus-quantity {
+  background-image: url(../img/icons/minus.svg);
+}
+
+.order__multiply {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0px 20px;
+}
+
 .col-1 {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 60%;

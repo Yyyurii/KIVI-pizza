@@ -65,6 +65,38 @@
   textarea {
     border: 1px solid;
   }
+
+  &__quantity {
+    display: flex;
+    align-items: baseline;
+   
+    .quantity-img {
+      background-repeat: no-repeat;
+      background-position: center;
+      cursor: pointer;
+      width: 20px;
+      height: 20px;
+    }
+  }
+  
+  &__current-quantity{
+    font-size: 25px;
+    padding: 0px 10px;
+  }
+
+  &__plus-quantity {
+    background-image: url(../img/icons/plus.svg);
+  }
+
+  &__minus-quantity {
+    background-image: url(../img/icons/minus.svg);
+  }
+
+  &__multiply{
+    display: flex;
+    align-items: center;
+    margin: 0px 20px;
+  }
 }
 
 .col-1 {

@@ -312,21 +312,13 @@ hr {
 
 	&__cost {
 		align-self: center;
+		display: flex;
 	}
 
 	&__title {
 		font-size: 30px;
 		margin: 0 0 10px;
 		color: #de9447;
-	}
-
-	&__quantity {
-		font-size: 20px;
-		padding: 0 20px 0 0;
-	}
-
-	&__price-img {
-		padding: 0 0 0 20px;
 	}
 
 	&__price {
