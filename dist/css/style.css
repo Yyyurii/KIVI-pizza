@@ -1499,9 +1499,18 @@ hr {
 .col-2__list {
   padding: 20px;
   background-color: #fff;
-  border-radius: 30px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
   overflow: auto;
-  max-height: 100vh;
+  max-height: 370px;
+}
+
+.col-2__price {
+  padding: 0 20px 20px;
+  background-color: #fff;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  font-size: 30px;
 }
 
 .bake {
@@ -1693,6 +1702,10 @@ hr {
 }
 
 @media (max-width: 768px) {
+  .col-2__list {
+    max-height: 295px;
+  }
+
   .scroll-up {
     right: 15px;
   }

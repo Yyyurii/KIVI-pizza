@@ -102,6 +102,8 @@ function documentActions(e) {
     if (document.querySelector('.col-2__list').children.length > 0) {
       order.classList.add('_active');
       page.style.display = 'none';
+      calcPizzaCost();
+      totalPrice();
     } else {
       const emptyBasketMessage = document.querySelector('.actions p');
       emptyBasketMessage.classList.add('_active');
@@ -135,7 +137,9 @@ function documentActions(e) {
     const parentEl = targetElement.closest(`[data-cart-pid`);
     const quantityEl = parentEl.querySelector('.order__current-quantity');
     quantityEl.innerHTML = ++quantityEl.innerHTML;
-    console.log(quantityEl);
+    
+    calcPizzaCost();
+    totalPrice();
   }
 
   if(targetElement.classList.contains('order__minus-quantity')) {
@@ -143,10 +147,46 @@ function documentActions(e) {
     const quantityEl = parentEl.querySelector('.order__current-quantity');
     if(quantityEl.innerHTML > 1) {
       quantityEl.innerHTML = --quantityEl.innerHTML;
-      console.log(quantityEl);
+      
+      calcPizzaCost();
+      totalPrice();
     } 
   }
 
+}
+
+//total func
+function totalPrice() {
+  const totalPrice = document.querySelector('.col-2__price-value');
+  const totalPriceElInput = document.querySelectorAll('.basket__price-total-input');
+  let priceArr = [];
+
+  totalPriceElInput.forEach(item => {
+    priceArr.push(parseInt(item.value));
+  })
+
+  let result = priceArr.reduce(function(sum, current) {
+    return sum + current;
+  }, 0);
+
+  totalPrice.innerHTML = result + ' грн';
+}
+
+//calculate the cost of pizza
+function calcPizzaCost(parent) {
+  // const priceEl = parent.querySelector('.basket__price').innerHTML;
+  // const quantityEl = parent.querySelector('.order__current-quantity').innerHTML;
+  // const totalPriceElInput = parent.querySelector('.basket__price-total-input');
+  // totalPriceElInput.value = parseInt(priceEl)  * parseInt(quantityEl);
+
+  const productItems = document.querySelectorAll(`[data-cart-pid`);
+  console.log(productItems);
+  productItems.forEach(item => {
+    const priceEl = item.querySelector('.basket__price').innerHTML;
+    const quantityEl = item.querySelector('.order__current-quantity').innerHTML;
+    const totalPriceElInput = item.querySelector('.basket__price-total-input');
+    totalPriceElInput.value = parseInt(priceEl)  * parseInt(quantityEl);
+  })
 }
 
 //add to cart
@@ -239,6 +279,7 @@ function updateCart(productButton, productId, productAdd = true) {
                   <div class="order__multiply">X</div>
                   <img class="basket__price-img" src="./img/icons/hryvnia-gray.svg" alt="hryvnia">
                   <span class="basket__price">${cartProductPrice}</span>
+                  <input type="hidden" name="basket__price-total-input" class="basket__price-total-input" value="${cartProductPrice}">
               </div>
             </div>
             <div class="basket__delete-btn">
@@ -252,7 +293,9 @@ function updateCart(productButton, productId, productAdd = true) {
       orderList.insertAdjacentHTML('beforeend', `${cartProductContent}`);
     } else {
       const cartProductQuantity = cartProduct.querySelector('.basket__quantity');
+      const cartProductQuantityInput = cartProduct.querySelector('.basket__price-total-input');
       cartProductQuantity.innerHTML = ++cartProductQuantity.innerHTML;
+      cartProductQuantityInput.value = ++cartProductQuantityInput.value;
     }
 
     // После всех действий

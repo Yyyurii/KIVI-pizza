@@ -16,6 +16,7 @@
     margin: 0 auto;
     display: flex;
     gap: 35px;
+
     @media(max-width:1024px) {
       flex-direction: column;
     }
@@ -69,7 +70,7 @@
   &__quantity {
     display: flex;
     align-items: baseline;
-   
+
     .quantity-img {
       background-repeat: no-repeat;
       background-position: center;
@@ -78,8 +79,8 @@
       height: 20px;
     }
   }
-  
-  &__current-quantity{
+
+  &__current-quantity {
     font-size: 25px;
     padding: 0px 10px;
   }
@@ -92,7 +93,7 @@
     background-image: url(../img/icons/minus.svg);
   }
 
-  &__multiply{
+  &__multiply {
     display: flex;
     align-items: center;
     margin: 0px 20px;
@@ -102,6 +103,7 @@
 .col-1 {
 
   flex: 1 1 60%;
+
   @media(max-width:1024px) {
     order: 2;
   }
@@ -331,11 +333,25 @@
   @media(max-width:1024px) {
     order: 1;
   }
+
   &__list {
     padding: 20px;
     background-color: #fff;
-    border-radius: 30px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
     overflow: auto;
-    max-height: 100vh;
+    max-height: 370px;
+
+    @media(max-width:768px) {
+      max-height: 295px;
+    }
+  }
+
+  &__price {
+    padding: 0 20px 20px;
+    background-color: #fff;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    font-size: 30px;
   }
 }
