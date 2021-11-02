@@ -219,20 +219,21 @@ $maxWidthContainer: 1170;
 
 .actions {
 	position: relative;
+
 	span {
 		color: #000;
 	}
 
 	p {
 		position: absolute;
-    left: -127px;
-    background: #efc17d;
-    white-space: nowrap;
-    z-index: 55;
-    border-radius: 15px;
-    padding: 7px 10px;
-    border: 1px solid #db4a4a;
-    top: 85px;
+		left: -127px;
+		background: #efc17d;
+		white-space: nowrap;
+		z-index: 55;
+		border-radius: 15px;
+		padding: 7px 10px;
+		border: 1px solid #db4a4a;
+		top: 85px;
 		opacity: 0;
 
 		&._active {
@@ -325,7 +326,11 @@ hr {
 		font-size: 22px;
 	}
 
-	
+	&__price-img {
+		height: 20px;
+	}
+
+
 }
 
 @media(max-width:767.98px) {
@@ -341,23 +346,22 @@ hr {
 		}
 
 		&__title {
-			font-size: 16px;
-			;
+			font-size: 25px;
 		}
 
-		&__quantity {
-			font-size: 16px;
-			padding: 0 15px 0 0;
-		}
+		// &__quantity {
+		// 	font-size: 16px;
+		// 	padding: 0 15px 0 0;
+		// }
 
-		&__price-img {
-			padding: 0 0 0 15px;
-			height: 16px;
-		}
+		// &__price-img {
+		// 	padding: 0 0 0 15px;
+		// 	height: 16px;
+		// }
 
-		&__price {
-			font-size: 16px;
-		}
+		// &__price {
+		// 	font-size: 16px;
+		// }
 
 		&__delete-btn {
 			img {

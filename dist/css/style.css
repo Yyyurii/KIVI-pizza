@@ -449,6 +449,10 @@ hr {
   font-size: 22px;
 }
 
+.basket__price-img {
+  height: 20px;
+}
+
 .footer {
   background: #de9447;
 }
@@ -1711,21 +1715,7 @@ hr {
   }
 
   .basket__title {
-    font-size: 16px;
-  }
-
-  .basket__quantity {
-    font-size: 16px;
-    padding: 0 15px 0 0;
-  }
-
-  .basket__price-img {
-    padding: 0 0 0 15px;
-    height: 16px;
-  }
-
-  .basket__price {
-    font-size: 16px;
+    font-size: 25px;
   }
 
   .basket__delete-btn img {

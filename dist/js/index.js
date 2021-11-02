@@ -95,19 +95,13 @@ document.addEventListener("click", documentActions);
 function documentActions(e) {
   const targetElement = e.target;
 
-  // nav.addEventListener('click', (event) => {
-  //   order.style.display = 'none';
-  //   mainContent.style.display = 'block';
-  // });
   if (targetElement.classList.contains('basket__btn')) {
     const order = document.querySelector('.order');
     const page = document.querySelector('.page');
-    // const basketList = document.querySelector('.basket__list');
 
     if (document.querySelector('.col-2__list').children.length > 0) {
       order.classList.add('_active');
       page.style.display = 'none';
-      // basketList.classList.remove('_active');
     } else {
       const emptyBasketMessage = document.querySelector('.actions p');
       emptyBasketMessage.classList.add('_active');
@@ -130,20 +124,27 @@ function documentActions(e) {
     e.preventDefault();
   }
 
-  // if (targetElement.classList.contains('cart-header__icon') || targetElement.closest('.cart-header__icon')) {
-  //   if (document.querySelector('.cart-list').children.length > 0) {
-  //     document.querySelector('.cart-header').classList.toggle('_active');
-  //   }
-  //   e.preventDefault();
-  // } else if (!targetElement.closest('.cart-header') && !targetElement.classList.contains('actions-product__button')) {
-  //   document.querySelector('.cart-header').classList.remove('_active');
-  // }
 
   if (targetElement.classList.contains('basket__delete-btn') || targetElement.classList.contains('basket__delete-img')) {
-    console.log('click delete');
     const productId = targetElement.closest('.basket__item').dataset.cartPid;
     updateCart(targetElement, productId, false);
     e.preventDefault();
+  }
+
+  if(targetElement.classList.contains('order__plus-quantity')) {
+    const parentEl = targetElement.closest(`[data-cart-pid`);
+    const quantityEl = parentEl.querySelector('.order__current-quantity');
+    quantityEl.innerHTML = ++quantityEl.innerHTML;
+    console.log(quantityEl);
+  }
+
+  if(targetElement.classList.contains('order__minus-quantity')) {
+    const parentEl = targetElement.closest(`[data-cart-pid`);
+    const quantityEl = parentEl.querySelector('.order__current-quantity');
+    if(quantityEl.innerHTML > 1) {
+      quantityEl.innerHTML = --quantityEl.innerHTML;
+      console.log(quantityEl);
+    } 
   }
 
 }
