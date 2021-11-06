@@ -159,9 +159,10 @@ function documentActions(e) {
 function totalPrice() {
   const totalPrice = document.querySelector('.col-2__price-value');
   const totalPriceElInput = document.querySelectorAll('.basket__price-total-input');
+  const currentPriceElInput = document.querySelectorAll('.basket__price-current-input');
   let priceArr = [];
 
-  totalPriceElInput.forEach(item => {
+  currentPriceElInput.forEach(item => {
     priceArr.push(parseInt(item.value));
   })
 
@@ -170,6 +171,7 @@ function totalPrice() {
   }, 0);
 
   totalPrice.innerHTML = result + ' грн';
+  totalPriceElInput.value = result;
 }
 
 //calculate the cost of pizza
@@ -179,11 +181,11 @@ function calcPizzaCost(parent) {
   productItems.forEach(item => {
     const priceEl = item.querySelector('.basket__price').innerHTML;
     const quantityEl = item.querySelector('.order__current-quantity').innerHTML;
-    const totalPriceElInput = item.querySelector('.basket__price-total-input');
+    const currentPriceElInput = item.querySelector('.basket__price-current-input');
     const titleAndQuantityInput = item.querySelector('.basket__titleAndQuantityInput');
     const titleEl = item.querySelector('.basket__title').innerHTML;
 
-    totalPriceElInput.value = parseInt(priceEl) * parseInt(quantityEl);
+    currentPriceElInput.value = parseInt(priceEl) * parseInt(quantityEl);
     titleAndQuantityInput.value = `${titleEl} ${quantityEl}шт`;
   });
 };
@@ -281,6 +283,7 @@ function updateCart(productButton, productId, productAdd = true) {
                   <img class="basket__price-img" src="./img/icons/hryvnia-gray.svg" alt="hryvnia">
                   <span class="basket__price">${cartProductPrice}</span>
                   <input type="hidden" name="Всього до оплати" class="basket__price-total-input" value="">
+                  <input type="hidden" name="" class="basket__price-current-input" value="" disabled>
               </div>
             </div>
             <div class="basket__delete-btn">
