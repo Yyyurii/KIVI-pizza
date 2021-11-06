@@ -268,7 +268,7 @@ function updateCart(productButton, productId, productAdd = true) {
           <div data-cart-pid="${productId}" class="basket__item">
             <img class="basket__item-img" src="${cartProductImage.attributes.src.nodeValue}" alt="">
             <div class="basket__details">
-              <input class="basket__titleAndQuantityInput" type="hidden" name="pizza_name" " value="">
+              <input class="basket__titleAndQuantityInput" type="hidden" name="pizza_name[]" " value="">
               <span class="basket__title">${cartProductTitle}</span>
               <div class="basket__cost">
                   
@@ -282,7 +282,6 @@ function updateCart(productButton, productId, productAdd = true) {
                   <div class="order__multiply">X</div>
                   <img class="basket__price-img" src="./img/icons/hryvnia-gray.svg" alt="hryvnia">
                   <span class="basket__price">${cartProductPrice}</span>
-                  <input type="hidden" name="Всього до оплати" class="basket__price-total-input" value="">
                   <input type="hidden" name="" class="basket__price-current-input" value="" disabled>
               </div>
             </div>
