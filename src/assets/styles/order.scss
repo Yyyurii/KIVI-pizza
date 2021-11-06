@@ -120,6 +120,9 @@
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+    &.error {
+      border: 1px solid rgba(255, 44, 44, .5);
+    }
   }
 
   &__location {

@@ -20,38 +20,34 @@
         </div>
 
         <div class="col-1__delivery-active _active">
-          <!-- <form action="sender.php" method="POST">
-          <input type="hidden" name="project_name" value="Site Name">
-          <input type="hidden" name="admin_email" value="yurii.kryvko@gmail.com">
-          <input type="hidden" name="form_subject" value="Form Subject"> -->
 
           <div class="col-1__checkout-form checkout-form">
             <div class="checkout-form__contact-block">
               <h3>Контакти</h3>
               <div class="checkout-form__contact-inputs-cont">
-                <input type="text" name="name" placeholder="Ім'я" class="checkout-form__input-name" value="">
+                <input type="text" name="name" placeholder="Ім'я" class="checkout-form__input-name" value="" required >
                 <input id="phone" type="text" name="phone" placeholder="Телефон" class="checkout-form__input-phone"
-                  value="">
+                  value="" required >
               </div>
             </div>
             <div class="checkout-form__address-block address-block">
               <h3>Адрес</h3>
               <div class="address-block__wrap">
                 <div class="address-block__street">
-                  <input type="text" name="street" placeholder="Вулиця" class="address-block__input-street" value="">
+                  <input type="text" name="street" placeholder="Вулиця" class="address-block__input-street" value="" required >
                 </div>
                 <div class="address-block__house">
-                  <input type="text" name="house" placeholder="Будинок" class="address-block__input-house" value="">
+                  <input type="text" name="house" placeholder="Будинок" class="address-block__input-house" value="" required >
                 </div>
                 <div class="address-block__flat">
-                  <input type="text" name="flat" placeholder="Квартира" class="address-block__input-flat" value="">
+                  <input type="text" name="flat" placeholder="Квартира" class="address-block__input-flat" value="" required >
                 </div>
                 <div class="address-block__entrance">
                   <input type="text" name="entrance" placeholder="Під'їзд" class="address-block__input-entrance"
-                    value="">
+                    value="" required >
                 </div>
                 <div class="address-block__floor">
-                  <input type="text" name="floor" placeholder="Поверх" class="address-block__input-floor" value="">
+                  <input type="text" name="floor" placeholder="Поверх" class="address-block__input-floor" value="" required >
                 </div>
                 <div class="address-block__comment">
                   <textarea rows="" name="comment" placeholder="Коментар" class="address-block__input-comment"
@@ -65,20 +61,14 @@
               <div class="time-block__wrap">
                 <div class="time-block__time-cont">
                   <input name="time" id="timepicker" placeholder="Найближчий час" class="time-block__timepicker"
-                    value="">
+                    value="" required >
                 </div>
               </div>
             </div>
-            <!-- <button type="button" class="order__btn">Замовити</button> -->
           </div>
-          <!-- </form> -->
         </div>
         <!-- toGo active  -->
         <div class="col-1__toGo-active">
-          <!-- <form action="sender.php" method="POST">
-          <input type="hidden" name="project_name" value="Site Name">
-          <input type="hidden" name="admin_email" value="yurii.kryvko@gmail.com">
-          <input type="hidden" name="form_subject" value="Form Subject"> -->
 
           <div class="col-1__checkout-form checkout-form">
             <div class="col-1__location"><img src="img/icons/location-gray.svg" alt="location">Наша адреса: вул.
@@ -86,9 +76,9 @@
             <div class="checkout-form__contact-block">
               <h3>Контакти</h3>
               <div class="checkout-form__contact-inputs-cont">
-                <input type="text" name="name" placeholder="Ім'я" class="checkout-form__input-name" value="">
+                <input type="text" name="name" placeholder="Ім'я" class="checkout-form__input-name" value="" required >
                 <input id="phone" type="text" name="phone" placeholder="Телефон" class="checkout-form__input-phone"
-                  value="">
+                  value="" required >
               </div>
             </div>
             <div class="checkout-form__time-block time-block">
@@ -96,13 +86,11 @@
               <div class="time-block__wrap">
                 <div class="time-block__time-cont">
                   <input name="time" id="timepicker" placeholder="Найближчий час" class="time-block__timepicker"
-                    value="">
+                    value="" required>
                 </div>
               </div>
             </div>
-            <!-- <input type="submit" class="order__btn">Замовити</input> -->
           </div>
-          <!-- </form> -->
         </div>
 
       </div>

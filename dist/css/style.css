@@ -1279,6 +1279,11 @@ hr {
   appearance: none;
 }
 
+.col-1 input.error,
+.col-1 textarea.error {
+  border: 1px solid rgba(255, 44, 44, 0.5);
+}
+
 .col-1__location {
   display: -webkit-box;
   display: -ms-flexbox;
