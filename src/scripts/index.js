@@ -361,10 +361,12 @@ jQuery(document).ready(function () {
 
 
 document.querySelector('.col-1__order-type').addEventListener('click', (e) => {
-  document.querySelectorAll('.col-1__delivery-cont').forEach(item => {
-    item.classList.remove('_active');
-  });
-  e.target.classList.add('_active');
+  if(e.target.classList.contains('col-1__delivery-cont')) {
+    document.querySelectorAll('.col-1__delivery-cont').forEach(item => {
+      item.classList.remove('_active');
+    });
+    e.target.classList.add('_active');
+  }
   checkTypeDelivery(e);
 });
 
