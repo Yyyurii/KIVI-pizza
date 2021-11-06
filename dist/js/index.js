@@ -133,24 +133,24 @@ function documentActions(e) {
     e.preventDefault();
   }
 
-  if(targetElement.classList.contains('order__plus-quantity')) {
+  if (targetElement.classList.contains('order__plus-quantity')) {
     const parentEl = targetElement.closest(`[data-cart-pid`);
     const quantityEl = parentEl.querySelector('.order__current-quantity');
     quantityEl.innerHTML = ++quantityEl.innerHTML;
-    
+
     calcPizzaCost();
     totalPrice();
   }
 
-  if(targetElement.classList.contains('order__minus-quantity')) {
+  if (targetElement.classList.contains('order__minus-quantity')) {
     const parentEl = targetElement.closest(`[data-cart-pid`);
     const quantityEl = parentEl.querySelector('.order__current-quantity');
-    if(quantityEl.innerHTML > 1) {
+    if (quantityEl.innerHTML > 1) {
       quantityEl.innerHTML = --quantityEl.innerHTML;
-      
+
       calcPizzaCost();
       totalPrice();
-    } 
+    }
   }
 
 }
@@ -165,7 +165,7 @@ function totalPrice() {
     priceArr.push(parseInt(item.value));
   })
 
-  let result = priceArr.reduce(function(sum, current) {
+  let result = priceArr.reduce(function (sum, current) {
     return sum + current;
   }, 0);
 
@@ -174,20 +174,21 @@ function totalPrice() {
 
 //calculate the cost of pizza
 function calcPizzaCost(parent) {
-  // const priceEl = parent.querySelector('.basket__price').innerHTML;
-  // const quantityEl = parent.querySelector('.order__current-quantity').innerHTML;
-  // const totalPriceElInput = parent.querySelector('.basket__price-total-input');
-  // totalPriceElInput.value = parseInt(priceEl)  * parseInt(quantityEl);
-
   const productItems = document.querySelectorAll(`[data-cart-pid`);
-  console.log(productItems);
+
   productItems.forEach(item => {
     const priceEl = item.querySelector('.basket__price').innerHTML;
     const quantityEl = item.querySelector('.order__current-quantity').innerHTML;
     const totalPriceElInput = item.querySelector('.basket__price-total-input');
-    totalPriceElInput.value = parseInt(priceEl)  * parseInt(quantityEl);
-  })
-}
+    const titleAndQuantityInput = item.querySelector('.basket__titleAndQuantityInput');
+    const titleEl = item.querySelector('.basket__title').innerHTML;
+
+    totalPriceElInput.value = parseInt(priceEl) * parseInt(quantityEl);
+    titleAndQuantityInput.value = `${titleEl} ${quantityEl}шт`;
+  });
+};
+
+
 
 //add to cart
 function addToCart(productButton, productId) {
@@ -265,10 +266,10 @@ function updateCart(productButton, productId, productAdd = true) {
           <div data-cart-pid="${productId}" class="basket__item">
             <img class="basket__item-img" src="${cartProductImage.attributes.src.nodeValue}" alt="">
             <div class="basket__details">
-              <input type="hidden" name="pizza_name[]" " value="${cartProductTitle}">
+              <input class="basket__titleAndQuantityInput" type="hidden" name="pizza_name" " value="">
               <span class="basket__title">${cartProductTitle}</span>
               <div class="basket__cost">
-                  <input type="hidden" name="pizza_quantity[]" " value="">
+                  
                   <div class="order__quantity">
                     <div class="order__minus-quantity quantity-img">
                     </div>
@@ -279,7 +280,7 @@ function updateCart(productButton, productId, productAdd = true) {
                   <div class="order__multiply">X</div>
                   <img class="basket__price-img" src="./img/icons/hryvnia-gray.svg" alt="hryvnia">
                   <span class="basket__price">${cartProductPrice}</span>
-                  <input type="hidden" name="basket__price-total-input" class="basket__price-total-input" value="${cartProductPrice}">
+                  <input type="hidden" name="Всього до оплати" class="basket__price-total-input" value="">
               </div>
             </div>
             <div class="basket__delete-btn">
@@ -304,6 +305,8 @@ function updateCart(productButton, productId, productAdd = true) {
     const cartProductQuantity = cartProduct.querySelector('.basket__quantity');
     const cartQuantityValue = cartQuantity.innerHTML - cartProductQuantity.innerHTML;
     cartProduct.closest('.basket__item-cont').remove();
+    calcPizzaCost();
+    totalPrice();
 
     if (cartQuantityValue) {
       cartQuantity.innerHTML = cartQuantityValue;
@@ -332,7 +335,7 @@ jQuery(document).ready(function () {
   $("#phone").mask("+380 (99) 999-99-99");
 
   jQuery('.order__btn').click(function () {
-    var form = jQuery(this).closest('form');
+    var form = $('form');
 
     if (form.valid()) {
       var actUrl = form.attr('action');
@@ -341,7 +344,6 @@ jQuery(document).ready(function () {
         url: actUrl,
         type: 'post',
         dataType: 'html',
-        data: form.serialize(),
         success: function (data) {
           alert('Заявка відправлена');
         },
