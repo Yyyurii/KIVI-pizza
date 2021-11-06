@@ -95,19 +95,20 @@ document.addEventListener("click", documentActions);
 function documentActions(e) {
   const targetElement = e.target;
 
-  // nav.addEventListener('click', (event) => {
-  //   order.style.display = 'none';
-  //   mainContent.style.display = 'block';
-  // });
-
   if (targetElement.classList.contains('basket__btn')) {
     const order = document.querySelector('.order');
     const page = document.querySelector('.page');
-    const basketList = document.querySelector('.basket__list');
 
-    order.classList.add('_active');
-    page.style.display = 'none';
-    basketList.classList.remove('_active');
+    if (document.querySelector('.col-2__list').children.length > 0) {
+      order.classList.add('_active');
+      page.style.display = 'none';
+      calcPizzaCost();
+      totalPrice();
+    } else {
+      const emptyBasketMessage = document.querySelector('.actions p');
+      emptyBasketMessage.classList.add('_active');
+      setTimeout(() => emptyBasketMessage.classList.remove('_active'), 3000);
+    }
   }
 
   if (targetElement.closest('.header__navbar') || targetElement.closest('.logo')) {
@@ -125,23 +126,69 @@ function documentActions(e) {
     e.preventDefault();
   }
 
-  // if (targetElement.classList.contains('cart-header__icon') || targetElement.closest('.cart-header__icon')) {
-  //   if (document.querySelector('.cart-list').children.length > 0) {
-  //     document.querySelector('.cart-header').classList.toggle('_active');
-  //   }
-  //   e.preventDefault();
-  // } else if (!targetElement.closest('.cart-header') && !targetElement.classList.contains('actions-product__button')) {
-  //   document.querySelector('.cart-header').classList.remove('_active');
-  // }
 
   if (targetElement.classList.contains('basket__delete-btn') || targetElement.classList.contains('basket__delete-img')) {
-    console.log('click delete');
     const productId = targetElement.closest('.basket__item').dataset.cartPid;
     updateCart(targetElement, productId, false);
     e.preventDefault();
   }
 
+  if (targetElement.classList.contains('order__plus-quantity')) {
+    const parentEl = targetElement.closest(`[data-cart-pid`);
+    const quantityEl = parentEl.querySelector('.order__current-quantity');
+    quantityEl.innerHTML = ++quantityEl.innerHTML;
+
+    calcPizzaCost();
+    totalPrice();
+  }
+
+  if (targetElement.classList.contains('order__minus-quantity')) {
+    const parentEl = targetElement.closest(`[data-cart-pid`);
+    const quantityEl = parentEl.querySelector('.order__current-quantity');
+    if (quantityEl.innerHTML > 1) {
+      quantityEl.innerHTML = --quantityEl.innerHTML;
+
+      calcPizzaCost();
+      totalPrice();
+    }
+  }
+
 }
+
+//total func
+function totalPrice() {
+  const totalPrice = document.querySelector('.col-2__price-value');
+  const totalPriceElInput = document.querySelectorAll('.basket__price-total-input');
+  let priceArr = [];
+
+  totalPriceElInput.forEach(item => {
+    priceArr.push(parseInt(item.value));
+  })
+
+  let result = priceArr.reduce(function (sum, current) {
+    return sum + current;
+  }, 0);
+
+  totalPrice.innerHTML = result + ' грн';
+}
+
+//calculate the cost of pizza
+function calcPizzaCost(parent) {
+  const productItems = document.querySelectorAll(`[data-cart-pid`);
+
+  productItems.forEach(item => {
+    const priceEl = item.querySelector('.basket__price').innerHTML;
+    const quantityEl = item.querySelector('.order__current-quantity').innerHTML;
+    const totalPriceElInput = item.querySelector('.basket__price-total-input');
+    const titleAndQuantityInput = item.querySelector('.basket__titleAndQuantityInput');
+    const titleEl = item.querySelector('.basket__title').innerHTML;
+
+    totalPriceElInput.value = parseInt(priceEl) * parseInt(quantityEl);
+    titleAndQuantityInput.value = `${titleEl} ${quantityEl}шт`;
+  });
+};
+
+
 
 //add to cart
 function addToCart(productButton, productId) {
@@ -194,11 +241,10 @@ function addToCart(productButton, productId) {
 }
 
 function updateCart(productButton, productId, productAdd = true) {
-  const cart = document.querySelector('.basket');
+  const cart = document.querySelector('.actions');
   const cartIcon = cart.querySelector('.basket__icon');
   const cartQuantity = cart.querySelector('span');
   const cartProduct = document.querySelector(`[data-cart-pid="${productId}"]`);
-  const cartList = document.querySelector('.basket__list');
 
   // Добавляем
   if (productAdd) {
@@ -208,8 +254,9 @@ function updateCart(productButton, productId, productAdd = true) {
     } else {
       cartIcon.insertAdjacentHTML('beforeend', `<span>1</span>`);
     }
+
     if (!cartProduct) {
-      const orderList = document.querySelector('.order__list');
+      const orderList = document.querySelector('.col-2__list');
       const product = document.querySelector(`[data-pid="${productId}"]`);
       const cartProductImage = product.querySelector('.card__img');
       const cartProductTitle = product.querySelector('.card__title').innerHTML;
@@ -219,11 +266,21 @@ function updateCart(productButton, productId, productAdd = true) {
           <div data-cart-pid="${productId}" class="basket__item">
             <img class="basket__item-img" src="${cartProductImage.attributes.src.nodeValue}" alt="">
             <div class="basket__details">
+              <input class="basket__titleAndQuantityInput" type="hidden" name="pizza_name" " value="">
               <span class="basket__title">${cartProductTitle}</span>
               <div class="basket__cost">
-                  <span class="basket__quantity">1</span>X
+                  
+                  <div class="order__quantity">
+                    <div class="order__minus-quantity quantity-img">
+                    </div>
+                    <span class="order__current-quantity basket__quantity">1</span>
+                    <div class="order__plus-quantity quantity-img">
+                    </div>
+                  </div>
+                  <div class="order__multiply">X</div>
                   <img class="basket__price-img" src="./img/icons/hryvnia-gray.svg" alt="hryvnia">
                   <span class="basket__price">${cartProductPrice}</span>
+                  <input type="hidden" name="Всього до оплати" class="basket__price-total-input" value="">
               </div>
             </div>
             <div class="basket__delete-btn">
@@ -233,11 +290,13 @@ function updateCart(productButton, productId, productAdd = true) {
           <hr>
         </div>
       `;
-      cartList.insertAdjacentHTML('beforeend', `${cartProductContent}`);
+      // cartList.insertAdjacentHTML('beforeend', `${cartProductContent}`);
       orderList.insertAdjacentHTML('beforeend', `${cartProductContent}`);
     } else {
       const cartProductQuantity = cartProduct.querySelector('.basket__quantity');
+      const cartProductQuantityInput = cartProduct.querySelector('.basket__price-total-input');
       cartProductQuantity.innerHTML = ++cartProductQuantity.innerHTML;
+      cartProductQuantityInput.value = ++cartProductQuantityInput.value;
     }
 
     // После всех действий
@@ -246,6 +305,8 @@ function updateCart(productButton, productId, productAdd = true) {
     const cartProductQuantity = cartProduct.querySelector('.basket__quantity');
     const cartQuantityValue = cartQuantity.innerHTML - cartProductQuantity.innerHTML;
     cartProduct.closest('.basket__item-cont').remove();
+    calcPizzaCost();
+    totalPrice();
 
     if (cartQuantityValue) {
       cartQuantity.innerHTML = cartQuantityValue;
@@ -256,36 +317,66 @@ function updateCart(productButton, productId, productAdd = true) {
   }
 }
 
-//forms
-$(document).ready(function() {
-
-	//E-mail Ajax Send
-	$("form").submit(function() { //Change
-		var th = $(this);
-		$.ajax({
-			type: "POST",
-			url: "mail.php", //Change
-			data: th.serialize()
-		}).done(function() {
-			alert("Thank you!");
-			setTimeout(function() {
-				// Done Functions
-				th.trigger("reset");
-			}, 1000);
-		});
-		return false;
-	});
-
-});
-
 $('#timepicker').timepicker({
   timeFormat: 'HH:mm ',
   interval: 10,
   minTime: '09:20',
   maxTime: '21:00',
-  defaultTime: '11',
+  defaultTime: '',
   startTime: '09:00',
   dynamic: false,
   dropdown: true,
-  scrollbar: true
+  scrollbar: true,
+  value: this.value
 });
+
+//Відправка форми
+jQuery(document).ready(function () {
+  $("#phone").mask("+380 (99) 999-99-99");
+
+  jQuery('.order__btn').click(function () {
+    var form = $('form');
+
+    if (form.valid()) {
+      var actUrl = form.attr('action');
+
+      jQuery.ajax({
+        url: actUrl,
+        type: 'post',
+        dataType: 'html',
+        success: function (data) {
+          alert('Заявка відправлена');
+        },
+        error: function () {
+          form.find('.status').html('серверная ошибка');
+        }
+      });
+    }
+  });
+
+});
+
+
+document.querySelector('.col-1__order-type').addEventListener('click', (e) => {
+  document.querySelectorAll('.col-1__delivery-cont').forEach(item => {
+    item.classList.remove('_active');
+  });
+  e.target.classList.add('_active');
+  checkTypeDelivery(e);
+});
+
+function checkTypeDelivery(e) {
+  const toGoBlock = document.querySelector('.col-1__toGo-active');
+  const deliveryBlock = document.querySelector('.col-1__delivery-active');
+
+  if (e.target.classList.contains('col-1__delivery-cont_toGo') || e.target.classList.contains('col-1__delivery-toGo-btn') || e.target.classList.contains('col-1__delivery-toGo')) {
+    toGoBlock.classList.add('_active');
+    deliveryBlock.classList.remove('_active');
+  }
+
+  if (e.target.classList.contains('col-1__delivery-cont_del') || e.target.classList.contains('col-1__delivery-del-btn') || e.target.classList.contains('col-1__delivery-del')) {
+    deliveryBlock.classList.add('_active');
+    toGoBlock.classList.remove('_active');
+  }
+}
+
