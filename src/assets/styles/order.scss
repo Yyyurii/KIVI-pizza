@@ -4,6 +4,11 @@
 
   padding: 20px;
 
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
   &._active {
     display: block;
   }
@@ -41,7 +46,7 @@
     background-color: #de9447;
     border-radius: 5px;
     color: #fff;
-    margin: auto;
+    margin: 30px auto;
     font-size: 22px;
   }
 
@@ -120,6 +125,7 @@
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+
     &.error {
       border: 1px solid rgba(255, 44, 44, .5);
     }

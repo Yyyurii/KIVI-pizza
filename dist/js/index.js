@@ -296,9 +296,9 @@ function updateCart(productButton, productId, productAdd = true) {
       orderList.insertAdjacentHTML('beforeend', `${cartProductContent}`);
     } else {
       const cartProductQuantity = cartProduct.querySelector('.basket__quantity');
-      const cartProductQuantityInput = cartProduct.querySelector('.basket__price-total-input');
+      // const cartProductQuantityInput = cartProduct.querySelector('.basket__price-total-input');
       cartProductQuantity.innerHTML = ++cartProductQuantity.innerHTML;
-      cartProductQuantityInput.value = ++cartProductQuantityInput.value;
+      // cartProductQuantityInput.value = ++cartProductQuantityInput.value;
     }
 
     // После всех действий
