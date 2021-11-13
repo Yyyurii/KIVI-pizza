@@ -5,7 +5,8 @@
  */
  document.addEventListener('DOMContentLoaded', function () {
   const slider = new SimpleAdaptiveSlider('.slider', {
-    autoplay: false,
+    loop: false,
+    autoplay: true,
     interval: 5000,
     swipe: true,
   });
