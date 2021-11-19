@@ -60,6 +60,10 @@
   font-size: 22px;
 }
 
+.order__btn._disabled {
+  background-color: #aba095;
+}
+
 .order input {
   -webkit-appearance: none;
   outline: none;

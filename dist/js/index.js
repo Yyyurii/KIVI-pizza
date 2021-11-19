@@ -131,6 +131,7 @@ function documentActions(e) {
     const productId = targetElement.closest('.basket__item').dataset.cartPid;
     updateCart(targetElement, productId, false);
     e.preventDefault();
+    checkOrderList();
   }
 
   if (targetElement.classList.contains('order__plus-quantity')) {
@@ -292,8 +293,8 @@ function updateCart(productButton, productId, productAdd = true) {
           <hr>
         </div>
       `;
-      // cartList.insertAdjacentHTML('beforeend', `${cartProductContent}`);
       orderList.insertAdjacentHTML('beforeend', `${cartProductContent}`);
+      checkOrderList();
     } else {
       const cartProductQuantity = cartProduct.querySelector('.basket__quantity');
       // const cartProductQuantityInput = cartProduct.querySelector('.basket__price-total-input');
@@ -380,3 +381,18 @@ document.querySelector('.col-1__order-type').addEventListener('click', (e) => {
   }
 });
 
+//check order list
+
+function checkOrderList() {
+  const orderListItems = document.querySelector('.col-2__list');
+  const orderBtn = document.querySelector('.order__btn');
+  console.log(orderListItems.children);
+  if (orderListItems.children.length <= 0) {
+    console.log('you don`t have any order items');
+    orderBtn.disabled = true;
+    orderBtn.classList.add('_disabled');
+  } else {
+    orderBtn.disabled = false;
+    orderBtn.classList.remove('_disabled');
+  }
+};

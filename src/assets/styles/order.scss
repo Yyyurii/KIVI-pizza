@@ -48,6 +48,9 @@
     color: #fff;
     margin: 30px auto;
     font-size: 22px;
+    &._disabled {
+      background-color: #aba095;
+    }
   }
 
   input {
