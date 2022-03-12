@@ -1,3 +1,4 @@
+// Вибір активної вкладки в блоці Піца
 $('.pizza__controls .buttons').click(function () {
   $(this).addClass('button-active').siblings().removeClass('button-active');
 
@@ -11,6 +12,7 @@ $('.pizza__controls .buttons').click(function () {
   }
 });
 
+// Вибір активної вкладки в блоці Кава
 $('.coffee-beans__controls .buttons').click(function () {
   $(this).addClass('button-active').siblings().removeClass('button-active');
 
@@ -23,8 +25,6 @@ $('.coffee-beans__controls .buttons').click(function () {
     $('.coffee-beans .card').filter('.' + filter).fadeIn(400).css('display', 'flex');;
   }
 });
-
-
 
 $(window).on('load scroll', function () {
 
@@ -243,6 +243,8 @@ function addToCart(productButton, productId) {
   }
 }
 
+// 
+const productsObj = [];
 function updateCart(productButton, productId, productAdd = true) {
   const cart = document.querySelector('.actions');
   const cartIcon = cart.querySelector('.basket__icon');
@@ -252,6 +254,7 @@ function updateCart(productButton, productId, productAdd = true) {
   // Добавляем
   if (productAdd) {
     cartQuantity.classList.add('_active');
+
     if (cartQuantity) {
       cartQuantity.innerHTML = ++cartQuantity.innerHTML;
     } else {
@@ -264,6 +267,16 @@ function updateCart(productButton, productId, productAdd = true) {
       const cartProductImage = product.querySelector('.card__img');
       const cartProductTitle = product.querySelector('.card__title').innerHTML;
       const cartProductPrice = product.querySelector('.card__price').innerHTML;
+
+      const productObj = {
+        pizza: cartProductTitle,
+        img: cartProductImage.attributes.src.nodeValue,
+        price: cartProductPrice
+      };
+      productsObj.push(productObj);
+
+      console.log(productsObj);
+
       const cartProductContent = `
         <div class="basket__item-cont">
           <div data-cart-pid="${productId}" class="basket__item">
@@ -367,6 +380,8 @@ document.querySelector('.col-1__order-type').addEventListener('click', (e) => {
   const deliveryBtn = document.querySelector('.col-1__delivery-cont_del');
 
   if (e.target.classList.contains('col-1__delivery-cont_toGo') || e.target.classList.contains('col-1__delivery-toGo-btn') || e.target.classList.contains('col-1__delivery-toGo')) {
+    addActiveClassItem(toGoBlock);
+    addActiveClassItem(toGoBtn);
     toGoBlock.classList.add('_active');
     toGoBtn.classList.add('_active');
     deliveryBlock.classList.remove('_active');
@@ -388,7 +403,6 @@ function checkOrderList() {
   const orderBtn = document.querySelector('.order__btn');
   console.log(orderListItems.children);
   if (orderListItems.children.length <= 0) {
-    console.log('you don`t have any order items');
     orderBtn.disabled = true;
     orderBtn.classList.add('_disabled');
   } else {

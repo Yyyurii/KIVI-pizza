@@ -375,7 +375,7 @@ hr {
 .basket__list {
   position: absolute;
   top: 55px;
-  right: -2000px;
+  right: 20px;
   background: #fff;
   border-radius: .5rem;
   -webkit-box-shadow: 0 0 15px #000;

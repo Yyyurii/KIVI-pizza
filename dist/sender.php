@@ -22,9 +22,8 @@ if ($method === 'POST') {
 	foreach ($arr as $key => $value) {
 		$message .= "<b>" . $key . "</b> " . $value . "<br/>";
 	};
-} 
 
-$message = $txt;
+} 
 
 function adopt($text)
 {
