@@ -375,7 +375,7 @@ hr {
 .basket__list {
   position: absolute;
   top: 55px;
-  right: 20px;
+  right: -2000px;
   background: #fff;
   border-radius: .5rem;
   -webkit-box-shadow: 0 0 15px #000;
@@ -396,7 +396,7 @@ hr {
 }
 
 .basket__list._active {
-  right: 0;
+  right: 20px;
   -webkit-transition: .4s linear;
   -o-transition: .4s linear;
   transition: .4s linear;

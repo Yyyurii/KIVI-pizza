@@ -26,6 +26,7 @@ $('.coffee-beans__controls .buttons').click(function () {
   }
 });
 
+// При скролі на навігаційному меню зверху відображає активний блок
 $(window).on('load scroll', function () {
 
   if ($(window).scrollTop() > 60) {
@@ -74,7 +75,7 @@ $('.header__bottom a').click(() => {
   }
 })
 
-//basket 
+// Відображає попередній лист замовлення
 const $basket = $('.basket');
 $basket.click(function () {
   $('.basket__list').toggleClass('_active');
@@ -112,7 +113,6 @@ function documentActions(e) {
   }
 
   if (targetElement.closest('.header__navbar') || targetElement.closest('.logo')) {
-    console.log('header-bottom');
     const order = document.querySelector('.order');
     const page = document.querySelector('.page');
 
@@ -333,6 +333,7 @@ function updateCart(productButton, productId, productAdd = true) {
   }
 }
 
+// Вибір часу для замовлення
 $('#timepicker').timepicker({
   timeFormat: 'HH:mm ',
   interval: 10,
@@ -346,7 +347,7 @@ $('#timepicker').timepicker({
   value: this.value
 });
 
-//Відправка форми
+// Відправка форми та валідація номеру телефону
 jQuery(document).ready(function () {
   $("#phone").mask("+380 (99) 999-99-99");
 
@@ -372,7 +373,7 @@ jQuery(document).ready(function () {
 
 });
 
-//checkTypeDelivery
+// Перевіряємо тип замовлення
 document.querySelector('.col-1__order-type').addEventListener('click', (e) => {
   const toGoBlock = document.querySelector('.col-1__toGo-active');
   const toGoBtn = document.querySelector('.col-1__delivery-cont_toGo');
@@ -380,8 +381,6 @@ document.querySelector('.col-1__order-type').addEventListener('click', (e) => {
   const deliveryBtn = document.querySelector('.col-1__delivery-cont_del');
 
   if (e.target.classList.contains('col-1__delivery-cont_toGo') || e.target.classList.contains('col-1__delivery-toGo-btn') || e.target.classList.contains('col-1__delivery-toGo')) {
-    addActiveClassItem(toGoBlock);
-    addActiveClassItem(toGoBtn);
     toGoBlock.classList.add('_active');
     toGoBtn.classList.add('_active');
     deliveryBlock.classList.remove('_active');
@@ -396,12 +395,10 @@ document.querySelector('.col-1__order-type').addEventListener('click', (e) => {
   }
 });
 
-//check order list
-
+// Перевіряємо лист замовлення. Якщо немає товарів, то кнопка "Оформити замовлення" заблокована
 function checkOrderList() {
   const orderListItems = document.querySelector('.col-2__list');
   const orderBtn = document.querySelector('.order__btn');
-  console.log(orderListItems.children);
   if (orderListItems.children.length <= 0) {
     orderBtn.disabled = true;
     orderBtn.classList.add('_disabled');
