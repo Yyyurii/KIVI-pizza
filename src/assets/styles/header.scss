@@ -235,6 +235,7 @@ $maxWidthContainer: 1170;
 		border: 1px solid #db4a4a;
 		top: 85px;
 		opacity: 0;
+		display: none;
 
 		&._active {
 			transform: translateY(-100%);

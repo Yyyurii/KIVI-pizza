@@ -30,7 +30,8 @@ function renderPizza() {
 renderPizza();
 
 // Масив продуктів, що зна[одяться у кошику
-let cart = [];
+let cart = JSON.parse(localStorage.getItem('CART')) || [];
+updateCart();
 
 // Додати до кошика
 function addToCart(id) {
@@ -48,8 +49,9 @@ function addToCart(id) {
 
 // Рендерінг елементів кошика
 function renderCartItems() {
+  cartListContainer.innerHTML = '';
   if (cart.length > 0) {
-    cartListContainer.innerHTML = '';
+
     cart.forEach(item => {
       cartListContainer.innerHTML += `
         <div data-cart-pid="${item.id}" class="basket__item">
@@ -72,7 +74,7 @@ function renderCartItems() {
                 <input type="hidden" name="" class="basket__price-current-input" value="" disabled>
             </div>
           </div>
-          <div class="basket__delete-btn">
+          <div class="basket__delete-btn" onclick="removeItemFromCart('${item.id}')">
               <img class="basket__delete-img" src="./img/icons/close.svg" alt="delete">
           </div>
         </div>
@@ -104,10 +106,22 @@ function changeNumberOfUnits(action, id) {
 
 };
 
+// Видалення товарів із кошика
+function removeItemFromCart(id) {
+  console.log('remove');
+  cart = cart.filter(item => item.id !== id);
+
+  updateCart();
+  console.log(cart);
+}
+
 // Оновити кошик
 function updateCart() {
   renderCartItems();
   renderSubtotal();
+
+  //localStorage
+  localStorage.setItem('CART', JSON.stringify(cart));
 }
 
 // Підрахунок кількості товарів, загальної вартості та їх рендерінг
@@ -158,20 +172,6 @@ document.addEventListener("click", documentActions);
 
 function documentActions(e) {
   const targetElement = e.target;
-
-  if (targetElement.classList.contains('basket__btn')) {
-    const order = document.querySelector('.order');
-    const page = document.querySelector('.page');
-
-    if (document.querySelector('.col-2__list').children.length > 0) {
-      order.classList.add('_active');
-      page.style.display = 'none';
-    } else {
-      const emptyBasketMessage = document.querySelector('.actions p');
-      emptyBasketMessage.classList.add('_active');
-      setTimeout(() => emptyBasketMessage.classList.remove('_active'), 3000);
-    }
-  }
 
   if (targetElement.closest('.header__navbar') || targetElement.closest('.logo')) {
     const order = document.querySelector('.order');

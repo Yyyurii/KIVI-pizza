@@ -332,6 +332,7 @@ body._lock {
   border: 1px solid #db4a4a;
   top: 85px;
   opacity: 0;
+  display: none;
 }
 
 .actions p._active {
