@@ -1,4 +1,6 @@
 const pizzaContainer = document.querySelector('.pizza__container');
+const cartListContainer = document.querySelector('.basket__item-cont');
+const totalItemsInCart = document.querySelector('.actions__basket-quantity');
 
 // Render section 'Pizza' 
 function renderPizza() {
@@ -28,13 +30,99 @@ function renderPizza() {
 renderPizza();
 
 // Масив продуктів, що зна[одяться у кошику
-const cart = [];
+let cart = [];
 
 // Додати до кошика
 function addToCart(id) {
-  const findElem = productsPizza.find(item => item.id === id);
-  cart.push({...findElem, numberOfUnits: 1});
-  console.log(cart);
+
+  if (cart.some(item => item.id === id)) {
+    changeNumberOfUnits('plus', id)
+  } else {
+    const findElem = productsPizza.find(item => item.id === id);
+
+    cart.push({ ...findElem, numberOfUnits: 1 });
+  }
+
+  updateCart();
+}
+
+// Рендерінг елементів кошика
+function renderCartItems() {
+  if (cart.length > 0) {
+    cartListContainer.innerHTML = '';
+    cart.forEach(item => {
+      cartListContainer.innerHTML += `
+        <div data-cart-pid="${item.id}" class="basket__item">
+          <img class="basket__item-img" src="${item.imgSrc}" alt="${item.name}">
+          <div class="basket__details">
+            <input class="basket__titleAndQuantityInput" type="hidden" name="pizza_name[]" " value="">
+            <span class="basket__title">${item.name}</span>
+            <div class="basket__cost">
+                
+                <div class="order__quantity">
+                  <div class="order__minus-quantity quantity-img" onclick="changeNumberOfUnits('minus', '${item.id}')">
+                  </div>
+                  <span class="order__current-quantity basket__quantity">${item.numberOfUnits}</span>
+                  <div class="order__plus-quantity quantity-img" onclick="changeNumberOfUnits('plus', '${item.id}')">
+                  </div>
+                </div>
+                <div class="order__multiply">X</div>
+                <img class="basket__price-img" src="./img/icons/hryvnia-gray.svg" alt="hryvnia">
+                <span class="basket__price">${item.price}</span>
+                <input type="hidden" name="" class="basket__price-current-input" value="" disabled>
+            </div>
+          </div>
+          <div class="basket__delete-btn">
+              <img class="basket__delete-img" src="./img/icons/close.svg" alt="delete">
+          </div>
+        </div>
+        <hr>
+      `
+    });
+  }
+};
+
+// Зміна кількості одиниць товару в кошику для замовлення
+function changeNumberOfUnits(action, id) {
+  cart = cart.map(item => {
+
+    let numberOfUnits = item.numberOfUnits;
+
+    if (item.id === id) {
+      if (action === 'plus') {
+        numberOfUnits++
+        console.log('plus', numberOfUnits);
+      } else if (action === 'minus') {
+        console.log('minus');
+        numberOfUnits--
+      }
+    }
+    return { ...item, numberOfUnits }
+  })
+
+  updateCart();
+
+};
+
+// Оновити кошик
+function updateCart() {
+  renderCartItems();
+  renderSubtotal();
+}
+
+// Підрахунок кількості товарів, загальної вартості та їх рендерінг
+function renderSubtotal() {
+  let totalPrice = 0;
+  let totalItems = 0;
+
+  cart.forEach(item => {
+    totalPrice += item.price * item.numberOfUnits;
+    totalItems += item.numberOfUnits;
+  });
+
+  console.log(totalPrice);
+  // subtotalEl.innerHTML = `Suntotal ${totalItems} items: ${totalPrice.toFixed(2)}`;
+  totalItemsInCart.innerHTML = totalItems;
 }
 
 // Вибір активної вкладки в блоці Піца
@@ -101,7 +189,7 @@ function documentActions(e) {
 }
 
 
-//add to cart
+//Add fly img to cart
 function addFlyImgToCart(productButton, productId) {
   if (!productButton.classList.contains('_hold')) {
     productButton.classList.add('_hold');
@@ -149,38 +237,6 @@ function addFlyImgToCart(productButton, productId) {
     });
   }
 }
-
-const cartProductContent = `
-        <div class="basket__item-cont">
-          <div data-cart-pid="" class="basket__item">
-            <img class="basket__item-img" src="" alt="">
-            <div class="basket__details">
-              <input class="basket__titleAndQuantityInput" type="hidden" name="pizza_name[]" " value="">
-              <span class="basket__title"></span>
-              <div class="basket__cost">
-                  
-                  <div class="order__quantity">
-                    <div class="order__minus-quantity quantity-img">
-                    </div>
-                    <span class="order__current-quantity basket__quantity">1</span>
-                    <div class="order__plus-quantity quantity-img">
-                    </div>
-                  </div>
-                  <div class="order__multiply">X</div>
-                  <img class="basket__price-img" src="./img/icons/hryvnia-gray.svg" alt="hryvnia">
-                  <span class="basket__price"></span>
-                  <input type="hidden" name="" class="basket__price-current-input" value="" disabled>
-              </div>
-            </div>
-            <div class="basket__delete-btn">
-                <img class="basket__delete-img" src="./img/icons/close.svg" alt="delete">
-            </div>
-          </div>
-          <hr>
-        </div>
-      `;
-
-
 
 // Перевіряємо тип замовлення
 document.querySelector('.col-1__order-type').addEventListener('click', (e) => {
