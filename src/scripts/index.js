@@ -1,3 +1,42 @@
+const pizzaContainer = document.querySelector('.pizza__container');
+
+// Render section 'Pizza' 
+function renderPizza() {
+  productsPizza.forEach(pizza => {
+    pizzaContainer.innerHTML += `
+    <div data-pid="${pizza.id}" class="pizza__card card ${pizza.class}">
+      <div class="card__img-cont">
+        <img class="card__img" src="${pizza.imgSrc}" alt="${pizza.name}}">
+      </div>
+      <div class="card__title">
+        <h3>${pizza.name}</h3>
+      </div>
+      <div class="card__description">
+        <h4>
+          ${pizza.description}
+        </h4>
+      </div>
+      <div class="card__footer">
+        <img class="card__hryvnia" src="./img/icons/hryvnia.svg" alt="hryvnia">
+        <span class="card__price">${pizza.price}</span>
+        <button class="card__btn">До Кошика</button>
+      </div>
+    </div>
+    `;
+  })
+};
+renderPizza();
+
+
+
+
+
+
+
+
+
+
+
 // Вибір активної вкладки в блоці Піца
 $('.pizza__controls .buttons').click(function () {
   $(this).addClass('button-active').siblings().removeClass('button-active');
