@@ -1,5 +1,4 @@
 .order {
-
   background-color: rgb(235, 235, 235);
 
   padding: 20px;
@@ -22,7 +21,7 @@
     display: flex;
     gap: 35px;
 
-    @media(max-width:1024px) {
+    @media (max-width: 1024px) {
       flex-direction: column;
     }
   }
@@ -85,6 +84,10 @@
       cursor: pointer;
       width: 20px;
       height: 20px;
+      @media (max-width: 768px) {
+        width: 16px;
+        height: 16px;
+      }
     }
   }
 
@@ -109,10 +112,9 @@
 }
 
 .col-1 {
-
   flex: 1 1 60%;
 
-  @media(max-width:1024px) {
+  @media (max-width: 1024px) {
     order: 2;
   }
 
@@ -124,13 +126,13 @@
     font-size: 16px;
     color: #4f4f4f;
     border-radius: 15px;
-    border: 1px solid rgba(79, 79, 79, .5);
+    border: 1px solid rgba(79, 79, 79, 0.5);
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
 
     &.error {
-      border: 1px solid rgba(255, 44, 44, .5);
+      border: 1px solid rgba(255, 44, 44, 0.5);
     }
   }
 
@@ -151,14 +153,14 @@
   &__delivery-del {
     width: 42px;
     height: 42px;
-    mask-image: url('../img/icons/delivery.svg');
+    mask-image: url("../img/icons/delivery.svg");
     background-color: #666;
   }
 
   &__delivery-toGo {
     width: 42px;
     height: 42px;
-    mask-image: url('../img/icons/toGo.svg');
+    mask-image: url("../img/icons/toGo.svg");
     background-color: #666;
   }
 
@@ -236,7 +238,7 @@
     display: flex;
     gap: 15px;
 
-    @media(max-width:767.98px) {
+    @media (max-width: 767.98px) {
       flex-direction: column;
     }
   }
@@ -246,22 +248,22 @@
   &__wrap {
     display: grid;
     -ms-grid-columns: 1fr 10px 1fr 10px 1fr;
-    grid-template: repeat(4, 40px)/repeat(4, 1fr);
+    grid-template: repeat(4, 40px) / repeat(4, 1fr);
     grid-gap: 20px 10px;
     grid-template-areas:
-      'street street street street'
-      'house flat entrance floor'
-      'comment comment . .'
-      'comment comment . .';
+      "street street street street"
+      "house flat entrance floor"
+      "comment comment . ."
+      "comment comment . .";
 
-    @media(max-width:767.98px) {
-      grid-template: repeat(5, 50px)/repeat(2, 1fr);
+    @media (max-width: 767.98px) {
+      grid-template: repeat(5, 50px) / repeat(2, 1fr);
       grid-template-areas:
-        'street street'
-        'house flat'
-        'entrance floor'
-        'comment comment'
-        'comment comment';
+        "street street"
+        "house flat"
+        "entrance floor"
+        "comment comment"
+        "comment comment";
     }
   }
 
@@ -342,7 +344,7 @@
 }
 
 .col-2 {
-  @media(max-width:1024px) {
+  @media (max-width: 1024px) {
     order: 1;
   }
 
@@ -354,7 +356,7 @@
     overflow: auto;
     max-height: 370px;
 
-    @media(max-width:768px) {
+    @media (max-width: 768px) {
       max-height: 295px;
     }
   }

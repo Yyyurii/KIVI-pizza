@@ -13,7 +13,8 @@ let path = {
     php: project_folder + "/"
   },
   src: {
-    html: [source_folder + "/*.html", "!" + source_folder + "/_*.html"],
+    html: source_folder + "/*.html",
+    // html: [source_folder + "/*.html", "!" + source_folder + "/_*.html"],
     css: source_folder + "/assets/styles/**/*.{scss,css}",
     js: source_folder + "/scripts/**/*.js",
     img: [source_folder + "/assets/images/**/*.{png,jpg,svg,gif,ico,webp}"],

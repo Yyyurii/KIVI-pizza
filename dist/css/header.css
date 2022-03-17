@@ -215,7 +215,7 @@ hr {
   box-shadow: 0 0 15px #000;
   width: 450px;
   max-height: 80vh;
-  padding: 1.5rem 1.5rem 1rem;
+  padding: 0rem 1.5rem 1rem;
   color: #666;
   z-index: 50;
   overflow: auto;
@@ -241,11 +241,21 @@ hr {
   border-radius: 5px;
   color: #fff;
   font-size: 22px;
-  text-align: center;
+  cursor: pointer;
 }
 
 .basket__list a._disabled {
   background-color: #aba095;
+}
+
+.basket__order-btn {
+  position: sticky;
+  top: 0px;
+  background: white;
+  padding: 30px 0 20px;
+  text-align: center;
+  -webkit-box-shadow: 0px 10px 13px -7px #000000, 0px 0px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: 0px 10px 6px -7px #000000, 0px 0px 15px 5px rgba(0, 0, 0, 0);
 }
 
 .basket__item {
@@ -343,17 +353,39 @@ hr {
 
 @media (max-width: 767.98px) {
   .basket__list {
-    padding: 1rem;
-    width: 265px;
+    padding: 0 1rem 1rem;
+    width: 280px;
+    max-height: 50vh;
+  }
+
+  .basket__list._active {
+    right: 0px;
+  }
+
+  .basket__list a {
+    font-size: 16px;
   }
 
   .basket__item-img {
-    width: 75px;
-    height: 75px;
+    width: 60px;
+    height: 60px;
   }
 
   .basket__title {
     font-size: 25px;
+  }
+
+  .basket__quantity {
+    font-size: 18px;
+  }
+
+  .basket__price-img {
+    padding: 0 0 0 15px;
+    height: 16px;
+  }
+
+  .basket__price {
+    font-size: 16px;
   }
 
   .basket__delete-btn img {

@@ -3,31 +3,33 @@ const cartListContainer = document.querySelector('.basket__item-cont');
 const totalItemsInCart = document.querySelector('.actions__basket-quantity');
 
 // Render section 'Pizza' 
-function renderPizza() {
+function renderPizza(parentContainer) {
   productsPizza.forEach(pizza => {
-    pizzaContainer.innerHTML += `
-    <div data-pid="${pizza.id}" class="pizza__card card ${pizza.class}">
-      <div class="card__img-cont">
-        <img class="card__img" src="${pizza.imgSrc}" alt="${pizza.name}}">
-      </div>
-      <div class="card__title">
-        <h3>${pizza.name}</h3>
-      </div>
-      <div class="card__description">
-        <h4>
-          ${pizza.description}
-        </h4>
-      </div>
-      <div class="card__footer">
-        <img class="card__hryvnia" src="./img/icons/hryvnia.svg" alt="hryvnia">
-        <span class="card__price">${pizza.price}</span>
-        <button onclick="addToCart(event, '${pizza.id}')" class="card__btn">До Кошика</button>
-      </div>
-    </div>
-    `;
+    if (parentContainer) {
+      parentContainer.innerHTML += `
+        <div data-pid="${pizza.id}" class="pizza__card card ${pizza.class}">
+          <div class="card__img-cont">
+            <img class="card__img" src="${pizza.imgSrc}" alt="${pizza.name}}">
+          </div>
+          <div class="card__title">
+            <h3>${pizza.name}</h3>
+          </div>
+          <div class="card__description">
+            <h4>
+              ${pizza.description}
+            </h4>
+          </div>
+          <div class="card__footer">
+            <img class="card__hryvnia" src="./img/icons/hryvnia.svg" alt="hryvnia">
+            <span class="card__price">${pizza.price}</span>
+            <button onclick="addToCart(event, '${pizza.id}')" class="card__btn">До Кошика</button>
+          </div>
+        </div>
+      `;
+    }
   })
 };
-renderPizza();
+renderPizza(pizzaContainer);
 
 // Масив елементів, що знаходяться у кошику
 let cart = JSON.parse(localStorage.getItem('CART')) || [];
@@ -61,6 +63,7 @@ function renderCartItems() {
 
     cart.forEach(item => {
       cartListContainer.innerHTML += `
+        <hr>
         <div data-cart-pid="${item.id}" class="basket__item">
           <img class="basket__item-img" src="${item.imgSrc}" alt="${item.name}">
           <div class="basket__details">
@@ -85,7 +88,6 @@ function renderCartItems() {
               <img class="basket__delete-img" src="./img/icons/close.svg" alt="delete">
           </div>
         </div>
-        <hr>
       `
     });
   }
@@ -101,7 +103,7 @@ function changeNumberOfUnits(action, id) {
       if (action === 'plus') {
         numberOfUnits++
       } else if (action === 'minus') {
-        if(numberOfUnits > 1) {
+        if (numberOfUnits > 1) {
           numberOfUnits--
         }
       }
@@ -189,7 +191,7 @@ function addFlyImgToCart(productButton, productId) {
 
     productImageFly.setAttribute('class', '_flyImage _ibg');
     productImageFly.style.cssText =
-        `
+      `
       left: ${productImageFlyLeft}px;
       top: ${productImageFlyTop}px;
       width: ${productImageFlyWidth}px;
@@ -202,7 +204,7 @@ function addFlyImgToCart(productButton, productId) {
     const cartFlyTop = cart.getBoundingClientRect().top;
 
     productImageFly.style.cssText =
-        `
+      `
       left: ${cartFlyLeft}px;
       top: ${cartFlyTop}px;
       width: 0px;
@@ -319,7 +321,7 @@ $(window).on('load scroll', function () {
 
     if (top >= offset && top < offset + height) {
       $('.header__navbar ul li a').removeClass('active');
-      $('.header__navbar').find(`[href="#${id}"]`).addClass('active');
+      $('.header__navbar').find(`[href="./${id}.html"]`).addClass('active');
     }
   });
 
@@ -332,13 +334,13 @@ $(window).on('load scroll', function () {
 });
 
 //loader
-const loader = document.querySelector('.loader');
-window.addEventListener('load', () => {
-  loader.classList.add('_hide');
-  setTimeout(() => {
-    loader.remove();
-  }, 600)
-});
+// const loader = document.querySelector('.loader');
+// window.addEventListener('load', () => {
+//   loader.classList.add('_hide');
+//   setTimeout(() => {
+//     loader.remove();
+//   }, 600)
+// });
 
 //scroll-up
 $('.scroll-up').on('click', function () {

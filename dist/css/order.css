@@ -285,7 +285,7 @@
   -ms-grid-columns: 1fr 10px 1fr 10px 1fr;
   grid-template: repeat(4, 40px)/repeat(4, 1fr);
   grid-gap: 20px 10px;
-  grid-template-areas: 'street street street street' 'house flat entrance floor' 'comment comment . .' 'comment comment . .';
+  grid-template-areas: "street street street street" "house flat entrance floor" "comment comment . ." "comment comment . .";
 }
 
 .address-block__street {
@@ -409,6 +409,11 @@
 }
 
 @media (max-width: 768px) {
+  .order__quantity .quantity-img {
+    width: 16px;
+    height: 16px;
+  }
+
   .col-2__list {
     max-height: 295px;
   }
@@ -424,6 +429,6 @@
 
   .address-block__wrap {
     grid-template: repeat(5, 50px)/repeat(2, 1fr);
-    grid-template-areas: 'street street' 'house flat' 'entrance floor' 'comment comment' 'comment comment';
+    grid-template-areas: "street street" "house flat" "entrance floor" "comment comment" "comment comment";
   }
 }
