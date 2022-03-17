@@ -52,7 +52,7 @@ function addToCart(event, id) {
     cart.push({ ...findElem, numberOfUnits: 1 });
   }
 
-  updateCart();
+  setTimeout(updateCart, 500);
 }
 
 // Рендерінг елементів кошика
