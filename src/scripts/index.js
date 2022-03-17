@@ -21,7 +21,7 @@ function renderPizza() {
       <div class="card__footer">
         <img class="card__hryvnia" src="./img/icons/hryvnia.svg" alt="hryvnia">
         <span class="card__price">${pizza.price}</span>
-        <button onclick="addToCart('${pizza.id}')" class="card__btn">До Кошика</button>
+        <button onclick="addToCart(event, '${pizza.id}')" class="card__btn">До Кошика</button>
       </div>
     </div>
     `;
@@ -29,12 +29,20 @@ function renderPizza() {
 };
 renderPizza();
 
-// Масив продуктів, що зна[одяться у кошику
+// Масив елементів, що знаходяться у кошику
 let cart = JSON.parse(localStorage.getItem('CART')) || [];
 updateCart();
 
 // Додати до кошика
-function addToCart(id) {
+function addToCart(event, id) {
+  console.log(event.target);
+  const targetElement = event.target;
+
+  if (targetElement.classList.contains('card__btn')) {
+    const productId = targetElement.closest('.pizza__card').dataset.pid;;
+    addFlyImgToCart(targetElement, productId);
+    event.preventDefault();
+  }
 
   if (cart.some(item => item.id === id)) {
     changeNumberOfUnits('plus', id)
@@ -93,26 +101,24 @@ function changeNumberOfUnits(action, id) {
     if (item.id === id) {
       if (action === 'plus') {
         numberOfUnits++
-        console.log('plus', numberOfUnits);
       } else if (action === 'minus') {
-        console.log('minus');
-        numberOfUnits--
+        if(numberOfUnits > 1) {
+          numberOfUnits--
+        }
       }
     }
     return { ...item, numberOfUnits }
   })
 
   updateCart();
-
 };
 
-// Видалення товарів із кошика
+// Видалення елементів із кошика
 function removeItemFromCart(id) {
   console.log('remove');
   cart = cart.filter(item => item.id !== id);
 
   updateCart();
-  console.log(cart);
 }
 
 // Оновити кошик
@@ -134,7 +140,6 @@ function renderSubtotal() {
     totalItems += item.numberOfUnits;
   });
 
-  console.log(totalPrice);
   // subtotalEl.innerHTML = `Suntotal ${totalItems} items: ${totalPrice.toFixed(2)}`;
   totalItemsInCart.innerHTML = totalItems;
 }
@@ -167,29 +172,7 @@ $('.coffee-beans__controls .buttons').click(function () {
   }
 });
 
-//Add fly img to cart
-document.addEventListener("click", documentActions);
-
-function documentActions(e) {
-  const targetElement = e.target;
-
-  if (targetElement.closest('.header__navbar') || targetElement.closest('.logo')) {
-    const order = document.querySelector('.order');
-    const page = document.querySelector('.page');
-
-    order.classList.remove('_active');
-    page.style.display = 'block';
-  }
-
-  if (targetElement.classList.contains('card__btn')) {
-    const productId = targetElement.closest('.pizza__card').dataset.pid;;
-    addFlyImgToCart(targetElement, productId);
-    e.preventDefault();
-  }
-}
-
-
-//Add fly img to cart
+// Fly img animation
 function addFlyImgToCart(productButton, productId) {
   if (!productButton.classList.contains('_hold')) {
     productButton.classList.add('_hold');
@@ -208,12 +191,12 @@ function addFlyImgToCart(productButton, productId) {
 
     productImageFly.setAttribute('class', '_flyImage _ibg');
     productImageFly.style.cssText =
-      `
-    left: ${productImageFlyLeft}px;
-    top: ${productImageFlyTop}px;
-    width: ${productImageFlyWidth}px;
-    height: ${productImageFlyHeight}px;
-  `;
+        `
+      left: ${productImageFlyLeft}px;
+      top: ${productImageFlyTop}px;
+      width: ${productImageFlyWidth}px;
+      height: ${productImageFlyHeight}px;
+    `;
 
     document.body.append(productImageFly);
 
@@ -221,13 +204,13 @@ function addFlyImgToCart(productButton, productId) {
     const cartFlyTop = cart.getBoundingClientRect().top;
 
     productImageFly.style.cssText =
-      `
-    left: ${cartFlyLeft}px;
-    top: ${cartFlyTop}px;
-    width: 0px;
-    height: 0px;
-    opacity:0;
-  `;
+        `
+      left: ${cartFlyLeft}px;
+      top: ${cartFlyTop}px;
+      width: 0px;
+      height: 0px;
+      opacity:0;
+    `;
 
     productImageFly.addEventListener('transitionend', function () {
       if (productButton.classList.contains('_fly')) {
@@ -235,6 +218,8 @@ function addFlyImgToCart(productButton, productId) {
         productButton.classList.remove('_fly');
       }
     });
+
+    productButton.classList.remove('_hold');
   }
 }
 
