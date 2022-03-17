@@ -58,7 +58,7 @@ const productsPizza = [
     {
         class: 'premio',
         id: '5formaggi',
-        name: '5 Formaggi con Pera',
+        name: '5 Formaggi',
         imgSrc: './img/pizza/pizza-5formaggi.jpg',
         description: 'Соус "Бешамель", Груша, Пармезан, Гауда, Моцарела, Фета, Дор Блу',
         price: 178

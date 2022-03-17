@@ -35,7 +35,6 @@ updateCart();
 
 // Додати до кошика
 function addToCart(event, id) {
-  console.log(event.target);
   const targetElement = event.target;
 
   if (targetElement.classList.contains('card__btn')) {
@@ -115,7 +114,6 @@ function changeNumberOfUnits(action, id) {
 
 // Видалення елементів із кошика
 function removeItemFromCart(id) {
-  console.log('remove');
   cart = cart.filter(item => item.id !== id);
 
   updateCart();

@@ -210,7 +210,7 @@ hr {
   top: 55px;
   right: -2000px;
   background: #fff;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   -webkit-box-shadow: 0 0 15px #000;
   box-shadow: 0 0 15px #000;
   width: 450px;
@@ -230,9 +230,22 @@ hr {
 
 .basket__list._active {
   right: 20px;
-  -webkit-transition: .4s linear;
-  -o-transition: .4s linear;
-  transition: .4s linear;
+  -webkit-transition: 0.4s linear;
+  -o-transition: 0.4s linear;
+  transition: 0.4s linear;
+}
+
+.basket__list a {
+  padding: 10px 10px 10px;
+  background-color: #de9447;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 22px;
+  text-align: center;
+}
+
+.basket__list a._disabled {
+  background-color: #aba095;
 }
 
 .basket__item {
