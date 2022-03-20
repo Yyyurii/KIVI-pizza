@@ -9,7 +9,8 @@
   }
 
   &._active {
-    display: block;
+    display: flex;
+    flex-direction: column;
   }
 
   display: none;
@@ -41,12 +42,14 @@
   }
 
   &__btn {
-    padding: 15px 40px 15px;
+    padding: 15px 20px 15px;
     background-color: #de9447;
     border-radius: 5px;
     color: #fff;
     margin: 30px auto;
     font-size: 22px;
+    text-align: center;
+
     &._disabled {
       background-color: #aba095;
     }
@@ -362,7 +365,7 @@
   }
 
   &__price {
-    padding: 0 20px 20px;
+    padding: 20px 20px 20px;
     background-color: #fff;
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;

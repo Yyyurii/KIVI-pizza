@@ -1187,7 +1187,13 @@ hr {
 }
 
 .order._active {
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .order__wrap {
@@ -1221,12 +1227,13 @@ hr {
 }
 
 .order__btn {
-  padding: 15px 40px 15px;
+  padding: 15px 20px 15px;
   background-color: #de9447;
   border-radius: 5px;
   color: #fff;
   margin: 30px auto;
   font-size: 22px;
+  text-align: center;
 }
 
 .order__btn._disabled {
@@ -1549,7 +1556,7 @@ hr {
 }
 
 .col-2__price {
-  padding: 0 20px 20px;
+  padding: 20px 20px 20px;
   background-color: #fff;
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;

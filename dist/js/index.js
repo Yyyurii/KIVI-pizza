@@ -1,6 +1,9 @@
 const pizzaContainer = document.querySelector('.pizza__container');
 const cartListContainer = document.querySelector('.basket__item-cont');
 const totalItemsInCart = document.querySelector('.actions__basket-quantity');
+const totalPriceInCart = document.querySelector('.col-2__price-value');
+const deliveryList = document.querySelector('.col-2__list');
+
 
 // Render section 'Pizza' 
 function renderPizza(parentContainer) {
@@ -58,39 +61,44 @@ function addToCart(event, id) {
 
 // Рендерінг елементів кошика
 function renderCartItems() {
-  cartListContainer.innerHTML = '';
-  if (cart.length > 0) {
+  const parentsArr = [cartListContainer, deliveryList];
 
-    cart.forEach(item => {
-      cartListContainer.innerHTML += `
-        <hr>
-        <div data-cart-pid="${item.id}" class="basket__item">
-          <img class="basket__item-img" src="${item.imgSrc}" alt="${item.name}">
-          <div class="basket__details">
-            <input class="basket__titleAndQuantityInput" type="hidden" name="pizza_name[]" " value="">
-            <span class="basket__title">${item.name}</span>
-            <div class="basket__cost">
-                
-                <div class="order__quantity">
-                  <div class="order__minus-quantity quantity-img" onclick="changeNumberOfUnits('minus', '${item.id}')">
+    parentsArr.forEach(parent => {
+
+      parent.innerHTML = '';
+
+      cart.forEach(item => {
+
+        parent.innerHTML += `
+          <hr>
+          <div data-cart-pid="${item.id}" class="basket__item">
+            <img class="basket__item-img" src="${item.imgSrc}" alt="${item.name}">
+            <div class="basket__details">
+              <input class="basket__titleAndQuantityInput" type="hidden" name="pizza_name[]" " value="">
+              <span class="basket__title">${item.name}</span>
+              <div class="basket__cost">
+                  
+                  <div class="order__quantity">
+                    <div class="order__minus-quantity quantity-img" onclick="changeNumberOfUnits('minus', '${item.id}')">
+                    </div>
+                    <span class="order__current-quantity basket__quantity">${item.numberOfUnits}</span>
+                    <div class="order__plus-quantity quantity-img" onclick="changeNumberOfUnits('plus', '${item.id}')">
+                    </div>
                   </div>
-                  <span class="order__current-quantity basket__quantity">${item.numberOfUnits}</span>
-                  <div class="order__plus-quantity quantity-img" onclick="changeNumberOfUnits('plus', '${item.id}')">
-                  </div>
-                </div>
-                <div class="order__multiply">X</div>
-                <img class="basket__price-img" src="./img/icons/hryvnia-gray.svg" alt="hryvnia">
-                <span class="basket__price">${item.price}</span>
-                <input type="hidden" name="" class="basket__price-current-input" value="" disabled>
+                  <div class="order__multiply">X</div>
+                  <img class="basket__price-img" src="./img/icons/hryvnia-gray.svg" alt="hryvnia">
+                  <span class="basket__price">${item.price}</span>
+                  <input type="hidden" name="" class="basket__price-current-input" value="" disabled>
+              </div>
+            </div>
+            <div class="basket__delete-btn" onclick="removeItemFromCart('${item.id}')">
+                <img class="basket__delete-img" src="./img/icons/close.svg" alt="delete">
             </div>
           </div>
-          <div class="basket__delete-btn" onclick="removeItemFromCart('${item.id}')">
-              <img class="basket__delete-img" src="./img/icons/close.svg" alt="delete">
-          </div>
-        </div>
-      `
-    });
-  }
+        `
+      });
+    })
+
 };
 
 // Зміна кількості одиниць товару в кошику для замовлення
@@ -140,7 +148,7 @@ function renderSubtotal() {
     totalItems += item.numberOfUnits;
   });
 
-  // subtotalEl.innerHTML = `Suntotal ${totalItems} items: ${totalPrice.toFixed(2)}`;
+  totalPriceInCart.innerHTML = `${totalPrice} грн`;
   totalItemsInCart.innerHTML = totalItems;
 }
 
