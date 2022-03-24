@@ -351,3 +351,12 @@ $('.scroll-up').on('click', function () {
   $("html, body").animate({ scrollTop: 0 }, "slow");
   return false;
 });
+
+//timepicker
+$('.time-block__timepicker').timepicker({
+  'timeFormat': 'HH:mm',
+  'minTime': '09:20',
+	'maxTime': '20:00',
+	'showDuration': true,
+  'interval': 30,
+});
