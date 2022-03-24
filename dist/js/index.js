@@ -6,7 +6,13 @@ const cartListContainer = document.querySelector('.basket__item-cont');
 const totalItemsInCart = document.querySelector('.actions__basket-quantity');
 const totalPriceInCart = document.querySelector('.col-2__price-value');
 const deliveryList = document.querySelector('.col-2__list');
+const order = document.querySelector('.order');
 
+if(document.location.pathname === '/order.html') {
+  order.classList.add('_active');
+} else {
+  order.classList.remove('_active');
+}
 
 // Render section 'Pizza' 
 function renderPizza(parentContainer) {
