@@ -14,31 +14,33 @@ function renderPizza(parentContainer) {
 
   parentsArr.forEach(parent => {
     productsPizza.forEach(pizza => {
-      if (parent.id === pizza.class) {
-        parent.innerHTML += `
-          <div data-pid="${pizza.id}" class="pizza__card card ${pizza.class}">
-            <div class="card__img-cont">
-              <img class="card__img" src="${pizza.imgSrc}" alt="${pizza.name}}">
+      if (parent) {
+        if (parent.id === pizza.class) {
+          parent.innerHTML += `
+            <div data-pid="${pizza.id}" class="pizza__card card ${pizza.class}">
+              <div class="card__img-cont">
+                <img class="card__img" src="${pizza.imgSrc}" alt="${pizza.name}}">
+              </div>
+              <div class="card__title">
+                <h3>${pizza.name}</h3>
+              </div>
+              <div class="card__description">
+                <h4>
+                  ${pizza.description}
+                </h4>
+              </div>
+              <div class="card__footer">
+                <img class="card__hryvnia" src="./img/icons/hryvnia.svg" alt="hryvnia">
+                <span class="card__price">${pizza.price}</span>
+                <button onclick="addToCart(event, '${pizza.id}')" class="card__btn">До Кошика</button>
+              </div>
             </div>
-            <div class="card__title">
-              <h3>${pizza.name}</h3>
-            </div>
-            <div class="card__description">
-              <h4>
-                ${pizza.description}
-              </h4>
-            </div>
-            <div class="card__footer">
-              <img class="card__hryvnia" src="./img/icons/hryvnia.svg" alt="hryvnia">
-              <span class="card__price">${pizza.price}</span>
-              <button onclick="addToCart(event, '${pizza.id}')" class="card__btn">До Кошика</button>
-            </div>
-          </div>
-        `;
+          `;
+        }
       }
     })
   })
-  
+
 };
 renderPizza(pizzaContainer);
 
