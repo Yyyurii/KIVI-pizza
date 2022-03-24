@@ -10,8 +10,10 @@ const order = document.querySelector('.order');
 
 if(document.location.pathname === '/order.html') {
   order.classList.add('_active');
+  // modal.style.display = "flex";
 } else {
   order.classList.remove('_active');
+  // modal.style.display = "none";
 }
 
 // Render section 'Pizza' 
@@ -246,28 +248,6 @@ function addFlyImgToCart(productButton, productId) {
     productButton.classList.remove('_hold');
   }
 }
-
-// Перевіряємо тип замовлення
-document.querySelector('.col-1__order-type').addEventListener('click', (e) => {
-  const toGoBlock = document.querySelector('.col-1__toGo-active');
-  const toGoBtn = document.querySelector('.col-1__delivery-cont_toGo');
-  const deliveryBlock = document.querySelector('.col-1__delivery-active');
-  const deliveryBtn = document.querySelector('.col-1__delivery-cont_del');
-
-  if (e.target.classList.contains('col-1__delivery-cont_toGo') || e.target.classList.contains('col-1__delivery-toGo-btn') || e.target.classList.contains('col-1__delivery-toGo')) {
-    toGoBlock.classList.add('_active');
-    toGoBtn.classList.add('_active');
-    deliveryBlock.classList.remove('_active');
-    deliveryBtn.classList.remove('_active');
-  }
-
-  if (e.target.classList.contains('col-1__delivery-cont_del') || e.target.classList.contains('col-1__delivery-del-btn') || e.target.classList.contains('col-1__delivery-del')) {
-    deliveryBlock.classList.add('_active');
-    deliveryBtn.classList.add('_active');
-    toGoBlock.classList.remove('_active');
-    toGoBtn.classList.remove('_active');
-  }
-});
 
 // Перевіряємо лист замовлення. Якщо немає товарів, то кнопка "Оформити замовлення" заблокована
 function checkOrderList() {
