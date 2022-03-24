@@ -1,4 +1,7 @@
 const pizzaContainer = document.querySelector('.pizza__container');
+const pizzaClassico = document.querySelector('.pizza__classico');
+const pizzaPremio = document.querySelector('.pizza__premio');
+const pizzaMaestro = document.querySelector('.pizza__maestro');
 const cartListContainer = document.querySelector('.basket__item-cont');
 const totalItemsInCart = document.querySelector('.actions__basket-quantity');
 const totalPriceInCart = document.querySelector('.col-2__price-value');
@@ -7,30 +10,35 @@ const deliveryList = document.querySelector('.col-2__list');
 
 // Render section 'Pizza' 
 function renderPizza(parentContainer) {
-  productsPizza.forEach(pizza => {
-    if (parentContainer) {
-      parentContainer.innerHTML += `
-        <div data-pid="${pizza.id}" class="pizza__card card ${pizza.class}">
-          <div class="card__img-cont">
-            <img class="card__img" src="${pizza.imgSrc}" alt="${pizza.name}}">
+  const parentsArr = [pizzaClassico, pizzaPremio, pizzaMaestro];
+
+  parentsArr.forEach(parent => {
+    productsPizza.forEach(pizza => {
+      if (parent.id === pizza.class) {
+        parent.innerHTML += `
+          <div data-pid="${pizza.id}" class="pizza__card card ${pizza.class}">
+            <div class="card__img-cont">
+              <img class="card__img" src="${pizza.imgSrc}" alt="${pizza.name}}">
+            </div>
+            <div class="card__title">
+              <h3>${pizza.name}</h3>
+            </div>
+            <div class="card__description">
+              <h4>
+                ${pizza.description}
+              </h4>
+            </div>
+            <div class="card__footer">
+              <img class="card__hryvnia" src="./img/icons/hryvnia.svg" alt="hryvnia">
+              <span class="card__price">${pizza.price}</span>
+              <button onclick="addToCart(event, '${pizza.id}')" class="card__btn">До Кошика</button>
+            </div>
           </div>
-          <div class="card__title">
-            <h3>${pizza.name}</h3>
-          </div>
-          <div class="card__description">
-            <h4>
-              ${pizza.description}
-            </h4>
-          </div>
-          <div class="card__footer">
-            <img class="card__hryvnia" src="./img/icons/hryvnia.svg" alt="hryvnia">
-            <span class="card__price">${pizza.price}</span>
-            <button onclick="addToCart(event, '${pizza.id}')" class="card__btn">До Кошика</button>
-          </div>
-        </div>
-      `;
-    }
+        `;
+      }
+    })
   })
+  
 };
 renderPizza(pizzaContainer);
 
@@ -63,13 +71,13 @@ function addToCart(event, id) {
 function renderCartItems() {
   const parentsArr = [cartListContainer, deliveryList];
 
-    parentsArr.forEach(parent => {
+  parentsArr.forEach(parent => {
 
-      parent.innerHTML = '';
+    parent.innerHTML = '';
 
-      cart.forEach(item => {
+    cart.forEach(item => {
 
-        parent.innerHTML += `
+      parent.innerHTML += `
           <hr>
           <div data-cart-pid="${item.id}" class="basket__item">
             <img class="basket__item-img" src="${item.imgSrc}" alt="${item.name}">
@@ -96,8 +104,8 @@ function renderCartItems() {
             </div>
           </div>
         `
-      });
-    })
+    });
+  })
 
 };
 
