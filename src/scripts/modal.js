@@ -2,6 +2,11 @@ const deliverBtn = document.querySelector('#deliver-btn');
 const takeMySelfBtn = document.querySelector('#takeMySelf-btn');
 const modal = document.querySelector('.modal');
 
+const toGoBlock = document.querySelector('.col-1__toGo-active');
+const toGoBtn = document.querySelector('.col-1__delivery-cont_toGo');
+const deliveryBlock = document.querySelector('.col-1__delivery-active');
+const deliveryBtn = document.querySelector('.col-1__delivery-cont_del');
+
 if (modal) {
     if (document.location.pathname === '/order.html') {
         modal.style.display = "flex";
@@ -20,13 +25,18 @@ if (modal) {
     })
 }
 
+if (localStorage.typeOfDelivery === 'col-1__delivery-cont_toGo') {
+    addActive(toGoBlock, toGoBtn, deliveryBlock, deliveryBtn);
+    modal.style.display = "none";
+} else if (localStorage.typeOfDelivery === 'col-1__delivery-cont_del') {
+    addActive(deliveryBlock, deliveryBtn, toGoBlock, toGoBtn);
+    modal.style.display = "none";
+}
+
 document.querySelector('.col-1__order-type').addEventListener('click', (e) => checkTypeOfDelivery(e));
 
 function checkTypeOfDelivery(e) {
-    const toGoBlock = document.querySelector('.col-1__toGo-active');
-    const toGoBtn = document.querySelector('.col-1__delivery-cont_toGo');
-    const deliveryBlock = document.querySelector('.col-1__delivery-active');
-    const deliveryBtn = document.querySelector('.col-1__delivery-cont_del');
+
     const takeMySelfArr = ['col-1__delivery-cont_toGo', 'col-1__delivery-toGo-btn', 'col-1__delivery-toGo'];
     const deliverArr = ['col-1__delivery-cont_del', 'col-1__delivery-del-btn', 'col-1__delivery-del'];
 
