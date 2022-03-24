@@ -17,7 +17,7 @@ if (modal) {
         } else if (e.target === takeMySelfBtn) {
             modal.style.display = "none";
             checkTypeOfDelivery(e);
-            console.log(e.target, 'takeMySelf btn')
+            console.log(e, 'takeMySelf btn')
         }
     })
 }
@@ -25,23 +25,23 @@ if (modal) {
 document.querySelector('.col-1__order-type').addEventListener('click', (e) => checkTypeOfDelivery(e));
 
 function checkTypeOfDelivery(e) {
-        const toGoBlock = document.querySelector('.col-1__toGo-active');
-        const toGoBtn = document.querySelector('.col-1__delivery-cont_toGo');
-        const deliveryBlock = document.querySelector('.col-1__delivery-active');
-        const deliveryBtn = document.querySelector('.col-1__delivery-cont_del');
-    
-        if (e.target.classList.contains('col-1__delivery-cont_toGo') || e.target.classList.contains('col-1__delivery-toGo-btn') || e.target.classList.contains('col-1__delivery-toGo')) {
-            toGoBlock.classList.add('_active');
-            toGoBtn.classList.add('_active');
-            deliveryBlock.classList.remove('_active');
-            deliveryBtn.classList.remove('_active');
-        }
-    
-        if (e.target.classList.contains('col-1__delivery-cont_del') || e.target.classList.contains('col-1__delivery-del-btn') || e.target.classList.contains('col-1__delivery-del')) {
-            deliveryBlock.classList.add('_active');
-            deliveryBtn.classList.add('_active');
-            toGoBlock.classList.remove('_active');
-            toGoBtn.classList.remove('_active');
-        }
+    const toGoBlock = document.querySelector('.col-1__toGo-active');
+    const toGoBtn = document.querySelector('.col-1__delivery-cont_toGo');
+    const deliveryBlock = document.querySelector('.col-1__delivery-active');
+    const deliveryBtn = document.querySelector('.col-1__delivery-cont_del');
+
+    if (e.target.classList.contains('col-1__delivery-cont_toGo') || e.target.classList.contains('col-1__delivery-toGo-btn') || e.target.classList.contains('col-1__delivery-toGo')) {
+        addActive(toGoBlock, toGoBtn, deliveryBlock, deliveryBtn);
+    }
+
+    if (e.target.classList.contains('col-1__delivery-cont_del') || e.target.classList.contains('col-1__delivery-del-btn') || e.target.classList.contains('col-1__delivery-del')) {
+        addActive(deliveryBlock, deliveryBtn, toGoBlock, toGoBtn);
+    }
 };
 
+function addActive(addBlock, addBtn, removeBlock, removeBtn) {
+    addBlock.classList.add('_active');
+    addBtn.classList.add('_active');
+    removeBlock.classList.remove('_active');
+    removeBtn.classList.remove('_active');
+}
