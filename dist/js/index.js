@@ -280,30 +280,30 @@ $('.header__bottom a').click(() => {
 })
 
 // Відправка форми та валідація номеру телефону
-jQuery(document).ready(function () {
-  $("#phone").mask("+380 (99) 999-99-99");
+// jQuery(document).ready(function () {
+//   $("#phone").mask("+380 (99) 999-99-99");
 
-  jQuery('.order__btn').click(function () {
-    var form = $('form');
+//   jQuery('.order__btn').click(function () {
+//     var form = $('form');
 
-    if (form.valid()) {
-      var actUrl = form.attr('action');
+//     if (form.valid()) {
+//       var actUrl = form.attr('action');
 
-      jQuery.ajax({
-        url: actUrl,
-        type: 'post',
-        dataType: 'html',
-        success: function (data) {
-          alert('Заявка відправлена');
-        },
-        error: function () {
-          form.find('.status').html('серверная ошибка');
-        }
-      });
-    }
-  });
+//       jQuery.ajax({
+//         url: actUrl,
+//         type: 'post',
+//         dataType: 'html',
+//         success: function (data) {
+//           alert('Заявка відправлена');
+//         },
+//         error: function () {
+//           form.find('.status').html('серверная ошибка');
+//         }
+//       });
+//     }
+//   });
 
-});
+// });
 
 // При скролі на навігаційному меню зверху відображає активний блок
 $(window).on('load scroll', function () {
@@ -357,7 +357,7 @@ const time = today.getHours() + ":" + (today.getMinutes() + 20);
 $('.time-block__timepicker').timepicker({
   'timeFormat': 'HH:mm',
   'minTime': time,
-	'maxTime': '20:00',
+	'maxTime': '23:55',
 	'showDuration': true,
-  'interval': 30,
+  'interval': 10,
 });
