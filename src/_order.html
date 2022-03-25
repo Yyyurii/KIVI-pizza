@@ -21,7 +21,7 @@
             <div class="checkout-form__contact-block">
               <h3>Контакти</h3>
               <div class="checkout-form__contact-inputs-cont">
-                <input type="text" name="Ім'я" placeholder="Ім'я" class="checkout-form__input-name" value="" required>
+                <input id="name" type="text" name="Ім'я" placeholder="Ім'я" class="checkout-form__input-name" value="" required>
                 <input id="phone" type="text" name="Телефон" placeholder="Телефон" class="checkout-form__input-phone"
                   value="" required>
               </div>
@@ -30,27 +30,27 @@
               <h3>Адрес</h3>
               <div class="address-block__wrap">
                 <div class="address-block__street">
-                  <input type="text" name="Вулиця" placeholder="Вулиця" class="address-block__input-street" value=""
+                  <input id="street" type="text" name="Вулиця" placeholder="Вулиця" class="address-block__input-street" value=""
                     required>
                 </div>
                 <div class="address-block__house">
-                  <input type="text" name="Будинок" placeholder="Будинок" class="address-block__input-house" value=""
+                  <input id="house" type="text" name="Будинок" placeholder="Будинок" class="address-block__input-house" value=""
                     required>
                 </div>
                 <div class="address-block__flat">
-                  <input type="text" name="Квартира" placeholder="Квартира" class="address-block__input-flat" value=""
+                  <input id="flat" type="text" name="Квартира" placeholder="Квартира" class="address-block__input-flat" value=""
                     required>
                 </div>
                 <div class="address-block__entrance">
-                  <input type="text" name="Під'їзд" placeholder="Під'їзд" class="address-block__input-entrance" value=""
+                  <input id="door" type="text" name="Під'їзд" placeholder="Під'їзд" class="address-block__input-entrance" value=""
                     required>
                 </div>
                 <div class="address-block__floor">
-                  <input type="text" name="Поверх" placeholder="Поверх" class="address-block__input-floor" value=""
+                  <input id="floor" type="text" name="Поверх" placeholder="Поверх" class="address-block__input-floor" value=""
                     required>
                 </div>
                 <div class="address-block__comment">
-                  <textarea rows="" name="Коментар" placeholder="Коментар" class="address-block__input-comment"
+                  <textarea id="comment" rows="" name="Коментар" placeholder="Коментар" class="address-block__input-comment"
                     value=""></textarea>
                 </div>
 
@@ -60,7 +60,7 @@
               <h3>Час</h3>
               <div class="time-block__wrap">
                 <div class="time-block__time-cont">
-                  <input name="Час" id="timepicker" placeholder="Найближчий час" class="time-block__timepicker" value=""
+                  <input name="Час" id="time" placeholder="Найближчий час" class="time-block__timepicker" value=""
                     required>
                 </div>
               </div>
@@ -76,16 +76,22 @@
             <div class="checkout-form__contact-block">
               <h3>Контакти</h3>
               <div class="checkout-form__contact-inputs-cont">
-                <input type="text" name="Ім'я" placeholder="Ім'я" class="checkout-form__input-name" value="" required>
+                <input id="name" type="text" name="Ім'я" placeholder="Ім'я" class="checkout-form__input-name" value="" required>
                 <input id="phone" type="text" name="Телефон" placeholder="Телефон" class="checkout-form__input-phone"
                   value="" required>
               </div>
+              
+              <div class="address-block__comment">
+                <textarea id="comment" rows="" name="Коментар" placeholder="Коментар" class="address-block__input-comment address-block__input-comment_marginTop"
+                  value=""></textarea>
+              </div>
+              
             </div>
             <div class="checkout-form__time-block time-block">
               <h3>Час</h3>
               <div class="time-block__wrap">
                 <div class="time-block__time-cont">
-                  <input name="Час" id="timepicker" placeholder="Найближчий час" class="time-block__timepicker" value=""
+                  <input name="Час" id="time" placeholder="Найближчий час" class="time-block__timepicker" value=""
                     required>
                 </div>
               </div>

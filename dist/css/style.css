@@ -1523,6 +1523,10 @@ hr {
   padding: 5px 10px;
 }
 
+.address-block__input-comment_marginTop {
+  margin: 20px 0 0;
+}
+
 .time-block__wrap {
   display: -webkit-box;
   display: -ms-flexbox;

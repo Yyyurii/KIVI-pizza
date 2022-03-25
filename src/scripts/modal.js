@@ -14,6 +14,14 @@ if (modal) {
         modal.style.display = "none";
     }
 
+    if (localStorage.typeOfDelivery === 'col-1__delivery-cont_toGo') {
+        addActive(toGoBlock, toGoBtn, deliveryBlock, deliveryBtn);
+        modal.style.display = "none";
+    } else if (localStorage.typeOfDelivery === 'col-1__delivery-cont_del') {
+        addActive(deliveryBlock, deliveryBtn, toGoBlock, toGoBtn);
+        modal.style.display = "none";
+    }
+
     modal.addEventListener('click', e => {
         if (e.target === deliverBtn) {
             modal.style.display = "none";
@@ -25,13 +33,7 @@ if (modal) {
     })
 }
 
-if (localStorage.typeOfDelivery === 'col-1__delivery-cont_toGo') {
-    addActive(toGoBlock, toGoBtn, deliveryBlock, deliveryBtn);
-    modal.style.display = "none";
-} else if (localStorage.typeOfDelivery === 'col-1__delivery-cont_del') {
-    addActive(deliveryBlock, deliveryBtn, toGoBlock, toGoBtn);
-    modal.style.display = "none";
-}
+
 
 document.querySelector('.col-1__order-type').addEventListener('click', (e) => checkTypeOfDelivery(e));
 

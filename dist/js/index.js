@@ -10,14 +10,12 @@ const order = document.querySelector('.order');
 
 if(document.location.pathname === '/order.html') {
   order.classList.add('_active');
-  // modal.style.display = "flex";
 } else {
   order.classList.remove('_active');
-  // modal.style.display = "none";
 }
 
 // Render section 'Pizza' 
-function renderPizza(parentContainer) {
+function renderPizza() {
   const parentsArr = [pizzaClassico, pizzaPremio, pizzaMaestro];
 
   parentsArr.forEach(parent => {
@@ -50,7 +48,7 @@ function renderPizza(parentContainer) {
   })
 
 };
-renderPizza(pizzaContainer);
+renderPizza();
 
 // Масив елементів, що знаходяться у кошику
 let cart = JSON.parse(localStorage.getItem('CART')) || [];
