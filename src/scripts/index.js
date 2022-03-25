@@ -353,9 +353,12 @@ $('.scroll-up').on('click', function () {
 });
 
 //timepicker
+const today = new Date();
+const time = today.getHours() + ":" + (today.getMinutes() + 20);
+
 $('.time-block__timepicker').timepicker({
   'timeFormat': 'HH:mm',
-  'minTime': '09:20',
+  'minTime': time,
 	'maxTime': '20:00',
 	'showDuration': true,
   'interval': 30,
