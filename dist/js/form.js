@@ -10,7 +10,8 @@ let formInfo = {
     time: ''
 };
 
-
+const orderInputs = document.querySelectorAll('.orderForm-input');
+console.log(orderInputs);
 
 
 
