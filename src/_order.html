@@ -14,17 +14,17 @@
           <div class="col-1__delivery-toGo"></div><button class="col-1__delivery-toGo-btn"> Самовиніс</button>
         </div>
       </div>
-      <form id="form-deliver" method="POST" class="contact-form" autocomplete="off" enctype="multipart/form-data"
-        novalidate>
+      <form id="form-deliver" method="POST" class="contact-form" autocomplete="off" enctype="multipart/form-data">
+
         <div class="col-1__delivery-active">
 
           <div class="col-1__checkout-form checkout-form">
             <div class="checkout-form__contact-block">
               <h3>Контакти</h3>
               <div class="checkout-form__contact-inputs-cont">
-                <input id="name" type="text" name="Ім'я" placeholder="Ім'я"
+                <input id="nameDeliver" type="text" name="nameDeliver" placeholder="Ім'я"
                   class="checkout-form__input-name orderForm-input" value="" required>
-                <input id="phone" type="text" name="Телефон" placeholder="Телефон"
+                <input id="phoneDeliver" type="text" name="phoneDeliver" placeholder="Телефон"
                   class="checkout-form__input-phone orderForm-input" value="" required>
               </div>
             </div>
@@ -32,27 +32,27 @@
               <h3>Адрес</h3>
               <div class="address-block__wrap">
                 <div class="address-block__street">
-                  <input id="street" type="text" name="Вулиця" placeholder="Вулиця"
+                  <input id="streetDeliver" type="text" name="streetDeliver" placeholder="Вулиця"
                     class="address-block__input-street orderForm-input" value="" required>
                 </div>
                 <div class="address-block__house">
-                  <input id="house" type="text" name="Будинок" placeholder="Будинок"
+                  <input id="houseDeliver" type="text" name="houseDeliver" placeholder="Будинок"
                     class="address-block__input-house orderForm-input" value="" required>
                 </div>
                 <div class="address-block__flat">
-                  <input id="flat" type="text" name="Квартира" placeholder="Квартира"
+                  <input id="flatDeliver" type="text" name="flatDeliver" placeholder="Квартира"
                     class="address-block__input-flat orderForm-input" value="" required>
                 </div>
                 <div class="address-block__entrance">
-                  <input id="door" type="text" name="Під'їзд" placeholder="Під'їзд"
+                  <input id="doorDeliver" type="text" name="doorDeliver" placeholder="Під'їзд"
                     class="address-block__input-entrance orderForm-input" value="" required>
                 </div>
                 <div class="address-block__floor">
-                  <input id="floor" type="text" name="Поверх" placeholder="Поверх"
+                  <input id="floorDeliver" type="text" name="floorDeliver" placeholder="Поверх"
                     class="address-block__input-floor orderForm-input" value="" required>
                 </div>
                 <div class="address-block__comment">
-                  <textarea id="comment" rows="" name="Коментар" placeholder="Коментар"
+                  <textarea id="commentDeliver" rows="" name="commentDeliver" placeholder="Коментар"
                     class="address-block__input-comment orderForm-input" value=""></textarea>
                 </div>
 
@@ -62,20 +62,19 @@
               <h3>Час</h3>
               <div class="time-block__wrap">
                 <div class="time-block__time-cont">
-                  <input name="Час" id="time" type="datetime" placeholder="Найближчий час"
+                  <input name="timeDeliver" id="timeDeliver" type="datetime" placeholder="Найближчий час"
                     class="time-block__timepicker orderForm-input" value="" required>
                 </div>
               </div>
             </div>
           </div>
-
+          <input id="price" type="hidden" name="pizzaNameAndUnitsDeliver" class="basket__price-total-input orderForm-input"></input>
           <input type="submit" value="Замовити" class="order__btn"></input>
         </div>
-        
+
       </form>
       <!-- toGo active  -->
-      <form id="form-takeMySelf" method="POST" class="contact-form" autocomplete="off" enctype="multipart/form-data"
-        novalidate>
+      <form id="form-takeMySelf" method="POST" class="contact-form" autocomplete="off" enctype="multipart/form-data">
         <div class="col-1__toGo-active">
 
           <div class="col-1__checkout-form checkout-form">
@@ -84,14 +83,14 @@
             <div class="checkout-form__contact-block">
               <h3>Контакти</h3>
               <div class="checkout-form__contact-inputs-cont">
-                <input id="nameTakeMySelf" type="text" name="name" placeholder="Ім'я"
+                <input id="nameTakeMySelf" type="text" name="nameTakeMySelf" placeholder="Ім'я"
                   class="checkout-form__input-name orderForm-input" value="" required>
-                <input id="phoneTakeMySelf" type="text" name="phone" placeholder="Телефон"
+                <input id="phoneTakeMySelf" type="text" name="phoneTakeMySelf" placeholder="Телефон"
                   class="checkout-form__input-phone orderForm-input" value="" required>
               </div>
 
               <div class="address-block__comment">
-                <textarea id="commentTakeMySelf" rows="" name="comment" placeholder="Коментар"
+                <textarea id="commentTakeMySelf" rows="" name="commentTakeMySelf" placeholder="Коментар"
                   class="address-block__input-comment address-block__input-comment_marginTop orderForm-input"
                   value=""></textarea>
               </div>
@@ -101,15 +100,17 @@
               <h3>Час</h3>
               <div class="time-block__wrap">
                 <div class="time-block__time-cont">
-                  <input name="time" id="timeTakeMySelf" type="datetime" placeholder="Найближчий час"
+                  <input name="timeTakeMySelf" id="timeTakeMySelf" type="datetime" placeholder="Найближчий час"
                     class="time-block__timepicker orderForm-input" value="" required>
                 </div>
               </div>
             </div>
           </div>
+          <input id="price" type="hidden" name="pizzaNameAndUnitsTakeMySelf" class="basket__price-total-input orderForm-input"
+            value="">
           <input type="submit" value="Замовити" class="order__btn"></input>
         </div>
-        
+
       </form>
 
     </div>
@@ -123,10 +124,9 @@
       </div>
       <br>
       <div class="col-2__price">Всього: <span class="col-2__price-value"></span></div>
-      <input id="price" type="hidden" name="Всього до оплати" class="basket__price-total-input orderForm-input"
-        value="">
+
     </div>
   </div>
-  
+
 
 </section>

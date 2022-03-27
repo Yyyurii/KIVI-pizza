@@ -5,29 +5,45 @@ const timeInputs = document.querySelectorAll('.time-block__timepicker');
 let inputsObj = JSON.parse(localStorage.getItem('orderForm')) || {};
 
 orderInputs.forEach(input => {
-    input.addEventListener('change', () => {
-        if (input.value) {
-            inputsObj = Array.from(orderInputs).filter(el => el.value !== '').reduce((acc, input) => ({
-                ...acc, [input.name]: input.value
-            }), {});
-        }
-    })
+  input.addEventListener('change', () => {
+    if (input.value) {
+      inputsObj = Array.from(orderInputs).filter(el => el.value !== '').reduce((acc, input) => ({
+        ...acc, [input.name]: input.value
+      }), {});
+    }
+  })
 })
 
 function getSelectedTime() {
-    timeInputs.forEach(input => {
-        if(input.value) {
-            inputsObj = {
-                ...inputsObj, [input.name]: input.value
-            }
-        }
-    })
+  timeInputs.forEach(input => {
+    if (input.value) {
+      inputsObj = {
+        ...inputsObj, [input.name]: input.value
+      }
+    }
+  })
 }
+
+const pizzaNameAndUnits = document.querySelectorAll('.basket__price-total-input');
+
+let cartOrder = JSON.parse(localStorage.getItem('CART')) || [];
+let pizzaUnits = '';
+
+cartOrder.forEach(cart => {
+  pizzaUnits += `${cart.name} ${cart.numberOfUnits}; `
+});
+
+if (pizzaNameAndUnits) {
+  pizzaNameAndUnits.forEach(item => {
+    item.value = pizzaUnits;
+  })
+}
+
 
 // submitOrder.addEventListener('click', () => {
 //     getSelectedTime();
 //     localStorage.setItem('orderForm', JSON.stringify(inputsObj));
-    
+
 // });
 
 const forms = document.querySelectorAll('form');
