@@ -1336,6 +1336,21 @@ hr {
           flex: 1 1 60%;
 }
 
+.col-1 .order__btn {
+  padding: 15px 20px 15px;
+  background-color: #de9447;
+  border-radius: 5px;
+  color: #fff;
+  margin: 30px auto;
+  font-size: 22px;
+  text-align: center;
+  height: 100%;
+}
+
+.col-1 .order__btn._disabled {
+  background-color: #aba095;
+}
+
 .col-1 input,
 .col-1 textarea {
   height: 30px;
