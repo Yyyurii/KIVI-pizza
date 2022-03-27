@@ -241,7 +241,7 @@ body._lock {
 }
 
 .header__bottom li > a.active {
-  border-radius: 5px;
+  border-radius: 30px;
   background: white;
   padding: 10px 20px;
   color: #de9447;
@@ -1339,7 +1339,8 @@ hr {
 .col-1 .order__btn {
   padding: 15px 20px 15px;
   background-color: #de9447;
-  border-radius: 5px;
+  border-radius: 30px;
+  border: 0px;
   color: #fff;
   margin: 30px auto;
   font-size: 22px;
@@ -2025,7 +2026,7 @@ hr {
 
 @media (any-hover: hover) {
   .header__bottom li a:hover {
-    border-radius: 5px;
+    border-radius: 30px;
     background: white;
     padding: 10px 20px;
     color: #de9447;
