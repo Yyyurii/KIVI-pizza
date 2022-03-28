@@ -33,8 +33,6 @@ if (modal) {
     })
 }
 
-
-
 document.querySelector('.col-1__order-type').addEventListener('click', (e) => checkTypeOfDelivery(e));
 
 function checkTypeOfDelivery(e) {
@@ -59,3 +57,18 @@ function addActive(addBlock, addBtn, removeBlock, removeBtn) {
     removeBlock.classList.remove('_active');
     removeBtn.classList.remove('_active');
 }
+
+function thanksModal() {
+    modal.style.display = "block";
+    modal.innerHTML = '';
+    modal.innerHTML = `
+        <div class="modal-header">
+            <h2 class="modal-thanks">Дякуємо за замовлення ! =) <br> За необхідності ми Вам зателефонуємо</h2>
+        </div>
+    `;
+    setTimeout(function(){
+        window.location.href = './index.html';
+      }, 500 * 1000);
+}
+
+export {thanksModal};

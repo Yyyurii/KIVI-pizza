@@ -1,5 +1,6 @@
+import { thanksModal } from "./modal.min.js";
+
 const orderInputs = document.querySelectorAll('.orderForm-input');
-const submitOrder = document.querySelectorAll('.order__btn');
 const timeInputs = document.querySelectorAll('.time-block__timepicker');
 
 let inputsObj = JSON.parse(localStorage.getItem('orderForm')) || {};
@@ -24,22 +25,6 @@ function getSelectedTime() {
   })
 }
 
-const pizzaNameAndUnits = document.querySelectorAll('.basket__price-total-input');
-
-let cartOrder = JSON.parse(localStorage.getItem('CART')) || [];
-let pizzaUnits = '';
-
-cartOrder.forEach(cart => {
-  pizzaUnits += `${cart.name} ${cart.numberOfUnits}; `
-});
-
-if (pizzaNameAndUnits) {
-  pizzaNameAndUnits.forEach(item => {
-    item.value = pizzaUnits;
-  })
-}
-
-
 // submitOrder.addEventListener('click', () => {
 //     getSelectedTime();
 //     localStorage.setItem('orderForm', JSON.stringify(inputsObj));
@@ -58,6 +43,10 @@ forms.forEach(item => {
 });
 
 function postData(form) {
+
+  $("#phoneDeliver").mask("+380 (99) 999-99-99");
+  $("#phoneTakeMySelf").mask("+380 (99) 999-99-99");
+
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -75,9 +64,12 @@ function postData(form) {
       if (request.status === 200) {
         console.log(request.response);
         form.reset();
+        thanksModal();
+        localStorage.clear();
       } else {
         statusMessage.textContent = message.failure;
       }
     });
   });
 };
+

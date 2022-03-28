@@ -1,3 +1,7 @@
+window.addToCart = addToCart;
+window.changeNumberOfUnits = changeNumberOfUnits;
+window.removeItemFromCart = removeItemFromCart;
+
 const pizzaContainer = document.querySelector('.pizza__container');
 const pizzaClassico = document.querySelector('.pizza__classico');
 const pizzaPremio = document.querySelector('.pizza__premio');
@@ -7,6 +11,7 @@ const totalItemsInCart = document.querySelector('.actions__basket-quantity');
 const totalPriceInCart = document.querySelector('.col-2__price-value');
 const deliveryList = document.querySelector('.col-2__list');
 const order = document.querySelector('.order');
+const submitOrder = document.querySelectorAll('.order__btn');
 
 if(document.location.pathname === '/order.html') {
   order.classList.add('_active');
@@ -152,6 +157,8 @@ function updateCart() {
 
   //localStorage
   localStorage.setItem('CART', JSON.stringify(cart));
+
+  disableOrderBtn();
 }
 
 // Підрахунок кількості товарів, загальної вартості та їх рендерінг
@@ -279,32 +286,6 @@ $('.header__bottom a').click(() => {
   }
 })
 
-// Відправка форми та валідація номеру телефону
-// jQuery(document).ready(function () {
-//   $("#phone").mask("+380 (99) 999-99-99");
-
-//   jQuery('.order__btn').click(function () {
-//     var form = $('form');
-
-//     if (form.valid()) {
-//       var actUrl = form.attr('action');
-
-//       jQuery.ajax({
-//         url: actUrl,
-//         type: 'post',
-//         dataType: 'html',
-//         success: function (data) {
-//           alert('Заявка відправлена');
-//         },
-//         error: function () {
-//           form.find('.status').html('серверная ошибка');
-//         }
-//       });
-//     }
-//   });
-
-// });
-
 // При скролі на навігаційному меню зверху відображає активний блок
 $(window).on('load scroll', function () {
 
@@ -361,3 +342,16 @@ $('.time-block__timepicker').timepicker({
 	'showDuration': true,
   'interval': 10,
 });
+
+//form
+function disableOrderBtn() {
+  submitOrder.forEach(item => {
+    if (cart.length === 0) {
+      item.setAttribute('disabled', 'disabled');
+      item.classList.add('_disabled');
+    } else {
+      item.removeAttribute('disabled');
+      item.classList.remove('_disabled');
+    }
+  })
+}
