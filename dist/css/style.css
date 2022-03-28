@@ -1725,13 +1725,15 @@ hr {
   padding: 2px 16px;
 }
 
-.modal-header h2 {
+.modal-header p {
   color: #de9447;
   border-color: #de9447;
   margin: 10px 20px;
-  padding: 5px 0;
+  font-size: 35px;
+  padding: 35px 0;
   font-size: 1.5rem;
   text-align: center;
+  background-color: white;
 }
 
 .modal-body {
@@ -1926,6 +1928,10 @@ hr {
   .modal-content {
     padding: 0px;
     width: 95%;
+  }
+
+  .modal-header p {
+    font-size: 25px;
   }
 
   .scroll-up {

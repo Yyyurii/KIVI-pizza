@@ -63,12 +63,12 @@ function thanksModal() {
     modal.innerHTML = '';
     modal.innerHTML = `
         <div class="modal-header">
-            <h2 class="modal-thanks">Дякуємо за замовлення ! =) <br> За необхідності ми Вам зателефонуємо</h2>
+            <p class="modal-thanks">Дякуємо за замовлення ! =) <br> За необхідності ми Вам зателефонуємо</p>
         </div>
     `;
     setTimeout(function(){
         window.location.href = './index.html';
-      }, 500 * 1000);
+      }, 5 * 1000);
 }
 
 export {thanksModal};
