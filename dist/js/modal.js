@@ -68,7 +68,7 @@ function thanksModal() {
     `;
     setTimeout(function(){
         window.location.href = './index.html';
-      }, 5 * 1000);
+      }, 4 * 1000);
 }
 
 export {thanksModal};

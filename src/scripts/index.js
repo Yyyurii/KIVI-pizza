@@ -12,6 +12,7 @@ const totalPriceInCart = document.querySelector('.col-2__price-value');
 const deliveryList = document.querySelector('.col-2__list');
 const order = document.querySelector('.order');
 const submitOrder = document.querySelectorAll('.order__btn');
+const inputHiddenField = document.querySelectorAll('.basket__price-total-input');
 
 if(document.location.pathname === '/order.html') {
   order.classList.add('_active');
@@ -159,6 +160,7 @@ function updateCart() {
   localStorage.setItem('CART', JSON.stringify(cart));
 
   disableOrderBtn();
+  orderPizzaNameAndUnits();
 }
 
 // Підрахунок кількості товарів, загальної вартості та їх рендерінг
@@ -343,7 +345,18 @@ $('.time-block__timepicker').timepicker({
   'interval': 10,
 });
 
-//form
+//form Валідація кнопки замовлення та запис кількості піци у поле форми для замовлення
+function orderPizzaNameAndUnits() {
+  let pizzaNameAndUnits = '';
+
+  cart.forEach(cart => {
+    pizzaNameAndUnits += `${cart.name} ${cart.numberOfUnits}шт; `;
+  });
+
+  inputHiddenField.value = pizzaNameAndUnits;
+}
+
+
 function disableOrderBtn() {
   submitOrder.forEach(item => {
     if (cart.length === 0) {
