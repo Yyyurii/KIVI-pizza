@@ -340,9 +340,9 @@ const time = today.getHours() + ":" + (today.getMinutes() + 20);
 $('.time-block__timepicker').timepicker({
   'timeFormat': 'HH:mm',
   'minTime': time,
-	'maxTime': '23:55',
+	'maxTime': '21:00',
 	'showDuration': true,
-  'interval': 10,
+  'interval': 20,
 });
 
 //form Валідація кнопки замовлення та запис кількості піци у поле форми для замовлення
@@ -353,7 +353,7 @@ function orderPizzaNameAndUnits() {
     pizzaNameAndUnits += `${cart.name} ${cart.numberOfUnits}шт; `;
   });
 
-  inputHiddenField.value = pizzaNameAndUnits;
+  inputHiddenField.forEach(input => input.value = pizzaNameAndUnits);
 }
 
 
