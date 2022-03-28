@@ -2,6 +2,9 @@ window.addToCart = addToCart;
 window.changeNumberOfUnits = changeNumberOfUnits;
 window.removeItemFromCart = removeItemFromCart;
 
+const today = new Date();
+const todayHours = today.getHours();
+
 const pizzaContainer = document.querySelector('.pizza__container');
 const pizzaClassico = document.querySelector('.pizza__classico');
 const pizzaPremio = document.querySelector('.pizza__premio');
@@ -14,7 +17,7 @@ const order = document.querySelector('.order');
 const submitOrder = document.querySelectorAll('.order__btn');
 const inputHiddenField = document.querySelectorAll('.basket__price-total-input');
 
-if(document.location.pathname === '/order.html') {
+if (document.location.pathname === '/order.html') {
   order.classList.add('_active');
 } else {
   order.classList.remove('_active');
@@ -175,6 +178,12 @@ function renderSubtotal() {
 
   totalPriceInCart.innerHTML = `${totalPrice} грн`;
   totalItemsInCart.innerHTML = totalItems;
+
+  //Щасливі години з 13 до 17
+  if (todayHours >= 13 && todayHours < 17) {
+    totalPriceInCart.innerHTML = `${Math.round(totalPrice - (totalPrice * 0.15))} грн - "Щасливі Години"`;
+    console.log(Math.round(totalPrice - (totalPrice * 0.15)), "скидка");
+  }
 }
 
 // Вибір активної вкладки в блоці Піца
@@ -334,14 +343,13 @@ $('.scroll-up').on('click', function () {
 });
 
 //timepicker
-const today = new Date();
 const time = today.getHours() + ":" + (today.getMinutes() + 20);
 
 $('.time-block__timepicker').timepicker({
   'timeFormat': 'HH:mm',
   'minTime': time,
-	'maxTime': '21:00',
-	'showDuration': true,
+  'maxTime': '21:00',
+  'showDuration': true,
   'interval': 20,
 });
 
