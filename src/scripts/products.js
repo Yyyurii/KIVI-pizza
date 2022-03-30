@@ -103,22 +103,22 @@ const productsPizza = [
         description: 'Соус "Трюфельний", Курка Копчена, Гриби, Моцарела',
         price: 198
     },
-    {
-        class: 'premio',
-        id: 'besceRosso',
-        name: 'Pesce Rosso',
-        imgSrc: './img/pizza/pizza-PesceRosso.jpg',
-        description: 'Соус "Бешамель", Риба Червона, Філаделфія, Моцарела',
-        price: 198
-    },
-    {
-        class: 'maestro',
-        id: 'bolognese',
-        name: 'Bolognese',
-        imgSrc: './img/pizza/pizza-Bolognese.jpg',
-        description: 'Соус "Бешамель", Котлетки з Індички, Моцарелла, Пармезан, Помідори',
-        price: 188
-    },
+    // {
+    //     class: 'premio',
+    //     id: 'besceRosso',
+    //     name: 'Pesce Rosso',
+    //     imgSrc: './img/pizza/pizza-PesceRosso.jpg',
+    //     description: 'Соус "Бешамель", Риба Червона, Філаделфія, Моцарела',
+    //     price: 198
+    // },
+    // {
+    //     class: 'maestro',
+    //     id: 'bolognese',
+    //     name: 'Bolognese',
+    //     imgSrc: './img/pizza/pizza-Bolognese.jpg',
+    //     description: 'Соус "Бешамель", Котлетки з Індички, Моцарелла, Пармезан, Помідори',
+    //     price: 188
+    // },
     {
         class: 'maestro',
         id: 'piccante',
@@ -127,13 +127,13 @@ const productsPizza = [
         description: 'Соус "BBQ", Соус "Spicy", Бекон, Балик Пряний, Моцарелла, Оливки Чорні, Цибуля Маринована, Перець Чорний',
         price: 208
     },
-    {
-        class: 'maestro',
-        id: 'prosciutto',
-        name: 'Prosciutto',
-        imgSrc: './img/pizza/pizza-Prosciutto.jpg',
-        description: 'Соус "Пелаті", Бекон, Прошуто, Моцарелла, Моцарелла Fior di latte, Пармезан, Рукола',
-        price: 258
-    },
+    // {
+    //     class: 'maestro',
+    //     id: 'prosciutto',
+    //     name: 'Prosciutto',
+    //     imgSrc: './img/pizza/pizza-Prosciutto.jpg',
+    //     description: 'Соус "Пелаті", Бекон, Прошуто, Моцарелла, Моцарелла Fior di latte, Пармезан, Рукола',
+    //     price: 258
+    // },
 
 ];
