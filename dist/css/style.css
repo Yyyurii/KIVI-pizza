@@ -1580,6 +1580,10 @@ hr {
   display: none;
 }
 
+.col-1__delivery-active p {
+  margin: 20px 10px;
+}
+
 .col-1__delivery-active._active {
   display: block;
 }

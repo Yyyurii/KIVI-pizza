@@ -353,6 +353,10 @@
 .col-1__delivery-active {
   display: none;
 
+  p {
+    margin: 20px 10px;
+  }
+
   &._active {
     display: block;
   }
