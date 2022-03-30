@@ -4,6 +4,8 @@ window.removeItemFromCart = removeItemFromCart;
 
 const today = new Date();
 const todayHours = today.getHours();
+const todayDay = today.getDay();
+console.log(todayDay);
 
 const pizzaContainer = document.querySelector('.pizza__container');
 const pizzaClassico = document.querySelector('.pizza__classico');
@@ -180,9 +182,8 @@ function renderSubtotal() {
   totalItemsInCart.innerHTML = totalItems;
 
   //Щасливі години з 13 до 17
-  if (todayHours >= 13 && todayHours < 17) {
+  if (todayHours >= 13 && todayHours < 17 && todayDay === 6) {
     totalPriceInCart.innerHTML = `${Math.round(totalPrice - (totalPrice * 0.15))} грн - "Щасливі Години"`;
-    console.log(Math.round(totalPrice - (totalPrice * 0.15)), "скидка");
   }
 }
 
