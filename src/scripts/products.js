@@ -120,12 +120,12 @@ const productsPizza = [
     //     price: 188
     // },
     {
-        class: 'maestro',
+        class: 'premio',
         id: 'piccante',
         name: 'Piccante',
         imgSrc: './img/pizza/pizza-Piccante.jpg',
         description: 'Соус "BBQ", Соус "Spicy", Бекон, Балик Пряний, Моцарелла, Оливки Чорні, Цибуля Маринована, Перець Чорний',
-        price: 208
+        price: 198
     },
     // {
     //     class: 'maestro',

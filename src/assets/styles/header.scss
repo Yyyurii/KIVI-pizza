@@ -52,10 +52,17 @@ $maxWidthContainer: 1170;
 			color: #666;
 		}
 
-		p {
+		.call {
 			display: flex;
 			align-items: center;
 			margin: 0 5px;
+
+			&__phone-numbers {
+				display: flex;
+				flex-direction: column;
+				gap: 5px;
+				margin: 0px 5px;
+			}
 		}
 
 		img {
@@ -198,10 +205,6 @@ $maxWidthContainer: 1170;
 
 		ul {
 			flex-direction: column;
-		}
-
-		a {
-			// color: #de9447;
 		}
 	}
 
@@ -348,6 +351,11 @@ hr {
 }
 
 @media (max-width: 767.98px) {
+
+	.header__top {
+		padding: 5px 0px;
+	}
+
 	.basket {
 		&__list {
 			padding: 0 1rem 1rem;
@@ -356,7 +364,7 @@ hr {
 			&._active {
 				right: 0px;
 			}
-	
+
 			a {
 				font-size: 16px;
 			}
