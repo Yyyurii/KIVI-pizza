@@ -50,7 +50,7 @@ function renderPizza() {
                 <img class="card__hryvnia" src="./img/icons/hryvnia.svg" alt="hryvnia">
                 <span class="card__price">${pizza.price}</span>
                 <img class="card__hryvnia-red" src="./img/icons/hryvnia-red.svg" alt="hryvnia">
-                <span class="card__sale-price">${pizza.salePrice}</span>
+                <span class="card__sale-price">${pizza.salePrice}*  </span>
                 <button onclick="addToCart(event, '${pizza.id}')" class="card__btn">До Кошика</button>
               </div>
             </div>
@@ -116,7 +116,7 @@ function renderCartItems() {
                   </div>
                   <div class="order__multiply">X</div>
                   <img class="basket__price-img" src="./img/icons/hryvnia-gray.svg" alt="hryvnia">
-                  <span class="basket__price">${item.price}</span>
+                  <span class="basket__price">${(todayHours >= 11 && todayHours < 14 && todayDay === 5) ? item.salePrice : item.price }</span>
                   <input type="hidden" name="" class="basket__price-current-input" value="" disabled>
               </div>
             </div>
@@ -185,7 +185,7 @@ function renderSubtotal() {
   totalPriceInCart.innerHTML = `${totalPrice} грн`;
   totalItemsInCart.innerHTML = totalItems;
 
-  //Щасливі години з 13 до 17
+  //Щасливі години з 11 до 14
   if (todayHours >= 11 && todayHours < 14 && todayDay === 6) {
     totalPriceInCart.innerHTML = `${totalSaleItems} грн - "Щасливі Години"`;
   }

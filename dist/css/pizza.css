@@ -159,6 +159,7 @@
   color: #eb1818;
   font-size: 20px;
   font-weight: 700;
+  white-space: pre-wrap;
 }
 
 .card h3__hryvnia-red,
