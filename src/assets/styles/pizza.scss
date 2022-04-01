@@ -3,7 +3,7 @@
   padding: 30px 20px;
   background: #f8f8f8;
 
-  h2 {
+  &__section-title {
     color: #de9447;
     border-color: #de9447;
     margin: 10px 20px;
@@ -11,6 +11,14 @@
     font-size: 1.5rem;
     text-decoration: underline;
     text-align: center;
+  }
+
+  &__notice {
+    color: #666;
+    border-color: #de9447;
+    margin: 10px 20px;
+    padding: 5px 0;
+    font-size: 1.5rem;
   }
 
   &__classico,
@@ -154,9 +162,10 @@
   &__btn {
     padding: 10px 10px 8px;
     background-color: #de9447;
-    border-radius: 5px;
+    border-radius: 30px;
     color: white;
     margin-left: auto;
+    width: 90px;
   }
 
   &__footer {

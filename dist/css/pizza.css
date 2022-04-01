@@ -4,7 +4,7 @@
   background: #f8f8f8;
 }
 
-.pizza h2 {
+.pizza__section-title {
   color: #de9447;
   border-color: #de9447;
   margin: 10px 20px;
@@ -12,6 +12,14 @@
   font-size: 1.5rem;
   text-decoration: underline;
   text-align: center;
+}
+
+.pizza__notice {
+  color: #666;
+  border-color: #de9447;
+  margin: 10px 20px;
+  padding: 5px 0;
+  font-size: 1.5rem;
 }
 
 .pizza__classico,
@@ -174,9 +182,10 @@
 .card__btn {
   padding: 10px 10px 8px;
   background-color: #de9447;
-  border-radius: 5px;
+  border-radius: 30px;
   color: white;
   margin-left: auto;
+  width: 90px;
 }
 
 .card__footer {

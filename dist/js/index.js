@@ -5,7 +5,6 @@ window.removeItemFromCart = removeItemFromCart;
 const today = new Date();
 const todayHours = today.getHours();
 const todayDay = today.getDay();
-console.log(todayDay);
 
 const pizzaContainer = document.querySelector('.pizza__container');
 const pizzaClassico = document.querySelector('.pizza__classico');
@@ -51,7 +50,9 @@ function renderPizza() {
                 <span class="card__price">${pizza.price}</span>
                 <img class="card__hryvnia-red" src="./img/icons/hryvnia-red.svg" alt="hryvnia">
                 <span class="card__sale-price">${pizza.salePrice}*  </span>
-                <button onclick="addToCart(event, '${pizza.id}')" class="card__btn">До Кошика</button>
+                <button onclick="addToCart(event, '${pizza.id}')" class="card__btn">
+                  <img class="card__cart-icon" src="img/icons/basket.svg" alt="basket">
+                </button>
               </div>
             </div>
           `;
@@ -71,7 +72,7 @@ updateCart();
 function addToCart(event, id) {
   const targetElement = event.target;
 
-  if (targetElement.classList.contains('card__btn')) {
+  if (targetElement.classList.contains('card__btn') || targetElement.classList.contains('card__cart-icon')) {
     const productId = targetElement.closest('.pizza__card').dataset.pid;;
     addFlyImgToCart(targetElement, productId);
     event.preventDefault();
@@ -186,7 +187,7 @@ function renderSubtotal() {
   totalItemsInCart.innerHTML = totalItems;
 
   //Щасливі години з 11 до 14
-  if (todayHours >= 11 && todayHours < 14 && todayDay === 6) {
+  if (todayHours >= 11 && todayHours < 14 && todayDay !== 0) {
     totalPriceInCart.innerHTML = `${totalSaleItems} грн - "Щасливі Години"`;
   }
 }
