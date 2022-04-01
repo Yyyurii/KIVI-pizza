@@ -174,9 +174,11 @@ function updateCart() {
 function renderSubtotal() {
   let totalPrice = 0;
   let totalItems = 0;
+  let totalSaleItems = 0;
 
   cart.forEach(item => {
     totalPrice += item.price * item.numberOfUnits;
+    totalSaleItems += item.salePrice * item.numberOfUnits;
     totalItems += item.numberOfUnits;
   });
 
@@ -184,8 +186,8 @@ function renderSubtotal() {
   totalItemsInCart.innerHTML = totalItems;
 
   //Щасливі години з 13 до 17
-  if (todayHours >= 13 && todayHours < 17 && todayDay === 6) {
-    totalPriceInCart.innerHTML = `${Math.round(totalPrice - (totalPrice * 0.15))} грн - "Щасливі Години"`;
+  if (todayHours >= 11 && todayHours < 14 && todayDay === 6) {
+    totalPriceInCart.innerHTML = `${totalSaleItems} грн - "Щасливі Години"`;
   }
 }
 
