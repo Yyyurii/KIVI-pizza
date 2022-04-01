@@ -349,14 +349,13 @@ $('.scroll-up').on('click', function () {
 });
 
 //timepicker
-const time = today.getHours() + ":" + (today.getMinutes() + 20);
 
 $('.time-block__timepicker').timepicker({
   'timeFormat': 'HH:mm',
-  'minTime': time,
-  'maxTime': '21:00',
+  'minTime': '11:00',
+  'maxTime': '18:00',
   'showDuration': true,
-  'interval': 20,
+  'interval': 15,
 });
 
 //form Валідація кнопки замовлення та запис кількості піци у поле форми для замовлення

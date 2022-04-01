@@ -4,7 +4,7 @@ const productsPizza = [
         id: 'margo',
         name: 'Margo',
         imgSrc: './img/pizza/pizza-margo.jpg',
-        description: 'Соус "Пелаті", Помідори, Моцарела, Рукола',
+        description: 'Соус "Пелаті", Помідори, Моцарела',
         price: 115,
         salePrice: 98
     },
@@ -31,7 +31,7 @@ const productsPizza = [
         id: 'bbq',
         name: 'BBQ',
         imgSrc: './img/pizza/pizza-bbq.jpg',
-        description: 'Салямі, Курка копчена, Гриби, Моцарела, Рукола',
+        description: 'Салямі, Курка копчена, Гриби, Моцарела',
         price: 148,
         salePrice: 126
     },
@@ -112,7 +112,7 @@ const productsPizza = [
         id: 'superMizza',
         name: 'Super Mizza',
         imgSrc: './img/pizza/pizza-superMizza.jpg',
-        description: 'Соус "BBQ", Салямі, Курка Копчена, Бекон, Ковбаски Мисливські, Моцарела, Рукола',
+        description: 'Соус "BBQ", Салямі, Курка Копчена, Бекон, Ковбаски Мисливські, Моцарела',
         price: 195,
         salePrice: 166
     },
