@@ -893,9 +893,9 @@ hr {
 
 .card {
   margin: 15px 0;
-  padding: 15px 25px;
+  padding: 15px 15px;
   background: #fff;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   border: 0.1rem solid rgba(0, 0, 0, 0.2);
   max-width: 265px;
   height: 400px;
@@ -936,11 +936,23 @@ hr {
   color: #666;
 }
 
-.card h3,
+.card h3__price,
 .card .card__price {
   color: #de9447;
   font-size: 25px;
   font-weight: 700;
+}
+
+.card h3__sale-price,
+.card .card__sale-price {
+  color: #eb1818;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.card h3__hryvnia-red,
+.card .card__hryvnia-red {
+  margin: 0 0 0 10px;
 }
 
 .card__img {
@@ -948,7 +960,7 @@ hr {
 }
 
 .card__btn {
-  padding: 10px 20px 8px;
+  padding: 10px 10px 8px;
   background-color: #de9447;
   border-radius: 5px;
   color: white;

@@ -49,6 +49,8 @@ function renderPizza() {
               <div class="card__footer">
                 <img class="card__hryvnia" src="./img/icons/hryvnia.svg" alt="hryvnia">
                 <span class="card__price">${pizza.price}</span>
+                <img class="card__hryvnia-red" src="./img/icons/hryvnia-red.svg" alt="hryvnia">
+                <span class="card__sale-price">${pizza.salePrice}</span>
                 <button onclick="addToCart(event, '${pizza.id}')" class="card__btn">До Кошика</button>
               </div>
             </div>
