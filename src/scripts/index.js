@@ -354,7 +354,6 @@ $('.time-block__timepicker').timepicker({
   'timeFormat': 'HH:mm',
   'minTime': '11:00',
   'maxTime': '18:00',
-  'showDuration': true,
   'interval': 15,
 });
 

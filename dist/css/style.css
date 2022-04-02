@@ -1680,6 +1680,79 @@ hr {
   max-width: 390px;
 }
 
+.delivery {
+  margin: 30px 20px;
+}
+
+.delivery__main-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 30px;
+}
+
+.delivery__notice {
+  margin: 30px 0;
+}
+
+.delivery__notice a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.area {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  max-width: 800px;
+}
+
+.area h1 {
+  padding: 5px 0;
+  font-size: 1rem;
+  text-decoration: underline;
+}
+
+.area__img-area {
+  max-width: 800px;
+  width: 100%;
+}
+
+.area__description {
+  margin: 30px 0;
+}
+
+.conditions__work-schedule {
+  padding: 30px 0 0;
+  font-size: 20px;
+}
+
+.conditions__phone-number {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 20px 0;
+}
+
+.conditions__phone-number img {
+  width: 25px;
+  margin: 0 10px 0 0;
+}
+
+.conditions__phone-number a {
+  color: inherit;
+}
+
 .modal {
   display: none;
   /* Скрыто по умолчанию */
@@ -1931,6 +2004,24 @@ hr {
     -webkit-box-ordinal-group: 2;
         -ms-flex-order: 1;
             order: 1;
+  }
+
+  .delivery__main-info {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+
+  .area h1 {
+    text-align: center;
+  }
+
+  .conditions__work-schedule {
+    padding: 20px 0;
   }
 }
 
