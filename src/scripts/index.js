@@ -51,7 +51,7 @@ function renderPizza() {
                 <img class="card__hryvnia-red" src="./img/icons/hryvnia-red.svg" alt="hryvnia">
                 <span class="card__sale-price">${pizza.salePrice}*  </span>
                 <button onclick="addToCart(event, '${pizza.id}')" class="card__btn">
-                  <img class="card__cart-icon" src="img/icons/basket.svg" alt="basket">
+                  <img class="card__cart-icon" src="img/icons/basket-orange.svg" alt="basket">
                 </button>
               </div>
             </div>

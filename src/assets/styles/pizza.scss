@@ -162,11 +162,17 @@
 
   &__btn {
     padding: 10px 10px 8px;
-    background-color: #de9447;
+    // background-color: #de9447;
+    border: 2.5px solid #de9447;
     border-radius: 30px;
     color: white;
     margin-left: auto;
     width: 90px;
+    &:hover {
+      -webkit-box-shadow: 0px 0px 5px 5px rgba(222, 148, 71, 0.5) inset;
+      -moz-box-shadow: 0px 0px 5px 5px rgba(222, 148, 71, 0.5) inset;
+      box-shadow: 0px 0px 5px 5px rgba(222, 148, 71, 0.5) inset;
+    }
   }
 
   &__footer {
