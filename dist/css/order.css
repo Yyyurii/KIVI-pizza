@@ -418,6 +418,10 @@
   font-size: 30px;
 }
 
+.col-2__price-notice {
+  font-size: 18px;
+}
+
 @media (max-width: 1024px) {
   .order__wrap {
     -webkit-box-orient: vertical;

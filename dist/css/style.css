@@ -1652,6 +1652,10 @@ hr {
   font-size: 30px;
 }
 
+.col-2__price-notice {
+  font-size: 18px;
+}
+
 .bake {
   margin: 25px auto;
   padding: 30px 20px;
