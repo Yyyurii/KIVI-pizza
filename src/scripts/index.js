@@ -50,9 +50,7 @@ function renderPizza() {
                 <span class="card__price">${pizza.price}</span>
                 <img class="card__hryvnia-red" src="./img/icons/hryvnia-red.svg" alt="hryvnia">
                 <span class="card__sale-price">${pizza.salePrice}*  </span>
-                <button onclick="addToCart(event, '${pizza.id}')" class="card__btn">
-                  <img class="card__cart-icon" src="img/icons/basket-orange.svg" alt="basket">
-                </button>
+                
               </div>
             </div>
           `;
@@ -62,11 +60,14 @@ function renderPizza() {
   })
 
 };
+{/* <button onclick="addToCart(event, '${pizza.id}')" class="card__btn">
+                  <img class="card__cart-icon" src="img/icons/basket-orange.svg" alt="basket">
+                </button> */}
 renderPizza();
 
 // Масив елементів, що знаходяться у кошику
 let cart = JSON.parse(localStorage.getItem('CART')) || [];
-updateCart();
+// updateCart();
 
 // Додати до кошика
 function addToCart(event, id) {
