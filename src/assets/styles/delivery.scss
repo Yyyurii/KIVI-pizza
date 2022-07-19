@@ -1,5 +1,14 @@
 .delivery {
-    margin: 30px 20px;
+    background: #f8f8f8;
+    padding: 30px 20px;
+
+    h1 {
+        font-size: 30px;
+        font-weight: 700;
+        color: #de9447;
+        text-align: center;
+        margin: 30px;
+    }
 
     &__main-info {
         display: flex;
@@ -75,5 +84,3 @@
         margin: 0 0 0 15px;
     }
 }
-
-
