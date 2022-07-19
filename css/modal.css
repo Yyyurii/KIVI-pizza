@@ -1,0 +1,130 @@
+@charset "UTF-8";
+
+.modal {
+  display: none;
+  /* Скрыто по умолчанию */
+  position: fixed;
+  /* Оставаться на месте */
+  z-index: 1;
+  /* Сидеть на вершине */
+  padding-top: 100px;
+  /* Расположение коробки */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Полная ширина */
+  height: 100%;
+  /* Полная высота */
+  overflow: auto;
+  /* Включите прокрутку, если это необходимо */
+  background-color: black;
+  /* Цвет запасной вариант  */
+  background-color: rgba(0, 0, 0, 0.8);
+  /*Черный с непрозрачностью */
+}
+
+/* Модальное содержание */
+
+.modal-content {
+  position: relative;
+  background-color: #ebebeb;
+  padding: 20px 20px 35px;
+  border-radius: 30px;
+  margin: auto;
+  width: 80%;
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+}
+
+/* Добавить анимацию */
+
+@-webkit-keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+/* Кнопка закрытия */
+
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+}
+
+.modal-header p {
+  color: #de9447;
+  border-color: #de9447;
+  margin: 10px 20px;
+  font-size: 35px;
+  padding: 35px 0;
+  font-size: 1.5rem;
+  text-align: center;
+  background-color: white;
+}
+
+.modal-body {
+  padding: 2px 16px;
+}
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+
+.modal-thanks {
+  background-color: #ebebeb;
+  padding: 20px 20px 35px;
+  border-radius: 30px;
+}
+
+@media (max-width: 768px) {
+  .modal {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+
+  .modal-content {
+    padding: 0px;
+    width: 95%;
+  }
+
+  .modal-header p {
+    font-size: 25px;
+  }
+}

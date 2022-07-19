@@ -7,8 +7,24 @@
           flex: 1 1 auto;
 }
 
+.order form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
 .order._active {
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .order__wrap {
@@ -42,12 +58,17 @@
 }
 
 .order__btn {
-  padding: 15px 40px 15px;
+  padding: 15px 20px 15px;
   background-color: #de9447;
   border-radius: 5px;
   color: #fff;
-  margin: auto;
+  margin: 30px auto;
   font-size: 22px;
+  text-align: center;
+}
+
+.order__btn._disabled {
+  background-color: #aba095;
 }
 
 .order input {
@@ -120,6 +141,22 @@
           flex: 1 1 60%;
 }
 
+.col-1 .order__btn {
+  padding: 15px 20px 15px;
+  background-color: #de9447;
+  border-radius: 30px;
+  border: 0px;
+  color: #fff;
+  margin: 30px auto;
+  font-size: 22px;
+  text-align: center;
+  height: 100%;
+}
+
+.col-1 .order__btn._disabled {
+  background-color: #aba095;
+}
+
 .col-1 input,
 .col-1 textarea {
   height: 30px;
@@ -132,6 +169,11 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+}
+
+.col-1 input.error,
+.col-1 textarea.error {
+  border: 1px solid rgba(255, 44, 44, 0.5);
 }
 
 .col-1__location {
@@ -266,7 +308,7 @@
   -ms-grid-columns: 1fr 10px 1fr 10px 1fr;
   grid-template: repeat(4, 40px)/repeat(4, 1fr);
   grid-gap: 20px 10px;
-  grid-template-areas: 'street street street street' 'house flat entrance floor' 'comment comment . .' 'comment comment . .';
+  grid-template-areas: "street street street street" "house flat entrance floor" "comment comment . ." "comment comment . .";
 }
 
 .address-block__street {
@@ -300,6 +342,10 @@
 .address-block__comment textarea {
   height: 60px;
   padding: 5px 10px;
+}
+
+.address-block__input-comment_marginTop {
+  margin: 20px 0 0;
 }
 
 .time-block__wrap {
@@ -339,6 +385,10 @@
   display: none;
 }
 
+.col-1__delivery-active p {
+  margin: 20px 10px;
+}
+
 .col-1__delivery-active._active {
   display: block;
 }
@@ -361,11 +411,15 @@
 }
 
 .col-2__price {
-  padding: 0 20px 20px;
+  padding: 20px 20px 20px;
   background-color: #fff;
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
   font-size: 30px;
+}
+
+.col-2__price-notice {
+  font-size: 18px;
 }
 
 @media (max-width: 1024px) {
@@ -390,6 +444,11 @@
 }
 
 @media (max-width: 768px) {
+  .order__quantity .quantity-img {
+    width: 16px;
+    height: 16px;
+  }
+
   .col-2__list {
     max-height: 295px;
   }
@@ -405,6 +464,6 @@
 
   .address-block__wrap {
     grid-template: repeat(5, 50px)/repeat(2, 1fr);
-    grid-template-areas: 'street street' 'house flat' 'entrance floor' 'comment comment' 'comment comment';
+    grid-template-areas: "street street" "house flat" "entrance floor" "comment comment" "comment comment";
   }
 }

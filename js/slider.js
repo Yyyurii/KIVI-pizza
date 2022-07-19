@@ -3,18 +3,22 @@
  * Copyright 2020 - 2021 Alexander Maltsev
  * Licensed under MIT (https://github.com/itchief/ui-components/blob/master/LICENSE)
  */
- document.addEventListener('DOMContentLoaded', function () {
-  const slider = new SimpleAdaptiveSlider('.slider', {
-    autoplay: false,
-    interval: 5000,
-    swipe: true,
-  });
+document.addEventListener('DOMContentLoaded', function () {
+  const sliderEl = document.querySelector('.slider');
+  if (sliderEl) {
+    const slider = new SimpleAdaptiveSlider('.slider', {
+      loop: false,
+      autoplay: true,
+      interval: 5000,
+      swipe: true,
+    });
+  }
 });
 
-(function() {
-  if (typeof window.CustomEvent === 'function' ) return false;
+(function () {
+  if (typeof window.CustomEvent === 'function') return false;
   function CustomEvent(event, params) {
-    params = params || {bubbles: false, cancelable: false, detail: null};
+    params = params || { bubbles: false, cancelable: false, detail: null };
     var e = document.createEvent('CustomEvent');
     e.initCustomEvent(event, params.bubbles, params.cancelable, params.detail);
     return e;
@@ -110,7 +114,7 @@ function SimpleAdaptiveSlider(selector, config) {
 }
 
 // set active class
-SimpleAdaptiveSlider.prototype._setActiveClass = function() {
+SimpleAdaptiveSlider.prototype._setActiveClass = function () {
   // slides
   var i;
   var length;
@@ -162,7 +166,7 @@ SimpleAdaptiveSlider.prototype._setActiveClass = function() {
 };
 
 // смена слайдов
-SimpleAdaptiveSlider.prototype._move = function() {
+SimpleAdaptiveSlider.prototype._move = function () {
   if (this._direction === 'none') {
     this._$items.classList.remove(TRANSITION_NONE);
     this._$items.style.transform = 'translateX('.concat(this._transform, '%)');
@@ -195,7 +199,7 @@ SimpleAdaptiveSlider.prototype._move = function() {
 };
 
 // функция для перемещения к слайду по индексу
-SimpleAdaptiveSlider.prototype._moveTo = function(index) {
+SimpleAdaptiveSlider.prototype._moveTo = function (index) {
   var currentIndex = this._currentIndex;
   this._direction = index > currentIndex ? 'next' : 'prev';
   for (var i = 0; i < Math.abs(index - currentIndex); i++) {
@@ -204,7 +208,7 @@ SimpleAdaptiveSlider.prototype._moveTo = function(index) {
 };
 
 // метод для автоматической смены слайдов
-SimpleAdaptiveSlider.prototype._autoplay = function(action) {
+SimpleAdaptiveSlider.prototype._autoplay = function (action) {
   if (!this._config.autoplay) {
     return;
   }
@@ -214,17 +218,17 @@ SimpleAdaptiveSlider.prototype._autoplay = function(action) {
     return;
   }
   if (this._intervalId === null) {
-    this._intervalId = setInterval(function() {
+    this._intervalId = setInterval(function () {
       this._direction = 'next';
       this._move();
     }.bind(this),
-    this._config.interval
+      this._config.interval
     );
   }
 };
 
 // добавление индикаторов
-SimpleAdaptiveSlider.prototype._addIndicators = function() {
+SimpleAdaptiveSlider.prototype._addIndicators = function () {
   if (this._$root.querySelector('.' + INDICATOR_WRAPPER_CLASS)) {
     return;
   }
@@ -240,7 +244,7 @@ SimpleAdaptiveSlider.prototype._addIndicators = function() {
 };
 
 // refresh extreme values
-SimpleAdaptiveSlider.prototype._refreshExtremeValues = function() {
+SimpleAdaptiveSlider.prototype._refreshExtremeValues = function () {
   var $itemList = this._$itemList;
   this._minOrder = parseInt($itemList[0].dataset.order);
   this._maxOrder = this._minOrder;
@@ -264,7 +268,7 @@ SimpleAdaptiveSlider.prototype._refreshExtremeValues = function() {
 };
 
 // balancing items
-SimpleAdaptiveSlider.prototype._balancingItems = function() {
+SimpleAdaptiveSlider.prototype._balancingItems = function () {
   if (!this._balancingItemsFlag) {
     return;
   }
@@ -303,7 +307,7 @@ SimpleAdaptiveSlider.prototype._balancingItems = function() {
 };
 
 // adding listeners
-SimpleAdaptiveSlider.prototype._addEventListener = function() {
+SimpleAdaptiveSlider.prototype._addEventListener = function () {
   var $items = this._$items;
   function onClick(e) {
     var $target = e.target;
@@ -328,7 +332,7 @@ SimpleAdaptiveSlider.prototype._addEventListener = function() {
   function onTransitionEnd() {
     this._balancingItemsFlag = false;
     this._$root.dispatchEvent(new CustomEvent('slider.transition.end',
-        {bubbles: true}));
+      { bubbles: true }));
   }
   function onMouseEnter() {
     this._autoplay('stop');
@@ -434,16 +438,16 @@ SimpleAdaptiveSlider.prototype._addEventListener = function() {
     var supportsPassive = false;
     try {
       var opts = Object.defineProperty({}, 'passive', {
-        get: function() {
+        get: function () {
           supportsPassive = true;
         },
       });
       window.addEventListener('testPassiveListener', null, opts);
-    } catch (err) {}
+    } catch (err) { }
     this._$root.addEventListener('touchstart', onSwipeStart.bind(this),
-         supportsPassive ? {passive: false} : false);
+      supportsPassive ? { passive: false } : false);
     this._$root.addEventListener('touchmove', onSwipeMove.bind(this),
-         supportsPassive ? {passive: false} : false);
+      supportsPassive ? { passive: false } : false);
     this._$root.addEventListener('mousedown', onSwipeStart.bind(this));
     this._$root.addEventListener('mousemove', onSwipeMove.bind(this));
     document.addEventListener('touchend', onSwipeEnd.bind(this));
@@ -455,18 +459,18 @@ SimpleAdaptiveSlider.prototype._addEventListener = function() {
 };
 
 // перейти к следующему слайду
-SimpleAdaptiveSlider.prototype.next = function() {
+SimpleAdaptiveSlider.prototype.next = function () {
   this._direction = 'next';
   this._move();
 };
 
 // перейти к предыдущему слайду
-SimpleAdaptiveSlider.prototype.prev = function() {
+SimpleAdaptiveSlider.prototype.prev = function () {
   this._direction = 'prev';
   this._move();
 };
 
 // управление автоматической сменой слайдов
-SimpleAdaptiveSlider.prototype.autoplay = function(action) {
+SimpleAdaptiveSlider.prototype.autoplay = function (action) {
   this._autoplay('stop');
 };
