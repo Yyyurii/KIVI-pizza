@@ -1212,6 +1212,11 @@ hr {
   margin: 30px;
 }
 
+.contacts a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .contacts__inform {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2180,16 +2185,13 @@ hr {
   }
 
   .contacts__inform {
+    font-size: 12px;
     width: 150px;
     height: 150px;
   }
 
   .contacts__inform img {
-    width: 100px;
-  }
-
-  .contacts__inform p {
-    font-size: 15px;
+    width: 50px;
   }
 }
 

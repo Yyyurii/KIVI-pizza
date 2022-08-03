@@ -9,6 +9,11 @@
     text-align: center;
     margin: 30px;
   }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 
   &__inform {
     display: flex;
@@ -23,14 +28,12 @@
     bottom: 0;
 
     @media (max-width: 479.98px) {
+      font-size: 12px;
       img {
-        width: 100px;
+        width: 50px;
       }
       width: 150px;
       height: 150px;
-      p {
-        font-size: 15px;
-      }
     }
   }
 }
