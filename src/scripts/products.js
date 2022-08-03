@@ -140,7 +140,7 @@ const productsPizza = [
         name: 'Tartufo',
         imgSrc: './img/pizza/pizza-tartufo.jpg',
         description: 'Соус "Трюфельний", Курка Копчена, Гриби, Моцарела',
-        price: 224, 
+        price: 224,
         salePrice: 188
     },
     {
@@ -149,10 +149,10 @@ const productsPizza = [
         name: 'Negroni',
         imgSrc: './img/pizza/pizza-undefined.jpg',
         description: 'Соус "Пелаті", Салямі Negroni, Бекон, В\'ялені Томати, Моцарела',
-        price: 224, 
+        price: 224,
         salePrice: 188
-    },
-    
+    }
+
     // {
     //     class: 'maestro',
     //     id: 'bolognese',
@@ -161,7 +161,7 @@ const productsPizza = [
     //     description: 'Соус "Бешамель", Котлетки з Індички, Моцарелла, Пармезан, Помідори',
     //     price: 188
     // },
-    
+
     // {
     //     class: 'maestro',
     //     id: 'prosciutto',
