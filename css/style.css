@@ -937,6 +937,9 @@ hr {
 .card h3 {
   padding: 10px 0;
   text-align: start;
+  color: #de9447;
+  font-size: 25px;
+  font-weight: 700;
 }
 
 .card h4 {
@@ -1210,6 +1213,11 @@ hr {
   color: #de9447;
   text-align: center;
   margin: 30px;
+}
+
+.contacts a {
+  text-decoration: none;
+  color: inherit;
 }
 
 .contacts__inform {
@@ -2180,16 +2188,13 @@ hr {
   }
 
   .contacts__inform {
+    font-size: 12px;
     width: 150px;
     height: 150px;
   }
 
   .contacts__inform img {
-    width: 100px;
-  }
-
-  .contacts__inform p {
-    font-size: 15px;
+    width: 50px;
   }
 }
 

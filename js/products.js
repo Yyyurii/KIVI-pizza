@@ -5,8 +5,8 @@ const productsPizza = [
         name: 'Margo',
         imgSrc: './img/pizza/pizza-margo.jpg',
         description: 'Соус "Пелаті", Помідори, Моцарела',
-        price: 115,
-        salePrice: 98
+        price: 124,
+        salePrice: 104
     },
     {
         class: 'classico',
@@ -14,8 +14,8 @@ const productsPizza = [
         name: 'Salame',
         imgSrc: './img/pizza/pizza-salame.jpg',
         description: 'Соус "Пелаті", Салямі, Моцарела, Оливки',
-        price: 125,
-        salePrice: 106
+        price: 134,
+        salePrice: 114
     },
     {
         class: 'classico',
@@ -23,17 +23,8 @@ const productsPizza = [
         name: 'Spicy',
         imgSrc: './img/pizza/pizza-spicy.jpg',
         description: 'Соус "Гострий", Салямі, Ковбаски Мисливські, Моцарела, Перець Гострий',
-        price: 137,
-        salePrice: 116
-    },
-    {
-        class: 'classico',
-        id: 'bbq',
-        name: 'BBQ',
-        imgSrc: './img/pizza/pizza-bbq.jpg',
-        description: 'Салямі, Курка копчена, Гриби, Моцарела',
         price: 148,
-        salePrice: 126
+        salePrice: 124
     },
     {
         class: 'classico',
@@ -41,15 +32,15 @@ const productsPizza = [
         name: '4 Formaggi',
         imgSrc: './img/pizza/pizza-4formaggi.jpg',
         description: 'Соус "Бешамель", Пармезан, Моцарела, Фета, Дор Блу',
-        price: 154,
-        salePrice: 131
+        price: 158,
+        salePrice: 134
     },
     {
         class: 'classico',
-        id: 'hawai',
-        name: 'Hawai',
-        imgSrc: './img/pizza/pizza-hawai.jpg',
-        description: 'Соус "Бешамель", Курка Копчена, Кукурудза, Ананас, Моцарела',
+        id: 'bbq',
+        name: 'BBQ',
+        imgSrc: './img/pizza/pizza-bbq.jpg',
+        description: 'Салямі, Курка копчена, Гриби, Моцарела',
         price: 158,
         salePrice: 134
     },
@@ -59,8 +50,17 @@ const productsPizza = [
         name: 'Bavaria',
         imgSrc: './img/pizza/pizza-bavaria.jpg',
         description: 'Соус "BBQ", Салямі, Ковбаски Мисливські, Моцарела, Дор Блу, Рукол',
-        price: 158,
-        salePrice: 134
+        price: 164,
+        salePrice: 138
+    },
+    {
+        class: 'classico',
+        id: 'hawai',
+        name: 'Hawai',
+        imgSrc: './img/pizza/pizza-hawai.jpg',
+        description: 'Соус "Бешамель", Курка Копчена, Кукурудза, Ананас, Моцарела',
+        price: 164,
+        salePrice: 138
     },
     {
         class: 'premio',
@@ -68,8 +68,8 @@ const productsPizza = [
         name: '5 Formaggi',
         imgSrc: './img/pizza/pizza-5formaggi.jpg',
         description: 'Соус "Бешамель", Груша, Пармезан, Гауда, Моцарела, Фета, Дор Блу',
-        price: 167,
-        salePrice: 142
+        price: 178,
+        salePrice: 148
     },
     {
         class: 'premio',
@@ -77,8 +77,8 @@ const productsPizza = [
         name: 'Tuna',
         imgSrc: './img/pizza/pizza-tuna.jpg',
         description: 'Соус "Бешамель", Тунець, Моцарела, Цибуля Маринована',
-        price: 167,
-        salePrice: 142
+        price: 178,
+        salePrice: 148
     },
     {
         class: 'premio',
@@ -86,8 +86,8 @@ const productsPizza = [
         name: 'Pesto',
         imgSrc: './img/pizza/pizza-pesto.jpg',
         description: 'Соус "Бешамель", Соус "Песто", Шпинат, Помідори, Кабачок, Моцарела',
-        price: 173,
-        salePrice: 147
+        price: 184,
+        salePrice: 154
     },
     {
         class: 'premio',
@@ -95,8 +95,8 @@ const productsPizza = [
         name: 'Carbonara',
         imgSrc: './img/pizza/pizza-carbonara.jpg',
         description: 'Соус "Бешамель", Бекон, Шпинат, Жовтки Курячі, Цибуля Маринована,Моцарела',
-        price: 178,
-        salePrice: 151
+        price: 188,
+        salePrice: 158
     },
     {
         class: 'premio',
@@ -104,8 +104,17 @@ const productsPizza = [
         name: 'Pancetta',
         imgSrc: './img/pizza/pizza-pancetta.jpg',
         description: 'Соус "Бешамель", Бекон, Шпинат, Кабачок, Моцарела',
-        price: 178,
-        salePrice: 151
+        price: 188,
+        salePrice: 158
+    },
+    {
+        class: 'premio',
+        id: 'pesceRosso',
+        name: 'Pesce Rosso',
+        imgSrc: './img/pizza/pizza-pesceRosso.jpg',
+        description: 'Соус "Бешамель", Риба Червона, Філаделфія, Моцарела',
+        price: 198,
+        salePrice: 168
     },
     {
         class: 'premio',
@@ -113,8 +122,17 @@ const productsPizza = [
         name: 'Super Mizza',
         imgSrc: './img/pizza/pizza-superMizza.jpg',
         description: 'Соус "BBQ", Салямі, Курка Копчена, Бекон, Ковбаски Мисливські, Моцарела',
-        price: 195,
-        salePrice: 166
+        price: 208,
+        salePrice: 174
+    },
+    {
+        class: 'premio',
+        id: 'piccante',
+        name: 'Piccante',
+        imgSrc: './img/pizza/pizza-Piccante.jpg',
+        description: 'Соус "BBQ", Соус "Spicy", Бекон, Балик Пряний, Моцарелла, Оливки Чорні, Цибуля Маринована, Перець Чорний',
+        price: 214,
+        salePrice: 178
     },
     {
         class: 'premio',
@@ -122,17 +140,19 @@ const productsPizza = [
         name: 'Tartufo',
         imgSrc: './img/pizza/pizza-tartufo.jpg',
         description: 'Соус "Трюфельний", Курка Копчена, Гриби, Моцарела',
-        price: 195, 
-        salePrice: 166
+        price: 224,
+        salePrice: 188
     },
-    // {
-    //     class: 'premio',
-    //     id: 'besceRosso',
-    //     name: 'Pesce Rosso',
-    //     imgSrc: './img/pizza/pizza-PesceRosso.jpg',
-    //     description: 'Соус "Бешамель", Риба Червона, Філаделфія, Моцарела',
-    //     price: 198
-    // },
+    {
+        class: 'premio',
+        id: 'negroni',
+        name: 'Negroni',
+        imgSrc: './img/pizza/pizza-undefined.jpg',
+        description: 'Соус "Пелаті", Салямі Negroni, Бекон, В\'ялені Томати, Моцарела',
+        price: 224,
+        salePrice: 188
+    }
+
     // {
     //     class: 'maestro',
     //     id: 'bolognese',
@@ -141,15 +161,7 @@ const productsPizza = [
     //     description: 'Соус "Бешамель", Котлетки з Індички, Моцарелла, Пармезан, Помідори',
     //     price: 188
     // },
-    {
-        class: 'premio',
-        id: 'piccante',
-        name: 'Piccante',
-        imgSrc: './img/pizza/pizza-Piccante.jpg',
-        description: 'Соус "BBQ", Соус "Spicy", Бекон, Балик Пряний, Моцарелла, Оливки Чорні, Цибуля Маринована, Перець Чорний',
-        price: 195,
-        salePrice: 166
-    },
+
     // {
     //     class: 'maestro',
     //     id: 'prosciutto',
